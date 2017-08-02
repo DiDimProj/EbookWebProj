@@ -16,23 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class HomeController {
-	
-	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		System.out.println("Ctrl home");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		return "join";
-=======
-		return "indexpage";
->>>>>>> 74f71f0651d0de77e14e8049f26a2f6ad37f6bd9
-=======
-		return "indexpage";
->>>>>>> 74f71f0651d0de77e14e8049f26a2f6ad37f6bd9
-=======
-		return "indexpage";
->>>>>>> 74f71f0651d0de77e14e8049f26a2f6ad37f6bd9
-	}
-	
+   
+   @RequestMapping(value = "main.do", method = RequestMethod.GET)
+   public String home(Locale locale, Model model) {
+      System.out.println("Ctrl home");
+      return "join";
+   }
+   
+   
+   
 }
