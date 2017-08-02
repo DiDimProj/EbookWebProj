@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
 
-    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 
   </head>
   <body>
