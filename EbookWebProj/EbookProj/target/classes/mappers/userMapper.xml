@@ -7,5 +7,5 @@
  	<select id="login" parameterType ="user" resultType="user">
 
  	</select>
-</mapper>  
+</mapper>
 
