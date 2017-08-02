@@ -12,9 +12,9 @@ public class BookDao {
 	@Autowired
 	private SqlSession sqlSession ;
 	
-	public BookVO indexRow(BookVO title) {
+/*	public BookVO indexRow(BookVO title) {
 		System.out.println("Dao indexpage");
 		return sqlSession.selectOne("com.spring.book.index", title);
-	}
+	}*/
 	
 }

@@ -13,8 +13,8 @@ public class BookService {
 	@Resource(name="bookDao")
 	private BookDao dao ;
 	
-	public BookVO index(BookVO title) {
+/*	public BookVO index(BookVO title) {
 		System.out.println("Booktitle check");
 		return bookDao.indexRow(title);
-	}
+	}*/
 }
