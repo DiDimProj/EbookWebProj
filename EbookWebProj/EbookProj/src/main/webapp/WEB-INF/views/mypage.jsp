@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
 
-    <link href="../../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 
   </head>
+
   <body>
-	asdfasdfasdf
+  
+  
+  
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="./resources/js/bootstrap.min.js"></script>
   </body>
 </html>
