@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ￬ﾝﾴ￬ﾠﾕ￬ﾕﾄ
+=======
+Built-By: thflf
+>>>>>>> 8c85ab49be97c23f51d78ee49f32af2a59cf05e5
 Build-Jdk: 1.8.0_131
 Created-By: Maven Integration for Eclipse
 
