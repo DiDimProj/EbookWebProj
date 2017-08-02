@@ -10,7 +10,7 @@ import com.spring.ebook.model.userbook.dao.UserBookDao;
 @Service("userbookService")
 public class UserBookService {
 	
-	@Resource(name="userbookdao")
+	@Resource(name="userbookDao")
 	private UserBookDao dao ;
 
 }
