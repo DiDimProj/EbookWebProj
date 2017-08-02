@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-.navbar{ background-color: #fff; border: none; padding-bottom: 50px;  
-font-family: 'Source Sans Pro', sans-serif; font-weight: 300; 
-font-size: 18px;height: 250px; text-transform: capitalize; border-bottom: 1px solid #AAAAAA}
 
-
-</style>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,31 +18,11 @@ font-size: 18px;height: 250px; text-transform: capitalize; border-bottom: 1px so
     <![endif]-->
   </head>
 
+	<!-- header.jsp 시작 -->
+	<%@ include file="./header.jsp"%>
+	<!-- header.jsp 끝 -->
+
   <body>
-  
-  <!-- title start -->
-    <div class="container">
-          <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar-scroll">
-            <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#"><img src="./resources/imgs/img01.png" alt="9PixelStudio"> </a>
-            </div>
-           
-            <!-- Collect the nav links, forms, and other content for toggling -->
-
-			
-
-            </div><!-- /.navbar-collapse -->
-          </nav>
-     </div>   
-      <!-- title end -->
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
