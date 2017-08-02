@@ -9,7 +9,7 @@ import com.spring.ebook.userbook.service.UserBookService;
 @Controller
 public class UserBookCtrl {
 	
-	@Resource(name="userbookservice")
+	@Resource(name="userbookService")
 	private UserBookService service ;
 
 }
