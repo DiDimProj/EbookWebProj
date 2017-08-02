@@ -22,4 +22,10 @@ public class UserCtrl {
 		System.out.println("Ctrl User");
 		return "mypage";
 	}
+	
+	@RequestMapping(value = "join.do", method = RequestMethod.GET)
+	public String join(Locale locale, Model model) {
+		System.out.println("Ctrl User");
+		return "join";
+	}
 }

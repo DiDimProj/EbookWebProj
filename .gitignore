@@ -8,5 +8,15 @@ EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/maven/com.spring/eb
 EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/maven/com.spring/ebook/pom.properties
 EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+<<<<<<< HEAD
+EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+=======
 EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/maven/com.spring/ebook/pom.properties
 EbookWebProj/EbookProj/target/m2e-wtp/web-resources/META-INF/maven/com.spring/ebook/pom.properties
+<<<<<<< HEAD
+EbookWebProj/EbookProj/src/main/webapp/WEB-INF/views/join.jsp
+=======
+>>>>>>> 9a023ce9f4aaf62c8b2e77d1902be7f456d8f1b7
+>>>>>>> 74f71f0651d0de77e14e8049f26a2f6ad37f6bd9
+EbookWebProj/EbookProj/.settings/org.eclipse.core.resources.prefs
+EbookWebProj/EbookProj/src/main/java/com/spring/ebook/HomeController.java
