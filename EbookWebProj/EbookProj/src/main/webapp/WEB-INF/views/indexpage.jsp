@@ -34,73 +34,98 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 .search-result span.plus a:hover { background-color: #414141; }
 .search-result span.plus a i { color: #fff !important; }
 .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
-    img{width:80%}
     
-    
-    body {
-    padding: 20px;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f7f7f7;
+    .btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+   
+   /* FONT AWESOME & not necessary for functions */
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+body {
+    padding-top: 15px;
+    background-color: #f9f9f9;
 }
 
-.lib-panel {
-    margin-bottom: 20Px;
-}
-.lib-panel img {
-    width: 100%;
-    background-color: transparent;
+/*REQUIRED*/
+.carousel-row {
+    margin-bottom: 10px;
 }
 
-.lib-panel .row,
-.lib-panel .col-md-6 {
+.slide-row {
     padding: 0;
-    background-color: #FFFFFF;
-}
-
-
-.lib-panel .lib-row {
-    padding: 0 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header {
-    background-color: #FFFFFF;
-    font-size: 20px;
-    padding: 10px 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header .lib-header-seperator {
-    height: 2px;
-    width: 26px;
-    background-color: #d9d9d9;
-    margin: 7px 0 7px 0;
-}
-
-.lib-panel .lib-row.lib-desc {
+    background-color: #ffffff;
+    min-height: 150px;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    height: auto;
     position: relative;
-    height: 100%;
-    display: block;
-    font-size: 13px;
 }
-.lib-panel .lib-row.lib-desc a{
+
+
+.slide-carousel {
+    width: 20%;
+    float: left;
+    display: inline-block;
+}
+
+.slide-carousel .carousel-indicators {
+    margin-bottom: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
+.slide-carousel .carousel-indicators li {
+    border-radius: 0;
+    width: 20px;
+    height: 6px;
+}
+
+.slide-carousel .carousel-indicators .active {
+    margin: 1px;
+}
+
+.slide-content {
     position: absolute;
-    width: 100%;
-    bottom: 10px;
-    left: 20px;
+    top: 0;
+    left: 20%;
+    display: block;
+    float: left;
+    width: 80%;
+    max-height: 76%;
+    padding: 1.5% 2% 2% 2%;
+    overflow-y: auto;
 }
 
-.row-margin-bottom {
-    margin-bottom: 20px;
+.slide-content h4 {
+    margin-bottom: 3px;
+    margin-top: 0;
 }
 
-.box-shadow {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+.slide-footer {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 78%;
+    height: 20%;
+    margin: 1%;
 }
 
-.no-padding {
-    padding: 0;
+/* Scrollbars */
+.slide-content::-webkit-scrollbar {
+  width: 5px;
 }
-    
+ 
+.slide-content::-webkit-scrollbar-thumb:vertical {
+  margin: 5px;
+  background-color: #999;
+  -webkit-border-radius: 5px;
+}
+ 
+.slide-content::-webkit-scrollbar-button:start:decrement,
+.slide-content::-webkit-scrollbar-button:end:increment {
+  height: 5px;
+  display: block;
+} 
  </style>
   </head>
   
@@ -115,61 +140,65 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 
     <section class="col-xs-12 col-sm-6 col-md-12">
 		<article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-                    <a class="navbar-brand" href="#myModal" data-toggle="modal"><img
-					src="./resources/imgs/sample.png" alt="9PixelStudio"> </a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-				<div class="container">
-<li><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a></li>
-<li><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#" title="">booknum, title</a></h3>
-				<p>genrenum, author, likecnt, content</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
-	</section>
-
-  <!-- Modal -->
+			
+<div class="container">
+    <!-- Begin of rows -->
+    <div class="row carousel-row">
+        <div class="col-xs-8 col-xs-offset-2 slide-row">
+            <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
+            
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                <img src="./resources/imgs/sample.png" alt="9PixelStudio"> </a>
+                </div>
+    
+              </div>
+            </div>
+            <div class="slide-content">
+            <h4><a href="#myModal" data-toggle="modal" title="">Title, Booknum</a></h4>
+                <p>        
+				genrenum, author, likecnt, content
+                </p>
+            </div>
+            <div class="slide-footer">
+                <span class="pull-right buttons">
+            
+<a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
+<a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+            
+                </span>
+            </div>
+        </div>
+    </div>
+        </div>
+   </article>
+   </section>
+    </div>
+   
+	
+<!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Book info </h4>
+        <h4 class="modal-title" id="myModalLabel">Book info</h4>
       </div>
       <div class="modal-body">
-   <hr>
-            <div class="row row-margin-bottom">
-            <div class="col-md-5 no-padding lib-item" data-category="view">
-                <div class="lib-panel">
-                    <div class="row box-shadow">
-                        <div class="col-md-6">
-                            <a class="navbar-brand" href="#"><img
-					src="./resources/imgs/sample.png" alt="9PixelStudio"> </a>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="lib-row lib-header">
-                               Title, Booknum
-                                <div class="lib-header-seperator"></div>
-                            </div>
-                            <div class="lib-row lib-desc">
-                                세계적인 밀리언셀러 작가 파울로 코엘료의 장편소설 『연금술사 Alquimiste』(1988)가 최정수씨의 번역으로 문학동네에서 출간되었다. 삶에 대한 깊은 통찰을 한 편의 아름다운 이야기로 조형해낸 『연금술사』는 마음의 목소리에 귀를 기울이는 것이 얼마나 중요한지를 증언하는 고귀한 성서이며, 진정 자기 자신의 꿈과 대면하고자 하는 모든 이들을 축복하는 희망과 환희의 메시지다. 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ <form role="form">  
+    <div class="form-group">   
+        <label for="Name">Content</label>  
+    </div>    
+           
+    </form>
       </div>
       
     </div> <!-- 모달 콘텐츠 -->
   </div> <!-- 모달 다이얼로그 -->
 </div> <!-- 모달 전체 윈도우 -->
+
+      
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="./resources/js/bootstrap.min.js"></script>
