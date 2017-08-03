@@ -8,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
+@SessionAttributes("loginUser")
 public class UserCtrl {
 	
 	@Resource(name="userService")
@@ -37,8 +39,7 @@ public class UserCtrl {
 		String path = null;
 		if (result != null) {
 			model.addAttribute("loginUser",result);
-			//session.setAttribute("loginUser", result);
-			path = "mypage";
+			path = "home";
 		} else
 			path = "join";
 		return path;
