@@ -3,13 +3,11 @@
     
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
 
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+	<!-- header.jsp 시작 -->
+	<%@ include file="./header.jsp"%>
+	<!-- header.jsp 끝 -->
+
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
     <link href="./resources/css/paneltable-filter.css" rel="stylesheet">
     <link href="./resources/css/column-chart.css" rel="stylesheet">
@@ -380,4 +378,7 @@
     
     </script>
   </body>
+    	<!-- footer.jsp 시작 -->
+	<%@ include file="./footer.jsp"%>
+	<!-- footer.jsp 끝 -->
 </html>
