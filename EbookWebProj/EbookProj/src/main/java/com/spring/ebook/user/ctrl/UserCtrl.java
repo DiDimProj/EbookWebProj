@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
@@ -27,5 +28,19 @@ public class UserCtrl {
 	public String join(Locale locale, Model model) {
 		System.out.println("Ctrl User");
 		return "join";
+	}
+	
+	@RequestMapping("/login.do")
+	public String login(UserVO user, Model model) {
+		System.out.println("Ctrl login");
+		UserVO result = serv.login(user);
+		String path = null;
+		if (result != null) {
+			model.addAttribute("loginUser",result);
+			//session.setAttribute("loginUser", result);
+			path = "mypage";
+		} else
+			path = "join";
+		return path;
 	}
 }

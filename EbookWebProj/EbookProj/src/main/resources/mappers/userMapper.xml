@@ -4,5 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.spring.acorn.mapper.user">
+ 	<select id="login" parameterType ="user" resultType="user">
+ 		SELECT	USERID, PASSWORD, NAME, AGE, PHONE, GENRENUM, ADMIN
+ 		FROM		USERINFO
+ 		WHERE	USERID = #{userid} AND PASSWORD = #{password}
+ 	</select>
 </mapper>
 
