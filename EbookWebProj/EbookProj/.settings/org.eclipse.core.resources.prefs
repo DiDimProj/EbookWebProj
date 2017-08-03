@@ -1,2 +1,8 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/views/bookpage.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/home.jsp=UTF-8
+<<<<<<< HEAD
+encoding//src/main/webapp/WEB-INF/views/mypage.jsp=UTF-8
+=======
+encoding//src/main/webapp/WEB-INF/views/indexpage.jsp=UTF-8
+>>>>>>> 17f028dd8c2d28e6f4050ce2e2fcfa393cf597d3
