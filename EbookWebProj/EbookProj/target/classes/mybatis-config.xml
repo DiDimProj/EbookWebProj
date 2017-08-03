@@ -4,6 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+	
+	<typeAlias type="com.spring.ebook.model.user.vo.UserVO" alias="user"  />
+	<typeAlias type="com.spring.ebook.model.book.vo.BookVO" alias="book"  />
 	</typeAliases>
 
 </configuration>

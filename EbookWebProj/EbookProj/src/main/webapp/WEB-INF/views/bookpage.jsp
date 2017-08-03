@@ -2,18 +2,9 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
-
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-
-  </head>
-
-
+	<!-- header.jsp 시작 -->
+	<%@ include file="./header.jsp"%>
+	<!-- header.jsp 끝 -->
 
   <body>
   
@@ -30,9 +21,10 @@
 <a class="btn icon-btn btn-danger" href="#"><span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>Delete</a>
 </div>
 <!-- 좋아요 버튼 -->
-
+  	<!-- footer.jsp 시작 -->
+	<%@ include file="./footer.jsp"%>
+	<!-- footer.jsp 끝 -->
 </P>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="./resources/js/bootstrap.min.js"></script>
   </body>
 </html>
