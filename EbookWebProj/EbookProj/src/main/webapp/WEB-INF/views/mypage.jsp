@@ -9,7 +9,6 @@
    <!-- header.jsp 끝 -->
 
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
-    <link href="./resources/css/paneltable-filter.css" rel="stylesheet">
     <link href="./resources/css/column-chart.css" rel="stylesheet">
     
     <style>
@@ -37,10 +36,7 @@
 		            <form action="#" method="get">
 		                <div class="input-group">
 		                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-		                    <input class="form-control" id="system-search" name="q1" placeholder="Search for" required>
-		                    <span class="input-group-btn">
-		                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-		                    </span>
+		                    <input class="form-control" id="system-search1" name="putbook" placeholder="Search for" required>
 		                </div>
 		            </form>
 		        </div>
@@ -89,7 +85,7 @@
 		            <form action="#" method="get">
 		                <div class="input-group">
 		                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-		                    <input class="form-control" id="system-search" name="q2" placeholder="Search for" required>
+		                    <input class="form-control" id="system-search2" name="readbook" placeholder="Search for" required>
 		                    <span class="input-group-btn">
 		                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 		                    </span>
@@ -303,28 +299,15 @@
     <script src="./resources/js/bootstrap.min.js"></script>
     
     <script type="text/javascript">
-       var ary = [   {img : 'book1img', title : '첫번째', writer : '관리자', genre : '장르1', likecnt : 10, content : '내용1'},
-               {img : 'book1img', title : '두번째', writer : '임정섭', genre : '장르2', likecnt : 12, content : '내용2'},
-               {img : 'book1img', title : '세번째', writer : '입섭순', genre : '장르3', likecnt : 15, content : '내용3'}
-      ];
+
        
        $(document).ready(function() {
-          var txt = "";
-         $.each(ary, function(idx, data) {
-            txt += "<tr><td>"+data.img+"</td>";
-            txt += "<td><a href=javascript:showModal('"+data.content+"')>"+data.title+"</a></td>";
-            txt += "<td>"+data.writer+"</td>";
-            txt += "<td>"+data.genre+"</td>";
-            txt += "<td>"+data.likecnt+"</td></tr>";
-         });
-         $("#tbody").empty();
-         $("#tbody").append(txt);
          
          ////////filter_table
          var activeSystemClass = $('.list-group-item.active');
 
     	//something is entered in search form
-	    $('#system-search').keyup( function() {
+	    $('#system-search1').keyup( function() {
 	       var that = this;
 	        // affect all table rows on in systems table
 	        var tableBody = $('.table-list-search tbody');
@@ -365,6 +348,48 @@
 	            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
 	        }
 	    });
+    	
+	    $('#system-search2').keyup( function() {
+		       var that = this;
+		        // affect all table rows on in systems table
+		        var tableBody = $('.table-list-search tbody');
+		        var tableRowsClass = $('.table-list-search tbody tr');
+		        $('.search-sf').remove();
+		        tableRowsClass.each( function(i, val) {
+		        
+		            //Lower text for case insensitive
+		            var rowText = $(val).text().toLowerCase();
+		            var inputText = $(that).val().toLowerCase();
+		            if(inputText != '')
+		            {
+		                $('.search-query-sf').remove();
+		                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
+		                    + $(that).val()
+		                    + '"</strong></td></tr>');
+		            }
+		            else
+		            {
+		                $('.search-query-sf').remove();
+		            }
+		
+		            if( rowText.indexOf( inputText ) == -1 )
+		            {
+		                //hide rows
+		                tableRowsClass.eq(i).hide();
+		                
+		            }
+		            else
+		            {
+		                $('.search-sf').remove();
+		                tableRowsClass.eq(i).show();
+		            }
+		        });
+		        //all tr elements are hidden
+		        if(tableRowsClass.children(':visible').length == 0)
+		        {
+		            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+		        }
+		    });
 
           ////////column-chart
           columnChart();
