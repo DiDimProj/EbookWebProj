@@ -47,7 +47,7 @@
 		    </c:if> 
 		    <!-- 로그인 되어있을때 수정해야한다 -->
 		     <c:if test="${loginUser != null }">
-		       <a href="#LoginModal" data-toggle="modal"> Mypage</a>
+		       <a href="mypage.do"> Mypage</a>
 		    </c:if> 
 	
         </nav>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary" >로그인</button>
-							<button type="button" class="btn btn-default">회원가입</button>
+							<button type="button" class="btn btn-default" onclick="location.href='join.do'">회원가입</button>
 						</div>
 					</form>
 				</div>
