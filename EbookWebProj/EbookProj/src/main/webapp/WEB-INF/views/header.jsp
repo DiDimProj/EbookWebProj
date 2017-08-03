@@ -1,44 +1,50 @@
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
 
-<style>
-.navbar {
-	background-color: #fff;
-	border: none;
-	padding-bottom: 50px;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 300;
-	font-size: 18px;
-	height: 250px;
-	text-transform: capitalize;
-	border-bottom: 1px solid #AAAAAA
-}
-</style>
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/header.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/header.css" rel="stylesheet">
 
-<!-- title start -->
-<div class="container">
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation"
-		id="navbar-scroll">
-		<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-1-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><img
-					src="./resources/imgs/img01.png" alt="9PixelStudio"> </a>
-			</div>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+  
+<script>
+    function init() {
+        window.addEventListener('scroll', function(e){
+            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                shrinkOn = 300,
+                header = document.querySelector("header");
+        });
+    }
+    window.onload = init();
+</script>
+</head>
+<body>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
+<div id="wrapper">
 
-
-
-		</div>
-		<!-- /.navbar-collapse -->
-	</nav>
-</div>
-<!-- title end -->
+<header>
+    <div class="container clearfix">
+        <h1 id="logo">
+            <img src="./resources/imgs/logo.png">
+        </h1>
+        <nav>
+    
+    		<a href="">Mypage</a>      
+	
+        </nav>
+    </div>
+</header><!-- /header -->
+<div id="main">
