@@ -12,7 +12,7 @@ public class UserService {
 	private UserDao dao;
 	
 	public UserVO login(UserVO user) {
-		System.out.println("Service list");
+		System.out.println("user Service");
 		return dao.loginRow(user);
 	}
 }
