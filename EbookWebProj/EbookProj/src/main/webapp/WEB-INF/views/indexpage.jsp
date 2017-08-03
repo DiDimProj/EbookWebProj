@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,7 +161,15 @@ body {
             <div class="slide-footer">
                 <span class="pull-right buttons">
             
-<a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
+            	<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
+		    <c:if test="${loginUser == null }">
+		       <a class="btn icon-btn btn-primary" href="#LoginModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
+		    </c:if> 
+		    <!-- 로그인 되어있을때 좋아요 반영-->
+		     <c:if test="${loginUser != null }">
+		      <a class="btn icon-btn btn-primary" href="#LikeModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
+		    </c:if>
+            
 <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
             
                 </span>
@@ -193,6 +202,53 @@ body {
     </div> <!-- 모달 콘텐츠 -->
   </div> <!-- 모달 다이얼로그 -->
 </div> <!-- 모달 전체 윈도우 -->
+
+<!-- LoginModal -->
+		<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">로그인을 해주세요</h4>
+					</div>
+					<form action="login.do" method="post">
+						<div class="modal-body">
+								아이디<input type="text" class="form-control" name="userid"> 
+								비밀번호<input type="password" class="form-control" name= "password"> 
+								<!-- <input type="submit" value="로그인" > -->
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" >로그인</button>
+							<button type="button" class="btn btn-default">회원가입</button>
+						</div>
+					</form>
+				</div>
+				<!-- 모달 콘텐츠 -->
+			</div>
+			<!-- 모달 다이얼로그 -->
+		</div>
+		<!-- 모달 전체 윈도우 -->
+		
+		<!-- LikeModal -->
+		<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다.</h4>
+					</div>
+				</div>
+				<!-- 모달 콘텐츠 -->
+			</div>
+			<!-- 모달 다이얼로그 -->
+		</div>
+		<!-- 모달 전체 윈도우 -->
 
       
 
