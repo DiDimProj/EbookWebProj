@@ -20,8 +20,17 @@
   </head>
 
   <body>
+   <div align="center" style ="padding-top: 10px; padding-bottom: 10px; background-color: #eae6d9; padding-left: 30%;padding-right: 30%;">
+
+   <div class="input-group">
+        <h1 id="mypagelogo">
+            <img src="./resources/imgs/mypage.png">
+       </h1>
+    </div> 
+	</div>
+	
    <div class="container">
-   <ul class="nav nav-pills nav-stacked col-md-2">
+   <ul class="nav nav-pills nav-stacked col-md-2" id="refresh">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
      <li><a href="#tab_c" data-toggle="pill">내가 읽은 책 통계</a></li>
@@ -86,9 +95,6 @@
 		                <div class="input-group">
 		                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
 		                    <input class="form-control" id="system-search2" name="readbook" placeholder="Search for" required>
-		                    <span class="input-group-btn">
-		                        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-		                    </span>
 		                </div>
 		            </form>
 		        </div>
@@ -390,6 +396,10 @@
 		            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
 		        }
 		    });
+	    
+		    $('#refresh').click(function() {
+		    //	$('.search-query-sf').empty();
+			});
 
           ////////column-chart
           columnChart();
