@@ -38,7 +38,7 @@
 <header>
     <div class="container clearfix">
         <h1 id="logo">
-            <img src="./resources/imgs/logo.png">
+            <a href="main.do"><img src="./resources/imgs/logo.png"></a>
         </h1>
         <nav>
     		<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
@@ -47,6 +47,7 @@
 		    </c:if> 
 		    <!-- 로그인 되어있을때 수정해야한다 -->
 		     <c:if test="${loginUser != null }">
+		       <a href="logout.do"> logout</a>
 		       <a href="mypage.do"> Mypage</a>
 		    </c:if> 
 	

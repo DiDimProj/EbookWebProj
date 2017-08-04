@@ -17,7 +17,9 @@ body {
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
 	main, nav, section, summary {
-	display: block
+	display: block;
+	margin-left: 0 auto;
+	margin-right: 0 auto;
 }
 
 audio, canvas, progress, video {

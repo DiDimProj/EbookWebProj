@@ -9,9 +9,9 @@
 	<!-- header.jsp 끝 -->
 
   <body>
-  
-  
-  
+  <div id="container">
+  <img src="./resources/imgs/main_img02.jpg">
+ </div>
   
   <!-- footer.jsp 시작 -->
 	<%@ include file="./footer.jsp"%>
