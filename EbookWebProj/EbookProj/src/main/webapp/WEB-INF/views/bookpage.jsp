@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 241f1b7df7b3bb3c9b93eae8347539b85f2fe5c0
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -87,3 +91,7 @@ $(document).ready(function(){
 </div>
 <!-- /.content-wrapper -->
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 241f1b7df7b3bb3c9b93eae8347539b85f2fe5c0

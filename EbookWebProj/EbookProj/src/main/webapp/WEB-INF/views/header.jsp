@@ -8,7 +8,6 @@
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./resources/css/header.css" rel="stylesheet">
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,43 +16,67 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-  </head>
-<script>
-    function init() {
-        window.addEventListener('scroll', function(e){
-            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-                shrinkOn = 300,
-                header = document.querySelector("header");
-        });
-    }
-    window.onload = init();
-</script>
-</head>
+
+
+<style>
+.container-fixed {
+  max-width: 480px;
+}
+
+.navbar-nav
+{
+float:right;
+}
+
+h3 a
+{
+font-size: 24pt;
+}
+
+.img_cover{
+max-width: 150px;
+  
+}
+</style>
 <body>
 
 <div id="wrapper">
 
-<header>
-    <div class="container clearfix">
-        <h1 id="logo">
-            <a href="main.do"><img src="./resources/imgs/logo.png"></a>
-        </h1>
-        <nav>
-    		<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
-		    <c:if test="${loginUser == null }">
-		       <a href="#LoginModal" data-toggle="modal"> login </a>
-		    </c:if> 
-		    <!-- 로그인 되어있을때 수정해야한다 -->
-		     <c:if test="${loginUser != null }">
-		       <a href="logout.do"> logout</a>
-		       <a href="mypage.do"> Mypage</a>
-		    </c:if> 
-	
-        </nav>
+<!-- <header>
+	 -->
+	<div class="container-fixed">
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project Name</a>
     </div>
-</header><!-- /header -->
-
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+       
+        <li><a href="main.do">Home</a></li>
+                <!-- 테스트용으로 넣어둔 임시 링크 -->
+        <li><a href="indexpage.do">indexpage</a></li>
+        <li><a href="mypage.do">mypage</a></li>
+        <li><a href="join.do">join</a></li>
+			<!-- 로그인 안되어있을때 로그인 모달 띄움 --> 
+				<c:if test="${loginUser == null }">
+				<li><a href="#LoginModal" data-toggle="modal"> login </a></li>
+				</c:if>
+			<!-- 로그인 되어있을때 수정해야한다 -->
+			    <c:if test="${loginUser != null }">
+		      	<li><a href="logout.do"> logout</a></li>
+		      	<li><a href="mypage.do"> Mypage</a>
+		    </c:if> 
+				</ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+</div>
 		<!-- LoginModal -->
 		<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -82,13 +105,6 @@
 			<!-- 모달 다이얼로그 -->
 		</div>
 		<!-- 모달 전체 윈도우 -->
-		
+	<!-- 	
 		<div id="main">
-<div align="center" style ="padding-top: 10px; padding-bottom: 10px; background-color: #eae6d9; padding-left: 30%;padding-right: 30%;">
-
-   <div class="input-group">
-        <span class="input-group-addon"> <span class="glyphicon glyphicon-search"></span></span>            
-        <input type="text" class="form-control">
-         <span class="input-group-btn">   <button class="btn btn-default" type="button">Go!</button> </span>  
-    </div> 
-	</div>
+ -->

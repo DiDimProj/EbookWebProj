@@ -1,20 +1,22 @@
 package com.spring.ebook.model.book.dao;
 
-import java.util.List;
+import java.util.ArrayList;
+
+import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.ebook.model.book.vo.BookVO;
 
 @Repository("bookDao")
 public class BookDao {
+	
+	@Resource(name="sqlSession")
+	private SqlSession session ;
 
-	@Autowired
-	private SqlSession sqlSession ;
-	public List<BookVO> listRow(){
-	System.out.println("Dao booklistRow");
-	return sqlSession.selectList("com.spring.book.search"); 
-	}
+	public ArrayList<BookVO> listRow() {
+		System.out.println("Dao BooklistRow");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.list");
+	} 
 }
