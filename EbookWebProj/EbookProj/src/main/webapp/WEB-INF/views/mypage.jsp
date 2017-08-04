@@ -30,7 +30,7 @@
 	</div>
 	
    <div class="container">
-   <ul class="nav nav-pills nav-stacked col-md-2" id="refresh">
+   <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
      <li><a href="#tab_c" data-toggle="pill">내가 읽은 책 통계</a></li>
@@ -50,7 +50,7 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search">
+		    	 <table class="table table-list-search1">
                     <thead>
                         <tr>
                             <th>담은 날짜</th>
@@ -99,7 +99,7 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search">
+		    	 <table class="table table-list-search2">
                     <thead>
                         <tr>
                             <th>읽은 날짜</th>
@@ -282,31 +282,16 @@
    </div><!-- tab content -->
    </div><!-- end of container -->
   
-    <!-- Modal -->
-   <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-header">
-           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-           <h4 class="modal-title" id="myModalLabel">모달 제목 </h4>
-         </div>
-         <div class="modal-body">
-         
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-           <button type="button" class="btn btn-primary">변경 사항 저장</button>
-         </div>
-       </div> <!-- 모달 콘텐츠 -->
-     </div> <!-- 모달 다이얼로그 -->
-   </div> <!-- 모달 전체 윈도우 -->
-  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="./resources/js/bootstrap.min.js"></script>
     
-    <script type="text/javascript">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/data.js"></script>
+	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
-       
+	<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    
+    <script type="text/javascript">
        $(document).ready(function() {
          
          ////////filter_table
@@ -316,25 +301,14 @@
 	    $('#system-search1').keyup( function() {
 	       var that = this;
 	        // affect all table rows on in systems table
-	        var tableBody = $('.table-list-search tbody');
-	        var tableRowsClass = $('.table-list-search tbody tr');
+	        var tableBody = $('.table-list-search1 tbody');
+	        var tableRowsClass = $('.table-list-search1 tbody tr');
 	        $('.search-sf').remove();
 	        tableRowsClass.each( function(i, val) {
 	        
 	            //Lower text for case insensitive
 	            var rowText = $(val).text().toLowerCase();
 	            var inputText = $(that).val().toLowerCase();
-	            if(inputText != '')
-	            {
-	                $('.search-query-sf').remove();
-	                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-	                    + $(that).val()
-	                    + '"</strong></td></tr>');
-	            }
-	            else
-	            {
-	                $('.search-query-sf').remove();
-	            }
 	
 	            if( rowText.indexOf( inputText ) == -1 )
 	            {
@@ -358,25 +332,14 @@
 	    $('#system-search2').keyup( function() {
 		       var that = this;
 		        // affect all table rows on in systems table
-		        var tableBody = $('.table-list-search tbody');
-		        var tableRowsClass = $('.table-list-search tbody tr');
+		        var tableBody = $('.table-list-search2 tbody');
+		        var tableRowsClass = $('.table-list-search2 tbody tr');
 		        $('.search-sf').remove();
 		        tableRowsClass.each( function(i, val) {
 		        
 		            //Lower text for case insensitive
 		            var rowText = $(val).text().toLowerCase();
 		            var inputText = $(that).val().toLowerCase();
-		            if(inputText != '')
-		            {
-		                $('.search-query-sf').remove();
-		                tableBody.prepend('<tr class="search-query-sf"><td colspan="6"><strong>Searching for: "'
-		                    + $(that).val()
-		                    + '"</strong></td></tr>');
-		            }
-		            else
-		            {
-		                $('.search-query-sf').remove();
-		            }
 		
 		            if( rowText.indexOf( inputText ) == -1 )
 		            {
@@ -396,10 +359,6 @@
 		            tableBody.append('<tr class="search-sf"><td class="text-muted" colspan="6">No entries found.</td></tr>');
 		        }
 		    });
-	    
-		    $('#refresh').click(function() {
-		    //	$('.search-query-sf').empty();
-			});
 
           ////////column-chart
           columnChart();
@@ -414,14 +373,261 @@
                   itemProgressHeight = $(this).parent().height() * ($(this).data('percent') / 100);
                   itemProgress.css('height', itemProgressHeight);
               });
+              
+              Highcharts.chart('container', {
+            	    chart: {
+            	        type: 'column'
+            	    },
+            	    title: {
+            	        text: 'Browser market shares. January, 2015 to May, 2015'
+            	    },
+            	    subtitle: {
+            	        text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+            	    },
+            	    xAxis: {
+            	        type: 'category'
+            	    },
+            	    yAxis: {
+            	        title: {
+            	            text: 'Total percent market share'
+            	        }
+
+            	    },
+            	    legend: {
+            	        enabled: false
+            	    },
+            	    plotOptions: {
+            	        series: {
+            	            borderWidth: 0,
+            	            dataLabels: {
+            	                enabled: true,
+            	                format: '{point.y:.1f}%'
+            	            }
+            	        }
+            	    },
+
+            	    tooltip: {
+            	        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            	        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            	    },
+
+            	    series: [{
+            	        name: 'Brands',
+            	        colorByPoint: true,
+            	        data: [{
+            	            name: 'Microsoft Internet Explorer',
+            	            y: 56.33,
+            	            drilldown: 'Microsoft Internet Explorer'
+            	        }, {
+            	            name: 'Chrome',
+            	            y: 24.03,
+            	            drilldown: 'Chrome'
+            	        }, {
+            	            name: 'Firefox',
+            	            y: 10.38,
+            	            drilldown: 'Firefox'
+            	        }, {
+            	            name: 'Safari',
+            	            y: 4.77,
+            	            drilldown: 'Safari'
+            	        }, {
+            	            name: 'Opera',
+            	            y: 0.91,
+            	            drilldown: 'Opera'
+            	        }, {
+            	            name: 'Proprietary or Undetectable',
+            	            y: 0.2,
+            	            drilldown: null
+            	        }]
+            	    }],
+            	    drilldown: {
+            	        series: [{
+            	            name: 'Microsoft Internet Explorer',
+            	            id: 'Microsoft Internet Explorer',
+            	            data: [
+            	                [
+            	                    'v11.0',
+            	                    24.13
+            	                ],
+            	                [
+            	                    'v8.0',
+            	                    17.2
+            	                ],
+            	                [
+            	                    'v9.0',
+            	                    8.11
+            	                ],
+            	                [
+            	                    'v10.0',
+            	                    5.33
+            	                ],
+            	                [
+            	                    'v6.0',
+            	                    1.06
+            	                ],
+            	                [
+            	                    'v7.0',
+            	                    0.5
+            	                ]
+            	            ]
+            	        }, {
+            	            name: 'Chrome',
+            	            id: 'Chrome',
+            	            data: [
+            	                [
+            	                    'v40.0',
+            	                    5
+            	                ],
+            	                [
+            	                    'v41.0',
+            	                    4.32
+            	                ],
+            	                [
+            	                    'v42.0',
+            	                    3.68
+            	                ],
+            	                [
+            	                    'v39.0',
+            	                    2.96
+            	                ],
+            	                [
+            	                    'v36.0',
+            	                    2.53
+            	                ],
+            	                [
+            	                    'v43.0',
+            	                    1.45
+            	                ],
+            	                [
+            	                    'v31.0',
+            	                    1.24
+            	                ],
+            	                [
+            	                    'v35.0',
+            	                    0.85
+            	                ],
+            	                [
+            	                    'v38.0',
+            	                    0.6
+            	                ],
+            	                [
+            	                    'v32.0',
+            	                    0.55
+            	                ],
+            	                [
+            	                    'v37.0',
+            	                    0.38
+            	                ],
+            	                [
+            	                    'v33.0',
+            	                    0.19
+            	                ],
+            	                [
+            	                    'v34.0',
+            	                    0.14
+            	                ],
+            	                [
+            	                    'v30.0',
+            	                    0.14
+            	                ]
+            	            ]
+            	        }, {
+            	            name: 'Firefox',
+            	            id: 'Firefox',
+            	            data: [
+            	                [
+            	                    'v35',
+            	                    2.76
+            	                ],
+            	                [
+            	                    'v36',
+            	                    2.32
+            	                ],
+            	                [
+            	                    'v37',
+            	                    2.31
+            	                ],
+            	                [
+            	                    'v34',
+            	                    1.27
+            	                ],
+            	                [
+            	                    'v38',
+            	                    1.02
+            	                ],
+            	                [
+            	                    'v31',
+            	                    0.33
+            	                ],
+            	                [
+            	                    'v33',
+            	                    0.22
+            	                ],
+            	                [
+            	                    'v32',
+            	                    0.15
+            	                ]
+            	            ]
+            	        }, {
+            	            name: 'Safari',
+            	            id: 'Safari',
+            	            data: [
+            	                [
+            	                    'v8.0',
+            	                    2.56
+            	                ],
+            	                [
+            	                    'v7.1',
+            	                    0.77
+            	                ],
+            	                [
+            	                    'v5.1',
+            	                    0.42
+            	                ],
+            	                [
+            	                    'v5.0',
+            	                    0.3
+            	                ],
+            	                [
+            	                    'v6.1',
+            	                    0.29
+            	                ],
+            	                [
+            	                    'v7.0',
+            	                    0.26
+            	                ],
+            	                [
+            	                    'v6.2',
+            	                    0.17
+            	                ]
+            	            ]
+            	        }, {
+            	            name: 'Opera',
+            	            id: 'Opera',
+            	            data: [
+            	                [
+            	                    'v12.x',
+            	                    0.34
+            	                ],
+            	                [
+            	                    'v28',
+            	                    0.24
+            	                ],
+            	                [
+            	                    'v27',
+            	                    0.17
+            	                ],
+            	                [
+            	                    'v29',
+            	                    0.16
+            	                ]
+            	            ]
+            	        }]
+            	    }
+            	});
+              
           };
        });
-       
-       function showModal(content) {
-          //   alert(content);
-             $("#contentModal").modal('show');
-             $(".modal-body").empty().append(content);
-       }
     
     </script>
   </body>
