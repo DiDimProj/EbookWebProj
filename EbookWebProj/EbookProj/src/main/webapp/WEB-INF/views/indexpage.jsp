@@ -8,7 +8,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- header.jsp 끝 -->
  <style>
- .container { margin-top: 20px; }
+/*  .container { margin-top: 20px; } */
 .mb20 { margin-bottom: 20px; } 
 
 hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
