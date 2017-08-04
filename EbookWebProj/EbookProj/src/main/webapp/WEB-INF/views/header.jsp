@@ -8,7 +8,6 @@
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
     <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
-<!--     <link href="./resources/css/header.css" rel="stylesheet"> -->
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -17,19 +16,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-<!--   </head>
-<script>
-    function init() {
-        window.addEventListener('scroll', function(e){
-            var distanceY = window.pageYOffset || document.documentElement.scrollTop,
-                shrinkOn = 300,
-                header = document.querySelector("header");
-        });
-    }
-    window.onload = init();
-</script>
-</head> -->
+
 
 <style>
 .container-fixed {
