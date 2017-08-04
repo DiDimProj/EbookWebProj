@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.spring.acorn.mapper.book">
- 	<select id="search" parameterType ="book" resultType="book">
+ 	<select id="list" resultType="book">
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
  	</select>

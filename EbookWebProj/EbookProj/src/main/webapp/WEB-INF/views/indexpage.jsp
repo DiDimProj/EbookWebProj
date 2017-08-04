@@ -155,12 +155,12 @@ body {
             <div class="slide-content">
             <h4><a href="#myModal" data-toggle="modal" title="">Title, Booknum</a></h4>
                 <p>        
-				genrenum, author, likecnt, content
-		
-		<c:forEach items="${lists}" var="book">
-		<td>${BookVO.genrenum}</td>
-		<td>${BookVO.author}</td>
-		<td><span class="badge bg-red">${BookVO.likecnt}</span></td>
+                
+		<c:forEach items="${lists}" var="bookVO">
+		<td><br>장르: ${bookVO.genrenum}</td>
+		<td><br>${bookVO.author} 저</td>
+		<td><br><span class="badge bg-red">좋아요 수: ${bookVO.likecnt}</span></td>
+		<td><br>${bookVO.content}</td>
 		</c:forEach>
 		
 		
@@ -239,7 +239,7 @@ body {
 		<!-- 모달 전체 윈도우 -->
 		
 				<!-- AddModal -->
-		<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog"
+		<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@include file="../include/header.jsp"%>
 
 <!-- Main content -->
 <section class="content">
@@ -89,4 +88,4 @@ $(document).ready(function(){
 </div>
 <!-- /.content-wrapper -->
 
-<%@include file="../include/footer.jsp"%>
+

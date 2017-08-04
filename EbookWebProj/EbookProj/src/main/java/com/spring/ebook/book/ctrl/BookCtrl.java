@@ -1,6 +1,6 @@
 package com.spring.ebook.book.ctrl;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
@@ -20,9 +20,9 @@ public class BookCtrl {
 	@RequestMapping("/indexpage.do")
 	public String list(Model model) {
 		System.out.println("Ctrl index");
-		List<BookVO> list = serv.list();
+		ArrayList<BookVO> list = serv.list();
 		model.addAttribute("lists", list) ;
-		return "indexpage";
+		return "/indexpage";
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.spring.ebook.book.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.annotation.Resource;
 
@@ -15,7 +15,7 @@ public class BookService {
 	@Resource(name="bookDao")
 	private BookDao dao ;
 	
-	public List<BookVO> list() {
+	public ArrayList<BookVO> list() {
 		System.out.println("Service booklist");
 		return dao.listRow() ;
 	}
