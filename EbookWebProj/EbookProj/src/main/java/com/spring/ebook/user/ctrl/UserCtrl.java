@@ -40,7 +40,7 @@ public class UserCtrl {
 		String path = null;
 		if (result != null) {
 			model.addAttribute("loginUser",result);
-			path = "indexpage";
+			path = "home";
 		} else
 			path = "join";
 		return path;
