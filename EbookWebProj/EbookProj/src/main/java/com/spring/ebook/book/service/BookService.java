@@ -1,5 +1,7 @@
 package com.spring.ebook.book.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -13,8 +15,8 @@ public class BookService {
 	@Resource(name="bookDao")
 	private BookDao dao ;
 	
-/*	public BookVO index(BookVO title) {
-		System.out.println("Booktitle check");
-		return bookDao.indexRow(title);
-	}*/
+	public List<BookVO> list() {
+		System.out.println("Service booklist");
+		return dao.listRow() ;
+	}
 }

@@ -1,5 +1,7 @@
 package com.spring.ebook.model.book.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,10 +13,8 @@ public class BookDao {
 
 	@Autowired
 	private SqlSession sqlSession ;
-	
-/*	public BookVO indexRow(BookVO title) {
-		System.out.println("Dao indexpage");
-		return sqlSession.selectOne("com.spring.book.index", title);
-	}*/
-	
+	public List<BookVO> listRow(){
+	System.out.println("Dao booklistRow");
+	return sqlSession.selectList("com.spring.book.search"); 
+	}
 }

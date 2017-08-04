@@ -156,6 +156,14 @@ body {
             <h4><a href="#myModal" data-toggle="modal" title="">Title, Booknum</a></h4>
                 <p>        
 				genrenum, author, likecnt, content
+		
+		<c:forEach items="${lists}" var="book">
+		<td>${BookVO.genrenum}</td>
+		<td>${BookVO.author}</td>
+		<td><span class="badge bg-red">${BookVO.likecnt}</span></td>
+		</c:forEach>
+		
+		
                 </p>
             </div>
             <div class="slide-footer">
@@ -169,8 +177,16 @@ body {
 		     <c:if test="${loginUser != null }">
 		      <a class="btn icon-btn btn-primary" href="#LikeModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
 		    </c:if>
-            
-<a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+		    
+		    <!-- 로그인 안되어있을때 로그인 모달 띄움 -->
+		    <c:if test="${loginUser == null }">
+		       <a class="btn icon-btn btn-success" href="#LoginModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+		    </c:if> 
+            <!-- 로그인 되어있을때 담기 반영-->
+		     <c:if test="${loginUser != null }">
+		     <a class="btn icon-btn btn-success" href="#AddModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
+		    </c:if>
+
             
                 </span>
             </div>
@@ -214,6 +230,24 @@ body {
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
 						<h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다.</h4>
+					</div>
+				</div>
+				<!-- 모달 콘텐츠 -->
+			</div>
+			<!-- 모달 다이얼로그 -->
+		</div>
+		<!-- 모달 전체 윈도우 -->
+		
+				<!-- AddModal -->
+		<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">내 서재에 1권을 담았습니다.</h4>
 					</div>
 				</div>
 				<!-- 모달 콘텐츠 -->
