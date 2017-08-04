@@ -8,7 +8,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- header.jsp 끝 -->
  <style>
-/*  .container { margin-top: 20px; } */
+ .container { margin-top: 20px; }
 .mb20 { margin-bottom: 20px; } 
 
 hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
@@ -129,6 +129,11 @@ body {
   <body>
   
  <div class="container">
+<br>
+<br>
+<br>
+<br>
+<br>
 
     <hgroup class="mb20">
 		<h1>Search Results</h1>
@@ -209,12 +214,15 @@ body {
       <div class="modal-body">
  <form role="form">  
     <div class="form-group">   
-        <label for="Name">Content</label>  
+        <label for="Name">Content</label> 
+        
+        <div class="slide-content">
+         
         <c:forEach items="${lists}" var="bookVO">
 		<td><br>${bookVO.content}</td>
 		</c:forEach>
     </div>    
-           
+   </div>
     </form>
       </div>
       

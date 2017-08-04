@@ -16,6 +16,12 @@
   padding-bottom: 20px;
 }
 
+.hometable	{
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+
 </style>
 
 
@@ -49,10 +55,9 @@
 	</div>
 </div>
   <body>
-
 	<div id="container">
-		<div class="row" align="center">
-			<div class="col-md-6">
+		<div class="hometable" align="center">
+			<div class="col-md-6 hometable">
 			
 			<h3>
 					인기 테이블
@@ -85,7 +90,7 @@
 
 			</div>
 
-			<div class="col-md-5  col-md-offset-1">
+			<div class="col-md-6 hometable">
 			
 			<h3>
 					추천 테이블
@@ -120,9 +125,7 @@
 
    <!-- container end -->
    </div>
-
- </div>
-
+</div>
   </body>
     <!-- footer.jsp 시작 -->
 	<%@ include file="./footer.jsp"%>
