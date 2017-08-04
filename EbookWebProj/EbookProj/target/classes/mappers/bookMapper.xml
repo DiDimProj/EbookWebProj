@@ -5,7 +5,8 @@
   
 <mapper namespace="com.spring.acorn.mapper.book">
  	<select id="search" parameterType ="book" resultType="book">
- 		 <!-- 쿼리는 직접 채우세요 -->
+ 	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
+ 		FROM	BOOKINFO
  	</select>
 </mapper>
 
