@@ -4001,6 +4001,8 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	margin-left: -15px
 }
 
+
+
 @media ( min-width :768px) {
 	.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse,
 		.container-fluid>.navbar-collapse {
