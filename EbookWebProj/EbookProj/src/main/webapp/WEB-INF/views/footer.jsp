@@ -1,7 +1,5 @@
 
 
-</div><!-- /#wrapper -->
-</div>
 
 <footer>
 <div id="info-bar">
