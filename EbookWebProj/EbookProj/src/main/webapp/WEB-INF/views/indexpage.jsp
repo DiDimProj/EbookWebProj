@@ -210,6 +210,9 @@ body {
  <form role="form">  
     <div class="form-group">   
         <label for="Name">Content</label>  
+        <c:forEach items="${lists}" var="bookVO">
+		<td><br>${bookVO.content}</td>
+		</c:forEach>
     </div>    
            
     </form>
