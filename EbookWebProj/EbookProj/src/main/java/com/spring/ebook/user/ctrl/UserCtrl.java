@@ -21,11 +21,11 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService serv;
 	
-	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-	public String myPage(Locale locale, Model model) {
-		System.out.println("Ctrl mypage");
-		return "/mypage";
-	}
+//	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
+//	public String myPage(Locale locale, Model model) {
+//		System.out.println("Ctrl mypage");
+//		return "/mypage";
+//	}
 	
 	@RequestMapping(value = "join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
