@@ -52,18 +52,18 @@
 		    	 <table class="table table-list-search1">
                     <thead>
                         <tr>
+                            <th>putdate</th>
                             <th>userid</th>
                             <th>booknum</th>
-                            <th>putdate</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
 						<c:forEach items="${putbooklist}" var="userbookVO">
 						
 							<tr>
+								<td>${userbookVO.putdate}</td>
 								<td>${userbookVO.userid}</td>
 								<td>${userbookVO.booknum}</td>
-								<td>${userbookVO.putdate}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
