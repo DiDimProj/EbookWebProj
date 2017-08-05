@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.user.service.UserService;
 
@@ -21,11 +22,12 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService serv;
 	
-//	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-//	public String myPage(Locale locale, Model model) {
-//		System.out.println("Ctrl mypage");
-//		return "/mypage";
-//	}
+	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
+	public String myPage(Locale locale, Model model) {
+		System.out.println("Ctrl mypage");
+
+		return "/mypage";
+	}
 	
 	@RequestMapping(value = "join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {

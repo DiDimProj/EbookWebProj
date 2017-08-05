@@ -49,27 +49,41 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search1">
-                    <thead>
-                        <tr>
-                            <th>putdate</th>
-                            <th>userid</th>
-                            <th>booknum</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-						<c:forEach items="${putbooklist}" var="userbookVO">
-						
-							<tr>
-								<td>${userbookVO.putdate}</td>
-								<td>${userbookVO.userid}</td>
-								<td>${userbookVO.booknum}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-                  </table>   
+					<form action="putlist.do" method="post">
+			    	 <table class="table table-list-search1">
+	                    <thead>
+	                        <tr>
+	                        	<th>userid</th>
+	                            <th>putdate</th>
+	                            <th>title</th>
+	                            <th>author</th>
+	                            <th>genrename</th>
+	                            <th>tag</th>
+	                            <th>likecnt</th>
+	                           
+	                        </tr>
+	                    </thead>
+	                    <tbody id="tbody">
+							<c:forEach items="${pustlists}" var="putlistVO">
+							
+								<tr>
+									<td>${putlistVO.userid}</td>
+									<td>${putlistVO.putdate}</td>
+									<td>${putlistVO.title}</td>
+									<td>${putlistVO.author}</td>
+									<td>${putlistVO.genrename}</td>
+									<td>${putlistVO.tag}</td>
+									<td>${putlistVO.likecnt}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+	                  </table>
+	                  <button type="submit" class="btn btn-primary" >${loginUser.userid}</button>
+                   </form>
 				</div>
 			</div>
+			
+			
         </div>
         
         <div class="tab-pane" id="tab_b">
@@ -163,9 +177,11 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-	 
+    
     <script type="text/javascript">
 
+    	//document.dateForm.submit();	
+    
 		$(document).ready(function() {
     	  
          ////////filter_table

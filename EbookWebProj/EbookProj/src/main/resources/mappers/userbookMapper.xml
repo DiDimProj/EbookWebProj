@@ -4,9 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.spring.acorn.mapper.userbook">
- 	<select id="putbooklist" parameterType="user" resultType="userbook">
+ 	<select id="putbooklist" resultType="userbook">
  	 	SELECT	USERID, BOOKNUM, PUTDATE
  		FROM	USERBOOK
- 		WHERE	USERID = #{userid}
  	</select>
 </mapper>

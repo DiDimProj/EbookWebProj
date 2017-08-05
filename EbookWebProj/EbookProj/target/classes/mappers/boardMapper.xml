@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring.acorn.mapper.board">
+ 	<select id="putlist" resultType="putlistboard">
+ 	 	SELECT		USERID, PUTDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT
+ 		FROM		USERBOOK
+ 		LEFT JOIN	BOOKINFO  USING(BOOKNUM)
+ 		LEFT JOIN	GENRE USING(GENRENUM)
+ 		WHERE		USERID = ${loginUser.userid}
+ 		ORDER BY	PUTDATE ASC
+ 	</select>
+</mapper>

@@ -1,20 +1,28 @@
-package com.spring.ebook.util.vo;
+package com.spring.ebook.model.board.vo;
 
 public class PutlistVO {
-	private String	putdate, title, author, genrename, tag;
+	private String	userid, putdate, title, author, genrename, tag;
 	private int		likecnt;
 	public PutlistVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PutlistVO(String putdate, String title, String author, String genrename, String tag, int likecnt) {
+	public PutlistVO(String userid, String putdate, String title, String author, String genrename, String tag,
+			int likecnt) {
 		super();
+		this.userid = userid;
 		this.putdate = putdate;
 		this.title = title;
 		this.author = author;
 		this.genrename = genrename;
 		this.tag = tag;
 		this.likecnt = likecnt;
+	}
+	public String getUserid() {
+		return userid;
+	}
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 	public String getPutdate() {
 		return putdate;
@@ -52,4 +60,5 @@ public class PutlistVO {
 	public void setLikecnt(int likecnt) {
 		this.likecnt = likecnt;
 	}
+	
 }
