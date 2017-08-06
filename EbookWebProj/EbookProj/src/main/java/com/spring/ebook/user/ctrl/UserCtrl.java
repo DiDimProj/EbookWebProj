@@ -40,6 +40,16 @@ public class UserCtrl {
 		return "/mypage";
 	}
 	
+	@RequestMapping("/withdrawal.do")
+	public String withdrawal(UserVO user, Model model) {
+		System.out.println("Ctrl withdrawal");
+		UserVO withdrawal = serv.withdrawal(user);
+		model.addAttribute("withdrawals", withdrawal);
+		
+		return "redirect:/main.do";
+	}
+	
+	
 	@RequestMapping(value = "join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
 		System.out.println("Ctrl join");

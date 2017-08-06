@@ -152,15 +152,81 @@
         </div>
         
         <div class="tab-pane" id="tab_d">
-             <h4>회원 정보 수정</h4>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                ac turpis egestas.</p>
+             <form class="form-horizontal">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend>회원 정보 수정</legend>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftID">User ID</label>  
+				  <div class="col-md-4">
+				  <input id="userid" name="userid" type="text" placeholder="Gift ID" class="form-control input-md">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftName">Password</label>  
+				  <div class="col-md-4">
+				  <input id="giftName" name="giftName" type="text" placeholder="Gift Name" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftDescription">Name</label>  
+				  <div class="col-md-4">
+				  <input id="giftDescription" name="giftDescription" type="text" placeholder="Gift Description" class="form-control input-md">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftPrice">Age</label>  
+				  <div class="col-md-4">
+				  <input id="giftPrice" name="giftPrice" type="text" placeholder="Price" class="form-control input-md" required="">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="shippingDays">Phone number</label>  
+				  <div class="col-md-4">
+				  <input id="shippingDays" name="shippingDays" type="text" placeholder="Shipping Days" class="form-control input-md">
+				  </div>
+				</div>
+				
+				</fieldset>
+			</form>
         </div>
         
         <div class="tab-pane" id="tab_e">
-             <h4>회원 탈퇴</h4>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                ac turpis egestas.</p>
+            <form class="form-horizontal" action="withdrawal.do" method="post">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend>회원 탈퇴</legend>
+				
+				<!-- Text input-->
+				
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="giftID">USERID</label>
+					<div class="col-md-4">
+						<br>
+						<input type="text" class="form-control" name="userid">
+		      			<input type="submit" value="탈퇴" />
+					</div>
+				</div>
+				
+				
+				</fieldset>
+			</form>
         </div>
         
    </div><!-- tab content -->
@@ -175,8 +241,6 @@
     
     <script type="text/javascript">
 
-    	//document.dateForm.submit();	
-    
 		$(document).ready(function() {
     	  
          ////////filter_table

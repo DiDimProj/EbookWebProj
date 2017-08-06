@@ -32,4 +32,9 @@ public class UserDao {
 		System.out.println("Dao readlistRow");
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readlist");
 	}
+	
+	public UserVO withdrawalRow(UserVO user) {
+		System.out.println("Dao withdrawalRow");
+		return session.selectOne("com.spring.acorn.mapper.user.withdrawal",user);
+	}
 }

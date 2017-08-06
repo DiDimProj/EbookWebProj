@@ -25,5 +25,12 @@
  		LEFT JOIN	GENRE USING(GENRENUM)
  		ORDER BY	READDATE ASC
  	</select>
+ 	
+ 	<select id="withdrawal" parameterType ="user" resultType="user">
+ 	 	DELETE
+ 	 	FROM	USERINFO
+ 	 	WHERE	USERID = #{userid}
+ 	 	
+ 	</select>
 </mapper>
 

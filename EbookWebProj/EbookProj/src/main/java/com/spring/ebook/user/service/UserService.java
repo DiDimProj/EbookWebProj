@@ -31,4 +31,9 @@ public class UserService {
 		return dao.readlistRow();
 	}
 	
+	public UserVO withdrawal(UserVO user) {
+		System.out.println("Service withdrawal");
+		return dao.withdrawalRow(user);
+	}
+	
 }
