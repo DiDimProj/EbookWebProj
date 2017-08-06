@@ -49,7 +49,7 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-					<form action="putlist.do" method="post">
+					
 			    	 <table class="table table-list-search1">
 	                    <thead>
 	                        <tr>
@@ -78,8 +78,7 @@
 							</c:forEach>
 						</tbody>
 	                  </table>
-	                  <button type="submit" class="btn btn-primary" >${loginUser.userid}</button>
-                   </form>
+	                  
 				</div>
 			</div>
 			
@@ -97,40 +96,36 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search2">
-                    <thead>
-                        <tr>
-                            <th>읽은 날짜</th>
-                            <th>제목</th>
-                            <th>작가</th>
-                            <th>장르</th>
-                            <th>좋아요 수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2017.07.01</td>
-                            <td>제목제목1</td>
-                            <td>작가작가1</td>
-                            <td>장르장르1</td>
-                            <td>123</td>
-                        </tr>
-                        <tr>
-                            <td>2017.06.01</td>
-                            <td>제목제목2</td>
-                            <td>작가작가2</td>
-                            <td>장르장르2</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>2017.05.01</td>
-                            <td>제목제목3</td>
-                            <td>작가작가3</td>
-                            <td>장르장르3</td>
-                            <td>90</td>
-                        </tr>
-                    </tbody>
-                  </table>   
+				
+			    	 <table class="table table-list-search2">
+						<thead>
+	                        <tr>
+	                        	<th>userid</th>
+	                            <th>readdate</th>
+	                            <th>title</th>
+	                            <th>author</th>
+	                            <th>genrename</th>
+	                            <th>tag</th>
+	                            <th>likecnt</th>
+	                           
+	                        </tr>
+	                    </thead>
+	                    <tbody id="tbody">
+							<c:forEach items="${readtlists}" var="readlistVO">
+							
+								<tr>
+									<td>${readlistVO.userid}</td>
+									<td>${readlistVO.readdate}</td>
+									<td>${readlistVO.title}</td>
+									<td>${readlistVO.author}</td>
+									<td>${readlistVO.genrename}</td>
+									<td>${readlistVO.tag}</td>
+									<td>${readlistVO.likecnt}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+	                  </table>
+                  
 				</div>
 			</div>
         </div>

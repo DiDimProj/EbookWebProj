@@ -1,17 +1,17 @@
-package com.spring.ebook.model.board.vo;
+package com.spring.ebook.model.util.vo;
 
-public class PutlistVO {
-	private String	userid, putdate, title, author, genrename, tag;
+public class ReadlistVO {
+	private String	userid, readdate, title, author, genrename, tag;
 	private int		likecnt;
-	public PutlistVO() {
+	public ReadlistVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public PutlistVO(String userid, String putdate, String title, String author, String genrename, String tag,
+	public ReadlistVO(String userid, String readdate, String title, String author, String genrename, String tag,
 			int likecnt) {
 		super();
 		this.userid = userid;
-		this.putdate = putdate;
+		this.readdate = readdate;
 		this.title = title;
 		this.author = author;
 		this.genrename = genrename;
@@ -24,11 +24,11 @@ public class PutlistVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getPutdate() {
-		return putdate;
+	public String getReaddate() {
+		return readdate;
 	}
-	public void setPutdate(String putdate) {
-		this.putdate = putdate;
+	public void setReaddate(String readdate) {
+		this.readdate = readdate;
 	}
 	public String getTitle() {
 		return title;
@@ -62,3 +62,4 @@ public class PutlistVO {
 	}
 	
 }
+
