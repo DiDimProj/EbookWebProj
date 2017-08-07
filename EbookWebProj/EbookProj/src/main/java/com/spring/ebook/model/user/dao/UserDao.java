@@ -23,14 +23,14 @@ public class UserDao {
 		return session.selectOne("com.spring.acorn.mapper.user.login", user);
 	}
 	
-	public ArrayList<PutlistVO>putlistRow() {
+	public ArrayList<PutlistVO>putlistRow(UserVO user) {
 		System.out.println("Dao putlistRow");
-		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.putlist");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.putlist", user);
 	}
 	
-	public ArrayList<ReadlistVO>readlistRow() {
+	public ArrayList<ReadlistVO>readlistRow(UserVO user) {
 		System.out.println("Dao readlistRow");
-		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readlist");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readlist", user);
 	}
 	
 	public UserVO withdrawalRow(UserVO user) {

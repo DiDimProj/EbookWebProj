@@ -162,7 +162,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="giftID">User ID</label>  
 				  <div class="col-md-4">
-				  <input id="userid" name="userid" type="text" placeholder="Gift ID" class="form-control input-md">
+				  <input id="userid" name="userid" type="text" class="form-control input-md" value="${loginUser.userid}" readonly="readonly">
 				    
 				  </div>
 				</div>
@@ -171,7 +171,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="giftName">Password</label>  
 				  <div class="col-md-4">
-				  <input id="giftName" name="giftName" type="text" placeholder="Gift Name" class="form-control input-md" required="">
+				  <input id="password" name="password" type="password" class="form-control input-md">
 				    
 				  </div>
 				</div>
@@ -180,7 +180,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="giftDescription">Name</label>  
 				  <div class="col-md-4">
-				  <input id="giftDescription" name="giftDescription" type="text" placeholder="Gift Description" class="form-control input-md">
+				  <input id="name" name="name" type="text" class="form-control input-md" value="${loginUser.name}">
 				    
 				  </div>
 				</div>
@@ -189,7 +189,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="giftPrice">Age</label>  
 				  <div class="col-md-4">
-				  <input id="giftPrice" name="giftPrice" type="text" placeholder="Price" class="form-control input-md" required="">
+				  <input id="age" name="age" type="text" class="form-control input-md" value="${loginUser.age}">
 				    
 				  </div>
 				</div>
@@ -198,7 +198,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="shippingDays">Phone number</label>  
 				  <div class="col-md-4">
-				  <input id="shippingDays" name="shippingDays" type="text" placeholder="Shipping Days" class="form-control input-md">
+				  <input id="phone" name="phone" type="text" class="form-control input-md" value="${loginUser.phone}">
 				  </div>
 				</div>
 				

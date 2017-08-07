@@ -21,14 +21,14 @@ public class UserService {
 		return dao.loginRow(user);
 	}
 	
-	public ArrayList<PutlistVO> putlist() {
+	public ArrayList<PutlistVO> putlist(UserVO user) {
 		System.out.println("Service putlist");
-		return dao.putlistRow();
+		return dao.putlistRow(user);
 	}
 	
-	public ArrayList<ReadlistVO> readlist() {
+	public ArrayList<ReadlistVO> readlist(UserVO user) {
 		System.out.println("Service readlist");
-		return dao.readlistRow();
+		return dao.readlistRow(user);
 	}
 	
 	public UserVO withdrawal(UserVO user) {
