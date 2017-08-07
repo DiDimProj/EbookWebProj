@@ -16,6 +16,7 @@ import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
@@ -25,16 +26,16 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService serv;
 	
-	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-	public String myPage(Locale locale, Model model) {
+	@RequestMapping("/mypage.do")
+	public String myPage(Locale locale, Model model, UserVO user) {
 		System.out.println("Ctrl mypage");
 		
 		System.out.println("ctrl putlist");
-		ArrayList<PutlistVO> putlist = serv.putlist();
+		ArrayList<PutlistVO> putlist = serv.putlist(user);
 		model.addAttribute("pustlists", putlist);
 		
 		System.out.println("ctrl readlist");
-		ArrayList<ReadlistVO> readlist = serv.readlist();
+		ArrayList<ReadlistVO> readlist = serv.readlist(user);
 		model.addAttribute("readtlists", readlist);
 		
 		return "/mypage";
@@ -62,7 +63,9 @@ public class UserCtrl {
 		UserVO result = serv.login(user);
 		String path = null;
 		if (result != null) {
+			ArrayList<RecommVO> recresult = serv.recomlist(user);
 			model.addAttribute("loginUser",result);
+			model.addAttribute("recomlist", recresult);
 			path = "home";
 		} else
 			path = "join";

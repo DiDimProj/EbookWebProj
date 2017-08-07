@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ page import="com.spring.ebook.model.util.vo.RecommVO"%>
+<%@ page import="java.util.ArrayList"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +100,7 @@
 			<h3>
 					추천 테이블
 					</h3>
-				<table class="table table-bordered" id="bbs" style="maigin: 50px 50px 50px 50px; text-align: center; ">
+				<table class="table table-bordered" id="bbs" style="maigin: 50px 100px 50px 100px; text-align: center; ">
 			<!-- 로그인 안 되어있을 때 --> 
 				<c:if test="${loginUser == null }">
 						<tr>
@@ -107,19 +110,28 @@
 				
 				<!-- 로그인 되어있을 때 --> 
 				<c:if test="${loginUser != null }">
-						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책1</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책2</td>
-						</tr>
-						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책3</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책4</td>
-						</tr>
-						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책5</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책6</td>
-						</tr>
-
+						<%
+							int titlenum = 0;
+							ArrayList<RecommVO> reclist = (ArrayList<RecommVO>) request.getAttribute("recomlist");
+							for(int i=0;  i< reclist.size()/4 ; ++i){
+						%>
+							<tr>
+						<%
+								for(int j=0; j<4; ++j){
+									if (titlenum >= reclist.size()){
+										break;
+									}
+									else{
+						%>
+							<td><img src="./resources/imgs/book_temp.png"><br><%= reclist.get(titlenum).getTitle() %></td>
+						<%
+										++titlenum;
+									}
+								}
+							}
+						%>
+							</tr>
+						
 				
 				</c:if>
 				</table>
