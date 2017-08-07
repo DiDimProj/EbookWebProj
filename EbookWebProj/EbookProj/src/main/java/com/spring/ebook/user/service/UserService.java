@@ -9,6 +9,7 @@ import com.spring.ebook.model.user.dao.UserDao;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 
 @Service("userService")
 public class UserService {
@@ -34,6 +35,11 @@ public class UserService {
 	public UserVO withdrawal(UserVO user) {
 		System.out.println("Service withdrawal");
 		return dao.withdrawalRow(user);
+	}
+	
+	public ArrayList<RecommVO> recomlist(UserVO user){
+		System.out.println("recomlist");
+		return dao.recomlist(user);
 	}
 	
 }

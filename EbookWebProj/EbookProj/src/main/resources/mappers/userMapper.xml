@@ -35,6 +35,16 @@
  	 	
  	</select>
  	
+ 	 <select id="recom" parameterType="user" resultType="recomlist">
+ 		SELECT		BOOKNUM, TITLE, GENRENUM
+		FROM		BOOKINFO 
+		WHERE		GENRENUM IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
+													FROM (SELECT GENRENUM CONT
+																FROM USERINFO
+																WHERE USERID = #{userid} )U
+													CONNECT BY LEVEL <![CDATA[ <=   ]]> length(REGEXP_REPLACE(U.CONT, '[^|]+',''))+1)
+ 	
+ 	</select>
  	
 </mapper>
 

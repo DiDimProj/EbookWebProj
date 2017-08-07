@@ -27,13 +27,4 @@ public class BookCtrl {
 		model.addAttribute("lists", list) ;
 		return "/indexpage";
 	}
-	
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String recomm(Locale locale, Model model) {
-		
-		ArrayList<RecommVO> recomlist = serv.recomlist();
-		model.addAttribute("recomlist", recomlist);
-		
-		return "/home";
-	}
 }

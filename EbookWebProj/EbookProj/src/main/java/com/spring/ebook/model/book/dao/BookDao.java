@@ -20,8 +20,5 @@ public class BookDao {
 		System.out.println("Dao BooklistRow");
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.list");
 	} 
-	
-	public ArrayList<RecommVO> recomlist(){
-		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.recomlist");
-	}
+
 }

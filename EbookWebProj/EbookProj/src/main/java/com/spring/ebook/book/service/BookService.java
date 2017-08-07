@@ -20,9 +20,4 @@ public class BookService {
 		System.out.println("Service booklist");
 		return dao.listRow() ;
 	}
-	
-	public ArrayList<RecommVO> recomlist(){
-		System.out.println("recomlist");
-		return dao.recomlist();
-	}
 }

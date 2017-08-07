@@ -16,6 +16,7 @@ import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
@@ -62,7 +63,9 @@ public class UserCtrl {
 		UserVO result = serv.login(user);
 		String path = null;
 		if (result != null) {
+			ArrayList<RecommVO> recresult = serv.recomlist(user);
 			model.addAttribute("loginUser",result);
+			model.addAttribute("recomlist", recresult);
 			path = "home";
 		} else
 			path = "join";
