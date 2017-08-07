@@ -1,15 +1,18 @@
 package com.spring.ebook.book.ctrl;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.ebook.book.service.BookService;
 import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 
 @Controller
 public class BookCtrl {
@@ -24,5 +27,13 @@ public class BookCtrl {
 		model.addAttribute("lists", list) ;
 		return "/indexpage";
 	}
-
+	
+	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
+	public String recomm(Locale locale, Model model) {
+		
+		ArrayList<RecommVO> recomlist = serv.recomlist();
+		model.addAttribute("recomlist", recomlist);
+		
+		return "/home";
+	}
 }

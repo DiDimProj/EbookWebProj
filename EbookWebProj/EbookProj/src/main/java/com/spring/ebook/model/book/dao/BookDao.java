@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 
 @Repository("bookDao")
 public class BookDao {
@@ -19,4 +20,8 @@ public class BookDao {
 		System.out.println("Dao BooklistRow");
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.list");
 	} 
+	
+	public ArrayList<RecommVO> recomlist(){
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.recomlist");
+	}
 }

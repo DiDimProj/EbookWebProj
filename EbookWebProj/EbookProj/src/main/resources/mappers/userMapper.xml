@@ -32,5 +32,7 @@
  	 	WHERE	USERID = #{userid}
  	 	
  	</select>
+ 	
+ 	
 </mapper>
 

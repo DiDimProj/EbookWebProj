@@ -8,5 +8,17 @@
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
  	</select>
+ 	
+ 	<select id="recom" resultType="recomlist">
+ 		SELECT		BOOKNUM, TITLE, GENRENUM
+		FROM		BOOKINFO 
+		WHERE		GENRENUM IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
+													FROM (SELECT GENRENUM CONT
+																FROM USERINFO
+																WHERE USERID =   )U
+													CONNECT BY LEVEL <![CDATA[ <=   ]]> length(REGEXP_REPLACE(U.CONT, '[^|]+',''))+1)
+ 	
+ 	</select>
+ 	
 </mapper>
 

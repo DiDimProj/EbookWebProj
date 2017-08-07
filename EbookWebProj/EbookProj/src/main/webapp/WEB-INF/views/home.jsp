@@ -107,19 +107,15 @@
 				
 				<!-- 로그인 되어있을 때 --> 
 				<c:if test="${loginUser != null }">
+				
+						<c:forEach items="${recomlist}" var="reclist">
+						
 						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책1</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책2</td>
+							<td><img src="./resources/imgs/book_temp.png"><br>${reclist.title}</td><!-- 
+							<td><img src="./resources/imgs/book_temp.png"><br>책2</td> -->
 						</tr>
-						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책3</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책4</td>
-						</tr>
-						<tr>
-							<td><img src="./resources/imgs/book_temp.png"><br>책5</td>
-							<td><img src="./resources/imgs/book_temp.png"><br>책6</td>
-						</tr>
-
+						
+						</c:forEach>
 				
 				</c:if>
 				</table>
