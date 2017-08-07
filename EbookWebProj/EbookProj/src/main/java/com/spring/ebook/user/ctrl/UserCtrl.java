@@ -37,14 +37,25 @@ public class UserCtrl {
 		ArrayList<ReadlistVO> readlist = serv.readlist(user);
 		model.addAttribute("readtlists", readlist);
 		
+		UserVO result = serv.oneUser(user);
+		model.addAttribute("loginUser",result);
+		
 		return "/mypage";
 	}
 	
+	@RequestMapping("/update.do")
+	public String update(UserVO user) {
+		System.out.println("Ctrl update");
+		int flag = serv.update(user);
+		
+		
+		return "redirect:/main.do";
+	}
+	
 	@RequestMapping("/withdrawal.do")
-	public String withdrawal(UserVO user, Model model) {
+	public String withdrawal(UserVO user) {
 		System.out.println("Ctrl withdrawal");
-		UserVO withdrawal = serv.withdrawal(user);
-		model.addAttribute("withdrawals", withdrawal);
+		int flag = serv.withdrawal(user);
 		
 		return "redirect:/main.do";
 	}

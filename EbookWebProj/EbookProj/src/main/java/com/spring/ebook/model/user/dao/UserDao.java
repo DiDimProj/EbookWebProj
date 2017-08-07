@@ -19,8 +19,12 @@ public class UserDao {
 	
 	public UserVO loginRow(UserVO user) {
 		System.out.println("Dao loginRow");
-
 		return session.selectOne("com.spring.acorn.mapper.user.login", user);
+	}
+	
+	public UserVO oneUserRow(UserVO user) {
+		System.out.println("Dao oneUserRow");
+		return session.selectOne("com.spring.acorn.mapper.user.oneuser", user);
 	}
 	
 	public ArrayList<PutlistVO>putlistRow(UserVO user) {
@@ -33,8 +37,13 @@ public class UserDao {
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readlist", user);
 	}
 	
-	public UserVO withdrawalRow(UserVO user) {
+	public int updateRow(UserVO user) {
+		System.out.println("Dao updateRow");
+		return session.update("com.spring.acorn.mapper.user.update",user);
+	}
+	
+	public int withdrawalRow(UserVO user) {
 		System.out.println("Dao withdrawalRow");
-		return session.selectOne("com.spring.acorn.mapper.user.withdrawal",user);
+		return session.delete("com.spring.acorn.mapper.user.withdrawal",user);
 	}
 }
