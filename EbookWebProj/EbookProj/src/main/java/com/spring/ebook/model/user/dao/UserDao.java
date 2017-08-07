@@ -56,8 +56,9 @@ public class UserDao {
 		System.out.println(user.getPhone());
 		return session.selectOne("com.spring.acorn.mapper.user.insert",user);
 	}
+	
 	public ArrayList<RecommVO> recomlist(UserVO user){
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.recom", user);
 	}
 	
-	}
+}

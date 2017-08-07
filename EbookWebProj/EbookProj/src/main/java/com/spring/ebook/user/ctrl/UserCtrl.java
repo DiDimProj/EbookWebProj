@@ -38,8 +38,10 @@ public class UserCtrl {
 		ArrayList<ReadlistVO> readlist = serv.readlist(user);
 		model.addAttribute("readtlists", readlist);
 		
+		System.out.println("ctrl oneuser");
 		UserVO result = serv.oneUser(user);
 		model.addAttribute("loginUser",result);
+		
 		
 		return "/mypage";
 	}

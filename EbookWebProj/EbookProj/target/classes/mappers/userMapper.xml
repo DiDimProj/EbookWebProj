@@ -27,7 +27,7 @@
  	
  	<select id="readlist" parameterType="user" resultType="readlistboard">
  	 	SELECT		USERID, READDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT
- 		FROM		RECO
+ 		FROM		RECODE
  		LEFT JOIN	BOOKINFO  USING(BOOKNUM)
  		LEFT JOIN	GENRE USING(GENRENUM)
  		WHERE		USERID = #{userid}
@@ -44,13 +44,11 @@
  		WHERE	USERID = #{userid}
  	</update>
  	
- 	<select id="withdrawal" parameterType ="user" resultType="user">
+ 	<delete id="withdrawal" parameterType ="user">
  	 	DELETE
  	 	FROM	USERINFO
  	 	WHERE	USERID = #{userid}
-
- 	
- 	</select>
+ 	</delete>
 
  	<insert id="insert"
  			parameterType="user">
