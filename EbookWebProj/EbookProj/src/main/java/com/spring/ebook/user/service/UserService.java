@@ -37,16 +37,16 @@ public class UserService {
 		return dao.withdrawalRow(user);
 	}
 	
-<<<<<<< HEAD
+
 	public UserVO insert(UserVO user) {
 		System.out.println("Service insert");
 		return dao.insertRow(user);
 	}
-=======
+
 	public ArrayList<RecommVO> recomlist(UserVO user){
 		System.out.println("recomlist");
 		return dao.recomlist(user);
 	}
-	
->>>>>>> db00d65b88df5dcfbf5d2ab34ae3321ae8ff1546
+
+
 }

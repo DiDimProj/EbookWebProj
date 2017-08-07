@@ -27,7 +27,7 @@ public class BookCtrl {
 		model.addAttribute("lists", list) ;
 		return "/indexpage";
 	}
-<<<<<<< HEAD
+
 
 /*	@RequestMapping("/search.do")
 	@ResponseBody
@@ -39,6 +39,4 @@ public class BookCtrl {
 		return list;
 	} */
 	
-=======
->>>>>>> a07d605820f813a69923f65fa746bbb3d8e1db08
 }

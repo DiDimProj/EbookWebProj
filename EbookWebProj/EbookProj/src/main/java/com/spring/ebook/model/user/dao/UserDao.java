@@ -38,7 +38,6 @@ public class UserDao {
 		System.out.println("Dao withdrawalRow");
 		return session.selectOne("com.spring.acorn.mapper.user.withdrawal",user);
 	}
-<<<<<<< HEAD
 
 	public UserVO insertRow(UserVO user) {
 		System.out.println("Dao insertRow");
@@ -47,10 +46,9 @@ public class UserDao {
 		System.out.println(user.getName());
 		System.out.println(user.getPhone());
 		return session.selectOne("com.spring.acorn.mapper.user.insert",user);
-=======
-	
+	}
 	public ArrayList<RecommVO> recomlist(UserVO user){
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.recom", user);
->>>>>>> db00d65b88df5dcfbf5d2ab34ae3321ae8ff1546
 	}
-}
+	
+	}

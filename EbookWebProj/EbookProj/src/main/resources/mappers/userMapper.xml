@@ -34,7 +34,7 @@
  	 	WHERE	USERID = #{userid}
  	 	
  	</select>
-<<<<<<< HEAD
+
  	<insert id="insert"
  			parameterType="user">
  		INSERT INTO USERINFO
@@ -47,7 +47,7 @@
  				'0'
  		)
  	</insert>			
-=======
+
  	
  	 <select id="recom" parameterType="user" resultType="recomlist">
  		SELECT		BOOKNUM, TITLE, GENRENUM
@@ -59,7 +59,7 @@
 													CONNECT BY LEVEL <![CDATA[ <=   ]]> length(REGEXP_REPLACE(U.CONT, '[^|]+',''))+1)
  	
  	</select>
->>>>>>> db00d65b88df5dcfbf5d2ab34ae3321ae8ff1546
+
  	
 </mapper>
 
