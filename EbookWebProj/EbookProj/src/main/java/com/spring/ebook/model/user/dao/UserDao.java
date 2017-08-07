@@ -37,4 +37,13 @@ public class UserDao {
 		System.out.println("Dao withdrawalRow");
 		return session.selectOne("com.spring.acorn.mapper.user.withdrawal",user);
 	}
+
+	public UserVO insertRow(UserVO user) {
+		System.out.println("Dao insertRow");
+		System.out.println(user.getUserid());
+		System.out.println(user.getPassword());
+		System.out.println(user.getName());
+		System.out.println(user.getPhone());
+		return session.selectOne("com.spring.acorn.mapper.user.insert",user);
+	}
 }

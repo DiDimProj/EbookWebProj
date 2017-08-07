@@ -14,10 +14,16 @@ import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
 
 @Controller
+@RequestMapping("/view")
 public class BoardCtrl {
 	
 	@Resource(name="boardService")
 	private BoardService service;
 	
+	@RequestMapping("/main.do")
+	public String join() {
+		System.out.println("Ctrl join");
+		return "view/join"; 
+	}
 
 }

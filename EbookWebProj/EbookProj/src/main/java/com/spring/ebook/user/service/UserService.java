@@ -36,4 +36,8 @@ public class UserService {
 		return dao.withdrawalRow(user);
 	}
 	
+	public UserVO insert(UserVO user) {
+		System.out.println("Service insert");
+		return dao.insertRow(user);
+	}
 }

@@ -32,5 +32,18 @@
  	 	WHERE	USERID = #{userid}
  	 	
  	</select>
+ 	<insert id="insert"
+ 			parameterType="user">
+ 		INSERT INTO USERINFO
+ 		VALUES(	#{userid},
+ 				#{password},
+ 				#{name},
+ 				#{age},
+ 				#{phone},
+ 				'01',
+ 				'0'
+ 		)
+ 	</insert>			
+ 	
 </mapper>
 

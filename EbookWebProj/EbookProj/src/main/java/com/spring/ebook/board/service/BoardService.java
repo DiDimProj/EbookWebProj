@@ -16,6 +16,10 @@ public class BoardService {
 	@Resource(name="boardDao")
 	private BoardDao dao;
 	
+	public String join() {
+		System.out.println("Service join");
+		return dao.join();
+	}
 
 	
 }

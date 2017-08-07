@@ -50,7 +50,7 @@ public class UserCtrl {
 	}
 	
 	
-	@RequestMapping(value = "join.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
 		System.out.println("Ctrl join");
 		return "join";
@@ -73,6 +73,13 @@ public class UserCtrl {
 	public String logout(SessionStatus status) {
 		System.out.println("ctrl logout");
 		status.setComplete();
+		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("insert.do")
+	public String insert(UserVO user) {
+		System.out.println("Ctrl insert");
+		UserVO insert = serv.insert(user);
 		return "redirect:/main.do";
 	}
 	
