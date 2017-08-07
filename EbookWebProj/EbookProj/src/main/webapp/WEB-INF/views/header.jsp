@@ -53,7 +53,7 @@ max-width: 150px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project Name</a>
+      <a class="navbar-brand" href="main.do">Project Name</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
