@@ -64,27 +64,23 @@
 					</h3>
 				
 				<table class="table table-striped" id="bbs" style="margin-bottom: 50px">
-						<thead>
+<!-- 						<thead>
 							<tr>
-								<th>번 호</th>
-								<th>제 목</th>
-								<th>글쓴이</th>
+								<th>책1</th>
+								<th>책2</th>
 							</tr>
-						</thead>
+						</thead> -->
 						<tr>
-							<td>1</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>홍길동</td>
+							<td>책1</td>
+							<td>책2</td>
 						</tr>
 						<tr>
-							<td>2</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>임꺽정</td>
+							<td>책3</td>
+							<td>책4</td>
 						</tr>
 						<tr>
-							<td>3</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>성춘향</td>
+							<td>책5</td>
+							<td>책6</td>
 						</tr>
 					</table>
 
