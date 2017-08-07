@@ -52,7 +52,7 @@ public class UserCtrl {
 		int flag = serv.update(user);
 		
 		
-		return "redirect:/main.do";
+		return "redirect:/mypage.do?userid="+user.getUserid();
 	}
 	
 	@RequestMapping("/withdrawal.do")
