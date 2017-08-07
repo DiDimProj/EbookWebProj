@@ -25,4 +25,14 @@ public class BookCtrl {
 		return "/indexpage";
 	}
 
+/*	@RequestMapping("/search.do")
+	@ResponseBody
+	public ArrayList<BookVO> search(SearchVO search) { 
+		System.out.println("Ctrl search");
+		System.out.println("type : "+search.getSearchType());
+		System.out.println("keyword :"+search.getSearchKeyword());
+		ArrayList<BookVO> list = serv.search(search);
+		return list;
+	} */
+	
 }
