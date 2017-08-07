@@ -27,4 +27,18 @@ public class BookCtrl {
 		model.addAttribute("lists", list) ;
 		return "/indexpage";
 	}
+<<<<<<< HEAD
+
+/*	@RequestMapping("/search.do")
+	@ResponseBody
+	public ArrayList<BookVO> search(SearchVO search) { 
+		System.out.println("Ctrl search");
+		System.out.println("type : "+search.getSearchType());
+		System.out.println("keyword :"+search.getSearchKeyword());
+		ArrayList<BookVO> list = serv.search(search);
+		return list;
+	} */
+	
+=======
+>>>>>>> a07d605820f813a69923f65fa746bbb3d8e1db08
 }
