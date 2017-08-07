@@ -25,16 +25,16 @@ public class UserCtrl {
 	@Resource(name="userService")
 	private UserService serv;
 	
-	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-	public String myPage(Locale locale, Model model) {
+	@RequestMapping("/mypage.do")
+	public String myPage(Locale locale, Model model, UserVO user) {
 		System.out.println("Ctrl mypage");
 		
 		System.out.println("ctrl putlist");
-		ArrayList<PutlistVO> putlist = serv.putlist();
+		ArrayList<PutlistVO> putlist = serv.putlist(user);
 		model.addAttribute("pustlists", putlist);
 		
 		System.out.println("ctrl readlist");
-		ArrayList<ReadlistVO> readlist = serv.readlist();
+		ArrayList<ReadlistVO> readlist = serv.readlist(user);
 		model.addAttribute("readtlists", readlist);
 		
 		return "/mypage";
