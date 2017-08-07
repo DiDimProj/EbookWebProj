@@ -9,5 +9,28 @@
  		FROM		USERINFO
  		WHERE	USERID = #{userid} AND PASSWORD = #{password}
  	</select>
+ 	
+ 	<select id="putlist" resultType="putlistboard">
+ 	 	SELECT		USERID, PUTDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT
+ 		FROM		USERBOOK
+ 		LEFT JOIN	BOOKINFO  USING(BOOKNUM)
+ 		LEFT JOIN	GENRE USING(GENRENUM)
+ 		ORDER BY	PUTDATE ASC
+ 	</select>
+ 	
+ 	<select id="readlist" resultType="readlistboard">
+ 	 	SELECT		USERID, READDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT
+ 		FROM		RECODE
+ 		LEFT JOIN	BOOKINFO  USING(BOOKNUM)
+ 		LEFT JOIN	GENRE USING(GENRENUM)
+ 		ORDER BY	READDATE ASC
+ 	</select>
+ 	
+ 	<select id="withdrawal" parameterType ="user" resultType="user">
+ 	 	DELETE
+ 	 	FROM	USERINFO
+ 	 	WHERE	USERID = #{userid}
+ 	 	
+ 	</select>
 </mapper>
 

@@ -17,12 +17,12 @@ public class UserBookCtrl {
 	@Resource(name="userbookService")
 	private UserBookService service ;
 	
-	@RequestMapping("/mypage.do")
-	public String putbook(Model model) {
-		System.out.println("Ctrl putbook");
-		ArrayList<UserBookVO> putbooklist = service.putbooklist();
-		model.addAttribute("putbooklist", putbooklist);
-		return "/mypage";
-	}
+//	@RequestMapping("/mypage.do")
+//	public String putbook(Model model) {
+//		System.out.println("Ctrl putbook");
+//		ArrayList<UserBookVO> putbooklist = service.putbooklist();
+//		model.addAttribute("putbooklist", putbooklist);
+//		return "/mypage";
+//	}
 
 }

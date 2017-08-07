@@ -1,5 +1,6 @@
 package com.spring.ebook.user.ctrl;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.annotation.Resource;
@@ -11,7 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
+import com.spring.ebook.model.util.vo.PutlistVO;
+import com.spring.ebook.model.util.vo.ReadlistVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
@@ -24,8 +28,27 @@ public class UserCtrl {
 	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
 	public String myPage(Locale locale, Model model) {
 		System.out.println("Ctrl mypage");
+		
+		System.out.println("ctrl putlist");
+		ArrayList<PutlistVO> putlist = serv.putlist();
+		model.addAttribute("pustlists", putlist);
+		
+		System.out.println("ctrl readlist");
+		ArrayList<ReadlistVO> readlist = serv.readlist();
+		model.addAttribute("readtlists", readlist);
+		
 		return "/mypage";
 	}
+	
+	@RequestMapping("/withdrawal.do")
+	public String withdrawal(UserVO user, Model model) {
+		System.out.println("Ctrl withdrawal");
+		UserVO withdrawal = serv.withdrawal(user);
+		model.addAttribute("withdrawals", withdrawal);
+		
+		return "redirect:/main.do";
+	}
+	
 	
 	@RequestMapping(value = "join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
