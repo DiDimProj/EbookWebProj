@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.ebook.model.book.dao.BookDao;
 import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 
 @Service("bookService")
 public class BookService {

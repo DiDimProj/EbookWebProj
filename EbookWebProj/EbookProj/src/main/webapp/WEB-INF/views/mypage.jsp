@@ -49,27 +49,40 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search1">
-                    <thead>
-                        <tr>
-                            <th>userid</th>
-                            <th>booknum</th>
-                            <th>putdate</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody">
-						<c:forEach items="${putbooklist}" var="userbookVO">
-						
-							<tr>
-								<td>${userbookVO.userid}</td>
-								<td>${userbookVO.booknum}</td>
-								<td>${userbookVO.putdate}</td>
-							</tr>
-						</c:forEach>
-					</tbody>
-                  </table>   
+					
+			    	 <table class="table table-list-search1">
+	                    <thead>
+	                        <tr>
+	                        	<th>userid</th>
+	                            <th>putdate</th>
+	                            <th>title</th>
+	                            <th>author</th>
+	                            <th>genrename</th>
+	                            <th>tag</th>
+	                            <th>likecnt</th>
+	                           
+	                        </tr>
+	                    </thead>
+	                    <tbody id="tbody">
+							<c:forEach items="${pustlists}" var="putlistVO">
+							
+								<tr>
+									<td>${putlistVO.userid}</td>
+									<td>${putlistVO.putdate}</td>
+									<td>${putlistVO.title}</td>
+									<td>${putlistVO.author}</td>
+									<td>${putlistVO.genrename}</td>
+									<td>${putlistVO.tag}</td>
+									<td>${putlistVO.likecnt}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+	                  </table>
+	                  
 				</div>
 			</div>
+			
+			
         </div>
         
         <div class="tab-pane" id="tab_b">
@@ -83,40 +96,36 @@
 		            </form>
 		        </div>
 				<div class="col-md-9">
-		    	 <table class="table table-list-search2">
-                    <thead>
-                        <tr>
-                            <th>읽은 날짜</th>
-                            <th>제목</th>
-                            <th>작가</th>
-                            <th>장르</th>
-                            <th>좋아요 수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2017.07.01</td>
-                            <td>제목제목1</td>
-                            <td>작가작가1</td>
-                            <td>장르장르1</td>
-                            <td>123</td>
-                        </tr>
-                        <tr>
-                            <td>2017.06.01</td>
-                            <td>제목제목2</td>
-                            <td>작가작가2</td>
-                            <td>장르장르2</td>
-                            <td>100</td>
-                        </tr>
-                        <tr>
-                            <td>2017.05.01</td>
-                            <td>제목제목3</td>
-                            <td>작가작가3</td>
-                            <td>장르장르3</td>
-                            <td>90</td>
-                        </tr>
-                    </tbody>
-                  </table>   
+				
+			    	 <table class="table table-list-search2">
+						<thead>
+	                        <tr>
+	                        	<th>userid</th>
+	                            <th>readdate</th>
+	                            <th>title</th>
+	                            <th>author</th>
+	                            <th>genrename</th>
+	                            <th>tag</th>
+	                            <th>likecnt</th>
+	                           
+	                        </tr>
+	                    </thead>
+	                    <tbody id="tbody">
+							<c:forEach items="${readtlists}" var="readlistVO">
+							
+								<tr>
+									<td>${readlistVO.userid}</td>
+									<td>${readlistVO.readdate}</td>
+									<td>${readlistVO.title}</td>
+									<td>${readlistVO.author}</td>
+									<td>${readlistVO.genrename}</td>
+									<td>${readlistVO.tag}</td>
+									<td>${readlistVO.likecnt}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+	                  </table>
+                  
 				</div>
 			</div>
         </div>
@@ -143,15 +152,81 @@
         </div>
         
         <div class="tab-pane" id="tab_d">
-             <h4>회원 정보 수정</h4>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                ac turpis egestas.</p>
+             <form class="form-horizontal">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend>회원 정보 수정</legend>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftID">User ID</label>  
+				  <div class="col-md-4">
+				  <input id="userid" name="userid" type="text" class="form-control input-md" value="${loginUser.userid}" readonly="readonly">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftName">Password</label>  
+				  <div class="col-md-4">
+				  <input id="password" name="password" type="password" class="form-control input-md">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftDescription">Name</label>  
+				  <div class="col-md-4">
+				  <input id="name" name="name" type="text" class="form-control input-md" value="${loginUser.name}">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="giftPrice">Age</label>  
+				  <div class="col-md-4">
+				  <input id="age" name="age" type="text" class="form-control input-md" value="${loginUser.age}">
+				    
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="shippingDays">Phone number</label>  
+				  <div class="col-md-4">
+				  <input id="phone" name="phone" type="text" class="form-control input-md" value="${loginUser.phone}">
+				  </div>
+				</div>
+				
+				</fieldset>
+			</form>
         </div>
         
         <div class="tab-pane" id="tab_e">
-             <h4>회원 탈퇴</h4>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-                ac turpis egestas.</p>
+            <form class="form-horizontal" action="withdrawal.do" method="post">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend>회원 탈퇴</legend>
+				
+				<!-- Text input-->
+				
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="giftID">USERID</label>
+					<div class="col-md-4">
+						<br>
+						<input type="text" class="form-control" name="userid">
+		      			<input type="submit" value="탈퇴" />
+					</div>
+				</div>
+				
+				
+				</fieldset>
+			</form>
         </div>
         
    </div><!-- tab content -->
@@ -163,7 +238,7 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
-	 
+    
     <script type="text/javascript">
 
 		$(document).ready(function() {

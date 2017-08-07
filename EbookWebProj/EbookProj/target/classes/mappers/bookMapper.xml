@@ -9,5 +9,10 @@
  		FROM	BOOKINFO
  	</select>
  	
+<<<<<<< HEAD
+=======
+
+ 	
+>>>>>>> a07d605820f813a69923f65fa746bbb3d8e1db08
 </mapper>
 

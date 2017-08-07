@@ -21,6 +21,7 @@
 	padding-right: 10%;
 }
 
+.control { position: inherit; top: 50%; z-index: 5; display: inline-block; right: 50%;} 
 
 </style>
 
@@ -56,78 +57,80 @@
 </div>
   <body>
 	<div id="container">
-		<div class="hometable" align="center">
-			<div class="col-md-6 hometable">
+		<div class="hometable" align="center" style="margin-top: 50px; margin-bottom: 50px;">
 			
-			<h3>
-					인기 테이블
-					</h3>
-				
-				<table class="table table-striped" id="bbs" style="margin-bottom: 50px">
-						<thead>
-							<tr>
-								<th>번 호</th>
-								<th>제 목</th>
-								<th>글쓴이</th>
-							</tr>
-						</thead>
-						<tr>
-							<td>1</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>홍길동</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>임꺽정</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>성춘향</td>
-						</tr>
-					</table>
-
-			</div>
-
-			<div class="col-md-6 hometable">
-			
+			<!-- 캐러셀 부분 시작 -->
+			    <div id="carousel-generic" class="carousel slide">
+			      <!-- Indicators -->
+			       <ol class="carousel-indicators">
+			         <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
+			         <li data-target="#carousel-generic" data-slide-to="1"></li>
+			         <li data-target="#carousel-generic" data-slide-to="2"></li>     
+			         <li data-target="#carousel-generic" data-slide-to="3"></li>    
+			       </ol>
+			     <!-- Carousel items -->
+			       <div class="carousel-inner">
+			          <div class="item active">
+			             <img src="./resources/imgs/img_01.png" alt="First slide">
+			          </div>
+			          <div class="item">
+			             <img src="./resources/imgs/img_02.png" alt="Second slide">              
+			          </div>
+			          <div class="item">
+			             <img src="./resources/imgs/img_03.png" alt="Third slide">               
+			          </div>
+			          <div class="item">
+			             <img src="./resources/imgs/img_04.png" alt="Third slide">               
+			          </div>
+			       </div>
+			      <!-- Controls -->
+			        <a class="left carousel-control" href="#carousel-generic" data-slide="prev">
+			          <img src="./resources/imgs/left.png" class="control">
+			        </a>
+			        <a class="right carousel-control" href="#carousel-generic" data-slide="next">
+			          <img src="./resources/imgs/right.png" class="control">
+			        </a>
+			      </div>
+    <!--// 캐러셀 부분 끝  -->
+    
+    
 			<h3>
 					추천 테이블
 					</h3>
+				<table class="table table-bordered" id="bbs" style="maigin: 50px 50px 50px 50px; text-align: center; ">
+			<!-- 로그인 안 되어있을 때 --> 
+				<c:if test="${loginUser == null }">
+						<tr>
+							<td>로그인하시면 추천책을 배달해드려요</td>
+						</tr>
+				</c:if>
 				
-				<table class="table table-striped" id="bbs">
-						<thead>
-							<tr>
-								<th>번 호</th>
-								<th>제 목</th>
-								<th>글쓴이</th>
-							</tr>
-						</thead>
-						<tr>
-							<td>1</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>홍길동</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>임꺽정</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>테이블 테스트 테이블 테스트 테이블 테스트</td>
-							<td>성춘향</td>
-						</tr>
-					</table>
+				<!-- 로그인 되어있을 때 --> 
+				<c:if test="${loginUser != null }">
 				
+						<c:forEach items="${recomlist}" var="reclist">
+						
+						<tr>
+							<td><img src="./resources/imgs/book_temp.png"><br>${reclist.title}</td><!-- 
+							<td><img src="./resources/imgs/book_temp.png"><br>책2</td> -->
+						</tr>
+						
+						</c:forEach>
+				
+				</c:if>
+				</table>
 			</div>
 
    <!-- container end -->
    </div>
-</div>
+   
+   <script>
+   $('.carousel').carousel()
+   $('.carousel2').carousel({interval: 3000 }) 
+   </script>
   </body>
-    <!-- footer.jsp 시작 -->
+    
+</html>
+<!-- footer.jsp 시작 -->
 	<%@ include file="./footer.jsp"%>
 	<!-- footer.jsp 끝 -->
-</html>

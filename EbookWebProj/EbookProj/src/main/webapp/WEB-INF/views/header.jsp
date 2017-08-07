@@ -53,7 +53,7 @@ max-width: 150px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Project Name</a>
+      <a class="navbar-brand" href="main.do">Project Name</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -64,13 +64,13 @@ max-width: 150px;
         <li><a href="mypage.do">mypage</a></li>
         <li><a href="join.do">join</a></li>
 			<!-- 로그인 안되어있을때 로그인 모달 띄움 --> 
-				<c:if test="${loginUser == null }">
+			<c:if test="${loginUser == null }">
 				<li><a href="#LoginModal" data-toggle="modal"> login </a></li>
 				</c:if>
 			<!-- 로그인 되어있을때 수정해야한다 -->
-			    <c:if test="${loginUser != null }">
+			<c:if test="${loginUser != null }">
 		      	<li><a href="logout.do"> logout</a></li>
-		      	<li><a href="mypage.do"> Mypage</a>
+		      	<li><a href="mypage.do?userid=${loginUser.userid}">Mypage</a>
 		    </c:if> 
 				</ul>
     </div><!--/.nav-collapse -->
