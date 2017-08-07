@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 
 @Repository("userDao")
 public class UserDao {
@@ -46,4 +47,17 @@ public class UserDao {
 		System.out.println("Dao withdrawalRow");
 		return session.delete("com.spring.acorn.mapper.user.withdrawal",user);
 	}
-}
+
+	public UserVO insertRow(UserVO user) {
+		System.out.println("Dao insertRow");
+		System.out.println(user.getUserid());
+		System.out.println(user.getPassword());
+		System.out.println(user.getName());
+		System.out.println(user.getPhone());
+		return session.selectOne("com.spring.acorn.mapper.user.insert",user);
+	}
+	public ArrayList<RecommVO> recomlist(UserVO user){
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.recom", user);
+	}
+	
+	}

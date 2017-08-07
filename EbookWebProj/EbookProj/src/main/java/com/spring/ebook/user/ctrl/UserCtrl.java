@@ -16,6 +16,7 @@ import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
+import com.spring.ebook.model.util.vo.RecommVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
@@ -61,7 +62,7 @@ public class UserCtrl {
 	}
 	
 	
-	@RequestMapping(value = "join.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
 		System.out.println("Ctrl join");
 		return "join";
@@ -73,7 +74,9 @@ public class UserCtrl {
 		UserVO result = serv.login(user);
 		String path = null;
 		if (result != null) {
+			ArrayList<RecommVO> recresult = serv.recomlist(user);
 			model.addAttribute("loginUser",result);
+			model.addAttribute("recomlist", recresult);
 			path = "home";
 		} else
 			path = "join";
@@ -84,6 +87,13 @@ public class UserCtrl {
 	public String logout(SessionStatus status) {
 		System.out.println("ctrl logout");
 		status.setComplete();
+		return "redirect:/main.do";
+	}
+	
+	@RequestMapping("insert.do")
+	public String insert(UserVO user) {
+		System.out.println("Ctrl insert");
+		UserVO insert = serv.insert(user);
 		return "redirect:/main.do";
 	}
 	

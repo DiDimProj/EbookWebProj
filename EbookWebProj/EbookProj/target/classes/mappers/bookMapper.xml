@@ -8,5 +8,6 @@
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
  	</select>
+
 </mapper>
 

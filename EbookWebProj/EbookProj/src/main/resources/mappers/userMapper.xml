@@ -49,6 +49,37 @@
  	 	FROM	USERINFO
  	 	WHERE	USERID = #{userid}
  	 	
+<<<<<<< HEAD
  	</delete>
+=======
+ 	</select>
+
+ 	<insert id="insert"
+ 			parameterType="user">
+ 		INSERT INTO USERINFO
+ 		VALUES(	#{userid},
+ 				#{password},
+ 				#{name},
+ 				#{age},
+ 				#{phone},
+ 				'01',
+ 				'0'
+ 		)
+ 	</insert>			
+
+ 	
+ 	 <select id="recom" parameterType="user" resultType="recomlist">
+ 		SELECT		BOOKNUM, TITLE, GENRENUM
+		FROM		BOOKINFO 
+		WHERE		GENRENUM IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
+													FROM (SELECT GENRENUM CONT
+																FROM USERINFO
+																WHERE USERID = #{userid} )U
+													CONNECT BY LEVEL <![CDATA[ <=   ]]> length(REGEXP_REPLACE(U.CONT, '[^|]+',''))+1)
+ 	
+ 	</select>
+
+ 	
+>>>>>>> 5d74f5da79859aa0197dfc9e109b4f6e19a39f45
 </mapper>
 

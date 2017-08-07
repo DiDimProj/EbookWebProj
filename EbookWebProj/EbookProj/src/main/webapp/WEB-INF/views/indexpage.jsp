@@ -129,11 +129,6 @@ body {
   <body>
   
  <div class="container">
-<br>
-<br>
-<br>
-<br>
-<br>
 
     <hgroup class="mb20">
 		<h1>Search Results</h1>
@@ -214,15 +209,12 @@ body {
       <div class="modal-body">
  <form role="form">  
     <div class="form-group">   
-        <label for="Name">Content</label> 
-        
-        <div class="slide-content">
-         
+        <label for="Name">Content</label>  
         <c:forEach items="${lists}" var="bookVO">
 		<td><br>${bookVO.content}</td>
 		</c:forEach>
     </div>    
-   </div>
+           
     </form>
       </div>
       

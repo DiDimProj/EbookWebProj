@@ -16,4 +16,9 @@ public class BoardDao {
 	@Resource(name="sqlSession")
 	private SqlSession session;
 
+	public String join() {
+		System.out.println("Dao join");
+		return session.selectOne("com.spring.acorn.board.user.login");
+	}
+
 }
