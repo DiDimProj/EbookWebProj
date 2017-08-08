@@ -144,7 +144,7 @@ body {
 							<div class="col-xs-6 col-sm-3">
 								<a href="#" class="thumbnail" data-toggle="modal"
 									data-target="#lightbox"> <img
-									src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg"
+									src="./resources/imgs/${recomm.gn}.png"
 									alt="..."> </br> ${recomm.title}
 								</a>
 							</div>
@@ -167,7 +167,8 @@ body {
 		    <c:forEach items="${likelist}" var="liklist">
 		    <div class="col-xs-6 col-sm-3">
 		        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"> 
-		            <img src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg" alt="...">
+		            <img src="./resources/imgs/${liklist.gn}.png"
+		             alt="...">
 		            </br>
 		            ${liklist.title}
 		        </a>

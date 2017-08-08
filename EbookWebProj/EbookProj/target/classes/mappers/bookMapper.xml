@@ -9,10 +9,12 @@
  		FROM	BOOKINFO
  	</select>
  	
- 	<select id="liklist" resultType="book">
- 		SELECT BOOKNUM, TITLE, LIKECNT
-		FROM BOOKINFO
-		ORDER BY LIKECNT DESC
+ 	<select id="liklist" resultType="likelist">
+		SELECT BOOKNUM, TITLE, LIKECNT, SUBSTR(GENRENUM, 0, 2) GN
+		FROM (	SELECT BOOKNUM, TITLE, LIKECNT, GENRENUM
+					FROM BOOKINFO
+					ORDER BY LIKECNT DESC)
+		WHERE	ROWNUM<![CDATA[ <= ]]>20
 	</select>
 </mapper>
 

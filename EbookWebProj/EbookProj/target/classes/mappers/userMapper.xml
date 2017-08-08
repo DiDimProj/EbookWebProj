@@ -65,7 +65,7 @@
 
  	
  	 <select id="recom" parameterType="user" resultType="recomlist">
- 		SELECT		BOOKNUM, TITLE, GENRENUM
+ 		SELECT		BOOKNUM, TITLE, SUBSTR(GENRENUM, 0, 2) GN
 		FROM		BOOKINFO 
 		WHERE		GENRENUM IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
 													FROM (SELECT GENRENUM CONT

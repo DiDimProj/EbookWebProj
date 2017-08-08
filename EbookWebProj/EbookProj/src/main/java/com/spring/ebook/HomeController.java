@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.spring.ebook.book.service.BookService;
-import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.util.vo.LikeVO;
 
 /**
  * Handles requests for the application home page.
@@ -26,7 +26,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		System.out.println("Ctrl home");
 		
-		ArrayList<BookVO> likeresult = Bserv.likeList();
+		ArrayList<LikeVO> likeresult = Bserv.likeList();
 		model.addAttribute("likelist", likeresult);
 		
 		return "home";
