@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring.ebook.model.book.dao.BookDao;
 import com.spring.ebook.model.book.vo.BookVO;
-import com.spring.ebook.model.util.vo.RecommVO;
+import com.spring.ebook.util.vo.SearchVO;
+import com.spring.ebook.model.util.vo.LikeVO;
 
 @Service("bookService")
 public class BookService {
@@ -20,9 +21,14 @@ public class BookService {
 		System.out.println("Service booklist");
 		return dao.listRow() ;
 	}
+
+	public ArrayList<LikeVO> likeList(){
+		System.out.println("Service Likelist");
+		return dao.likeList();
+	}
 	
-/*	public ArrayList<BookVO> search(SearchVO search) {
+	public ArrayList<BookVO> search(SearchVO search) {
 		System.out.println("Service search");
 		return dao.searchRow(search);
-	}*/
+	}
 }

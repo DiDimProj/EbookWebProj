@@ -39,167 +39,179 @@
    
    <div class="tab-content col-md-10">
         <div class="tab-pane active" id="tab_a">
-            <div class="row">
-		        <div class="col-md-3">
-		            <form action="#" method="get">
-		                <div class="input-group">
-		                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-		                    <input class="form-control" id="system-search1" name="putbook" placeholder="Search for" required>
-		                </div>
-		            </form>
-		        </div>
-				<div class="col-md-9">
-					
-			    	 <table class="table table-list-search1">
-	                    <thead>
-	                        <tr>
-	                        	<th>아이디</th>
-	                            <th>담은 날짜</th>
-	                            <th>제목</th>
-	                            <th>작가</th>
-	                            <th>장르(태그)</th>
-	                            <th>좋아요</th>
-	                           
-	                        </tr>
-	                    </thead>
-	                    <tbody id="tbody">
-							<c:forEach items="${pustlists}" var="putlistVO">
-							
-								<tr>
-									<td>${putlistVO.userid}</td>
-									<td>${putlistVO.putdate}</td>
-									<td>${putlistVO.title}</td>
-									<td>${putlistVO.author}</td>
-									<td>${putlistVO.genrename}(${putlistVO.tag})</td>
-									<td>${putlistVO.likecnt}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-	                  </table>
-	                  
+			<fieldset>
+		        <legend>내가 담은 책 목록</legend>
+	            <div class="row">
+			        <div class="col-md-3">
+			            <form action="#" method="get">
+			                <div class="input-group">
+			                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+			                    <input class="form-control" id="system-search1" name="putbook" placeholder="Search for" required>
+			                </div>
+			            </form>
+			        </div>
+					<div class="col-md-9">
+						
+				    	 <table class="table table-list-search1">
+		                    <thead>
+		                        <tr>
+		                        	<th>아이디</th>
+		                            <th>담은 날짜</th>
+		                            <th>제목</th>
+		                            <th>작가</th>
+		                            <th>장르(태그)</th>
+		                            <th>좋아요</th>
+		                            <th></th>
+		                           
+		                        </tr>
+		                    </thead>
+		                    <tbody id="tbody">
+								<c:forEach items="${pustlists}" var="putlistVO">
+								
+									<tr>
+										<td>${putlistVO.userid}</td>
+										<td>${putlistVO.putdate}</td>
+										<td>${putlistVO.title}</td>
+										<td>${putlistVO.author}</td>
+										<td>${putlistVO.genrename}(${putlistVO.tag})</td>
+										<td>${putlistVO.likecnt}</td>
+										<td><input type="button" value="삭제" onclick="delPutbook(${putlistVO.userid}, ${putlistVO.booknum})"/></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+		                  </table>
+		                  
+					</div>
 				</div>
-			</div>
 			
-			
+			</fieldset>
         </div>
         
         <div class="tab-pane" id="tab_b">
-	         <div class="row">
-		        <div class="col-md-3">
-		            <form action="#" method="get">
-		                <div class="input-group">
-		                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
-		                    <input class="form-control" id="system-search2" name="readbook" placeholder="Search for" required>
-		                </div>
-		            </form>
-		        </div>
-				<div class="col-md-9">
-				
-			    	 <table class="table table-list-search2">
-						<thead>
-	                        <tr>
-	                        	<th>아이디</th>
-	                            <th>읽은 날짜</th>
-	                            <th>제목</th>
-	                            <th>작가</th>
-	                            <th>장르(태그)</th>
-	                            <th>좋아요</th>
-	                           
-	                        </tr>
-	                    </thead>
-	                    <tbody id="tbody">
-							<c:forEach items="${readtlists}" var="readlistVO">
-							
-								<tr>
-									<td>${readlistVO.userid}</td>
-									<td>${readlistVO.readdate}</td>
-									<td>${readlistVO.title}</td>
-									<td>${readlistVO.author}</td>
-									<td>${readlistVO.genrename}(${readlistVO.tag})</td>
-									<td>${readlistVO.likecnt}</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-	                  </table>
-                  
+        	<fieldset>
+		        <legend>내가 읽은 책 목록</legend>
+		         <div class="row">
+			        <div class="col-md-3">
+			            <form action="#" method="get">
+			                <div class="input-group">
+			                    <!-- USE TWITTER TYPEAHEAD JSON WITH API TO SEARCH -->
+			                    <input class="form-control" id="system-search2" name="readbook" placeholder="Search for" required>
+			                </div>
+			            </form>
+			        </div>
+					<div class="col-md-9">
+					
+				    	 <table class="table table-list-search2">
+							<thead>
+		                        <tr>
+		                        	<th>아이디</th>
+		                            <th>읽은 날짜</th>
+		                            <th>제목</th>
+		                            <th>작가</th>
+		                            <th>장르(태그)</th>
+		                            <th>좋아요</th>
+		                            <th></th>
+		                           
+		                        </tr>
+		                    </thead>
+		                    <tbody id="tbody">
+								<c:forEach items="${readtlists}" var="readlistVO">
+								
+									<tr>
+										<td>${readlistVO.userid}</td>
+										<td>${readlistVO.readdate}</td>
+										<td>${readlistVO.title}</td>
+										<td>${readlistVO.author}</td>
+										<td>${readlistVO.genrename}(${readlistVO.tag})</td>
+										<td>${readlistVO.likecnt}</td>
+										<td><input type="button" value="삭제" onclick="delReadbook(${readlistVO.userid}, ${readlistVO.booknum})"/></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+		                  </table>
+	                  
+					</div>
 				</div>
-			</div>
+			</fieldset>
         </div>
         
         <div class="tab-pane" id="tab_c">
+        <fieldset>
+	        <legend>내가 읽은 책 통계</legend>
             <div class="row">
-              <div class="col-md-12">
-                  <div class="text-center text-uppercase">
-                      <h2>내가 읽은 책 통계</h2>
-                  </div>
-                  <!-- //.text-center -->
-                  
-                  <div class="column-chart">           
-                      <div class="chart clearfix">
-						<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-                      </div>
-                      <!-- //.chart -->
-                  </div>
-                  <!-- //.column-chart -->
-              </div>
+	             <div class="col-md-12">
+	              
+	                  <!-- //.text-center -->
+	                  
+	                  <div class="column-chart">           
+	                      <div class="chart clearfix">
+							<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+	                      </div>
+	                      <!-- //.chart -->
+	                  </div>
+	                  <!-- //.column-chart -->
+	              </div>
               <!-- //.col-md-6 -->
-          </div>
-          <!-- //.row -->
+	          </div>
+	          <!-- //.row -->
+          </fieldset>
         </div>
         
         <div class="tab-pane" id="tab_d">
              <form class="form-horizontal" method="post" action="update.do">
 				<fieldset>
-				
-				<!-- Form Name -->
-				<legend>회원 정보 수정</legend>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="giftID">User ID</label>  
-				  <div class="col-md-4">
-				  <input id="userid" name="userid" type="text" class="form-control input-md" value="${loginUser.userid}" readonly="readonly">
-				    
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="giftName">Password</label>  
-				  <div class="col-md-4">
-				  <input id="password" name="password" type="password" class="form-control input-md" value="${loginUser.password}">
-				    
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="giftDescription">Name</label>  
-				  <div class="col-md-4">
-				  <input id="name" name="name" type="text" class="form-control input-md" value="${loginUser.name}">
-				    
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="giftPrice">Age</label>  
-				  <div class="col-md-4">
-				  <input id="age" name="age" type="text" class="form-control input-md" value="${loginUser.age}">
-				    
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="shippingDays">Phone number</label>  
-				  <div class="col-md-4">
-				  <input id="phone" name="phone" type="text" class="form-control input-md" value="${loginUser.phone}">
-				  </div>
-				</div>
-				
+					
+					<!-- Form Name -->
+					<legend>회원 정보 수정</legend>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="giftID">User ID</label>  
+					  <div class="col-md-4">
+					  <input id="userid" name="userid" type="text" class="form-control input-md" value="${loginUser.userid}" readonly="readonly">
+					    
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="giftName">Password</label>  
+					  <div class="col-md-4">
+					  <input id="password" name="password" type="password" class="form-control input-md" value="${loginUser.password}">
+					    
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="giftDescription">Name</label>  
+					  <div class="col-md-4">
+					  <input id="name" name="name" type="text" class="form-control input-md" value="${loginUser.name}">
+					    
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="giftPrice">Age</label>  
+					  <div class="col-md-4">
+					  <input id="age" name="age" type="text" class="form-control input-md" value="${loginUser.age}">
+					    
+					  </div>
+					</div>
+					
+					<!-- Text input-->
+					<div class="form-group">
+					  <label class="col-md-4 control-label" for="shippingDays">Phone number</label>  
+					  <div class="col-md-4">
+					  <input id="phone" name="phone" type="text" class="form-control input-md" value="${loginUser.phone}">
+					  </div>
+					</div>
+					
 				</fieldset>
-				<button type="submit">수정</button>
+				<div align="center">
+					<button type="submit">수정</button>
+				</div>
 			</form>
         </div>
         
@@ -234,6 +246,27 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    
+    <script>
+		function delPutbook(userid, booknum) {
+			var str='';
+			if(userid) str+="userid="+userid+"&";
+			if(booknum) str+="booknum="+booknum+"&";
+		
+			document.location.href="./delPutbook.do?"+str;
+		} 
+		
+		function delReadbook(userid, booknum) {
+			var str='';
+			if(userid) str+="userid="+userid+"&";
+			if(booknum) str+="booknum="+booknum+"&";
+		
+			document.location.href="./delReadbook.do?"+str;
+		} 
+		
+		///////////
+		
+    </script>
     
     <script type="text/javascript">
 
@@ -305,7 +338,10 @@
 		        }
 		    });
 
+
           ////////column-chart
+          var genreAry = new Array();
+          
           columnChart();
           
           function columnChart(){
@@ -343,40 +379,25 @@
             	        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
             	        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
             	    },
-
+					
+						
             	    series: [{
-            	        name: 'Brands',
+            	        name: '장르',
             	        colorByPoint: true,
             	        data: [{
-            	            name: 'Microsoft Internet Explorer',
+            	            name: 'as',
             	            y: 56.33,
-            	            drilldown: 'Microsoft Internet Explorer'
+            	            drilldown: 'as'
             	        }, {
-            	            name: 'Chrome',
-            	            y: 24.03,
-            	            drilldown: 'Chrome'
-            	        }, {
-            	            name: 'Firefox',
-            	            y: 10.38,
-            	            drilldown: 'Firefox'
-            	        }, {
-            	            name: 'Safari',
-            	            y: 4.77,
-            	            drilldown: 'Safari'
-            	        }, {
-            	            name: 'Opera',
-            	            y: 0.91,
-            	            drilldown: 'Opera'
-            	        }, {
-            	            name: 'Proprietary or Undetectable',
-            	            y: 0.2,
-            	            drilldown: null
+            	            name: 'as1',
+            	            y: 56.33,
+            	            drilldown: 'as1'
             	        }]
             	    }],
             	    drilldown: {
             	        series: [{
-            	            name: 'Microsoft Internet Explorer',
-            	            id: 'Microsoft Internet Explorer',
+            	            name: 'as',
+            	            id: 'as',
             	            data: [
             	                [
             	                    'v11.0',
@@ -404,161 +425,37 @@
             	                ]
             	            ]
             	        }, {
-            	            name: 'Chrome',
-            	            id: 'Chrome',
+            	            name: 'as1',
+            	            id: 'as1',
             	            data: [
             	                [
-            	                    'v40.0',
-            	                    5
+            	                    'asdf.0',
+            	                    24.13
             	                ],
             	                [
-            	                    'v41.0',
-            	                    4.32
+            	                    'as.0',
+            	                    17.2
             	                ],
             	                [
-            	                    'v42.0',
-            	                    3.68
+            	                    '123.0',
+            	                    8.11
             	                ],
             	                [
-            	                    'v39.0',
-            	                    2.96
+            	                    'v10.0',
+            	                    5.33
             	                ],
             	                [
-            	                    'v36.0',
-            	                    2.53
-            	                ],
-            	                [
-            	                    'v43.0',
-            	                    1.45
-            	                ],
-            	                [
-            	                    'v31.0',
-            	                    1.24
-            	                ],
-            	                [
-            	                    'v35.0',
-            	                    0.85
-            	                ],
-            	                [
-            	                    'v38.0',
-            	                    0.6
-            	                ],
-            	                [
-            	                    'v32.0',
-            	                    0.55
-            	                ],
-            	                [
-            	                    'v37.0',
-            	                    0.38
-            	                ],
-            	                [
-            	                    'v33.0',
-            	                    0.19
-            	                ],
-            	                [
-            	                    'v34.0',
-            	                    0.14
-            	                ],
-            	                [
-            	                    'v30.0',
-            	                    0.14
-            	                ]
-            	            ]
-            	        }, {
-            	            name: 'Firefox',
-            	            id: 'Firefox',
-            	            data: [
-            	                [
-            	                    'v35',
-            	                    2.76
-            	                ],
-            	                [
-            	                    'v36',
-            	                    2.32
-            	                ],
-            	                [
-            	                    'v37',
-            	                    2.31
-            	                ],
-            	                [
-            	                    'v34',
-            	                    1.27
-            	                ],
-            	                [
-            	                    'v38',
-            	                    1.02
-            	                ],
-            	                [
-            	                    'v31',
-            	                    0.33
-            	                ],
-            	                [
-            	                    'v33',
-            	                    0.22
-            	                ],
-            	                [
-            	                    'v32',
-            	                    0.15
-            	                ]
-            	            ]
-            	        }, {
-            	            name: 'Safari',
-            	            id: 'Safari',
-            	            data: [
-            	                [
-            	                    'v8.0',
-            	                    2.56
-            	                ],
-            	                [
-            	                    'v7.1',
-            	                    0.77
-            	                ],
-            	                [
-            	                    'v5.1',
-            	                    0.42
-            	                ],
-            	                [
-            	                    'v5.0',
-            	                    0.3
-            	                ],
-            	                [
-            	                    'v6.1',
-            	                    0.29
+            	                    'v6.0',
+            	                    1.06
             	                ],
             	                [
             	                    'v7.0',
-            	                    0.26
-            	                ],
-            	                [
-            	                    'v6.2',
-            	                    0.17
-            	                ]
-            	            ]
-            	        }, {
-            	            name: 'Opera',
-            	            id: 'Opera',
-            	            data: [
-            	                [
-            	                    'v12.x',
-            	                    0.34
-            	                ],
-            	                [
-            	                    'v28',
-            	                    0.24
-            	                ],
-            	                [
-            	                    'v27',
-            	                    0.17
-            	                ],
-            	                [
-            	                    'v29',
-            	                    0.16
+            	                    0.5
             	                ]
             	            ]
             	        }]
             	    }
             	});
-              
           };
        });
     

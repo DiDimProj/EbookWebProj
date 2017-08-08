@@ -1,204 +1,194 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html lang="en">
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@include file="./header.jsp"%>
 
-	<!-- header.jsp 시작 -->
-	<%@ include file="./header.jsp"%>
-	<!-- header.jsp 끝 -->
- <style>
- .container { margin-top: 20px; }
-.mb20 { margin-bottom: 20px; } 
+<!-- header -->
 
-hgroup { padding-left: 15px; border-bottom: 1px solid #ccc; }
-hgroup h1 { font: 500 normal 1.625em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin-top: 0; line-height: 1.15; }
-hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; color: #2a3644; margin: 0; padding-bottom: 10px; }
-
-.search-result .thumbnail { border-radius: 0 !important; }
-.search-result:first-child { margin-top: 0 !important; }
-/* .search-result { margin-top: 20px; } */
-.search-result .col-md-2 { border-right: 1px dotted #ccc; min-height: 140px; }
-.search-result ul { padding-left: 0 !important; list-style: none;  }
-.search-result ul li { font: 400 normal .85em "Roboto",Arial,Verdana,sans-serif;  line-height: 30px; }
-.search-result ul li i { padding-right: 5px; }
-.search-result .col-md-7 { position: relative; }
-.search-result h3 { font: 500 normal 1.375em "Roboto",Arial,Verdana,sans-serif; margin-top: 0 !important; margin-bottom: 10px !important; }
-.search-result h3 > a, .search-result i { color: #248dc1 !important; }
-.search-result p { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; } 
-.search-result span.plus { position: absolute; right: 0; top: 126px; }
-.search-result span.plus a { background-color: #248dc1; padding: 5px 5px 3px 5px; }
-.search-result span.plus a:hover { background-color: #414141; }
-.search-result span.plus a i { color: #fff !important; }
-.search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
-    
-    .btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
-.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+  <head>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
    
-   /* FONT AWESOME & not necessary for functions */
-@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-
-body {
-/*     padding-top: 15px; */
-    background-color: #f9f9f9;
-}
-
-/*REQUIRED*/
-.carousel-row {
-    margin-bottom: 10px;
-}
-
-.slide-row {
-    padding: 0;
-    background-color: #ffffff;
-    min-height: 150px;
-    border: 1px solid #e7e7e7;
-    overflow: hidden;
-    height: auto;
-    position: relative;
-}
-
-
-.slide-carousel {
-    width: 20%;
-    float: left;
-    display: inline-block;
-}
-
-.slide-carousel .carousel-indicators {
-    margin-bottom: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, .5);
-}
-
-.slide-carousel .carousel-indicators li {
-    border-radius: 0;
-    width: 20px;
-    height: 6px;
-}
-
-.slide-carousel .carousel-indicators .active {
-    margin: 1px;
-}
-
-.slide-content {
-    position: absolute;
-    top: 0;
-    left: 20%;
-    display: block;
-    float: left;
-    width: 80%;
-    max-height: 76%;
-    padding: 1.5% 2% 2% 2%;
-    overflow-y: auto;
-}
-
-.slide-content h4 {
-    margin-bottom: 3px;
-    margin-top: 0;
-}
-
-.slide-footer {
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-    width: 78%;
-    height: 20%;
-    margin: 1%;
-}
-
-/* Scrollbars */
-.slide-content::-webkit-scrollbar {
-  width: 5px;
-}
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+   
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
  
-.slide-content::-webkit-scrollbar-thumb:vertical {
-  margin: 5px;
-  background-color: #999;
-  -webkit-border-radius: 5px;
-}
- 
-.slide-content::-webkit-scrollbar-button:start:decrement,
-.slide-content::-webkit-scrollbar-button:end:increment {
-  height: 5px;
-  display: block;
-} 
- </style>
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+   
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+   
+    <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
+	<style>
+	.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+	.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+    </style>
   </head>
-  
-  <body>
-  
- <div class="container">
+      <!-- jQuery 2.1.4 중요-->
+    <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
-    <hgroup class="mb20">
-		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger">1</strong> result was found for the search for <strong class="text-danger">Book</strong></h2>								
-	</hgroup>
+<!-- header 끝 -->
+<!-- Main content -->
+<section class="content">
 
-    <section class="col-xs-12 col-sm-6 col-md-12">
-		<article class="search-result row">
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
 			
-<div class="container">
-    <!-- Begin of rows -->
-    <div class="row carousel-row">
-        <div class="col-xs-8 col-xs-offset-2 slide-row">
-            <div id="carousel-2" class="carousel slide slide-carousel" data-ride="carousel">
-            
-              <!-- Wrapper for slides -->
-              <div class="carousel-inner">
-                <div class="item active">
-                <img src="./resources/imgs/sample.png" alt="9PixelStudio"> </a>
-                </div>
-    
-              </div>
-            </div>
-            <div class="slide-content">
-            <h4><a href="#myModal" data-toggle="modal" title="">Title, Booknum</a></h4>
-                <p>        
-                
-		<c:forEach items="${lists}" var="bookVO">
-		<td><br>장르: ${bookVO.genrenum}</td>
-		<td><br>${bookVO.author} 저</td>
-		<td><br><span class="badge bg-red">좋아요 수: ${bookVO.likecnt}</span></td>
-		<td><br>${bookVO.content}</td>
-		</c:forEach>
-		
-		
-                </p>
-            </div>
-            <div class="slide-footer">
-                <span class="pull-right buttons">
-            
-            	<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
-		    <c:if test="${loginUser == null }">
-		       <a class="btn icon-btn btn-primary" href="#LoginModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
-		    </c:if> 
-		    <!-- 로그인 되어있을때 좋아요 반영-->
-		     <c:if test="${loginUser != null }">
-		      <a class="btn icon-btn btn-primary" href="#LikeModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>Like</a>
-		    </c:if>
-		    
-		    <!-- 로그인 안되어있을때 로그인 모달 띄움 -->
-		    <c:if test="${loginUser == null }">
-		       <a class="btn icon-btn btn-success" href="#LoginModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
-		    </c:if> 
-            <!-- 로그인 되어있을때 담기 반영-->
-		     <c:if test="${loginUser != null }">
-		     <a class="btn icon-btn btn-success" href="#AddModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a>
-		    </c:if>
+			<br>
+			<br>
+			<br>
+			<div class="box">
+			
+				<div class="box-header with-border">
+					<h3 class="box-title">원하는 책을 검색하세요.</h3>
+				</div>
+				<div class="box-body">
+					<select id="searchType"> 
+						<option>제목</option>
+						<option>저자</option>
+					</select>
+					<input type="text" id="seachKeyword">
+					<button id="searchBtn" class ="btn-primary">Search</button>
 
-            
-                </span>
-            </div>
-        </div>
-    </div>
-        </div>
-   </article>
-   </section>
-    </div>
-   
+				</div>
+				<!-- /.box-body -->
+			</div>
+		</div>
+		<!--/.col (left) -->
+
+	</div>
+	<!-- /.row -->
+
+
+
+	<div class="row">
+		<!-- left column -->
+		<div class="col-md-12">
+			<!-- general form elements -->
+
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">BOOK LIST</h3>
+				</div>
+				<div class="box-body">
 	
-<!-- Modal -->
+		
+  <table class="table table-striped table-condensed">
+	<tr>
+		<th style="width: 10px">번호</th>
+		<th>도서 이름</th>
+		<th>도서 저자</th>
+		<th>담기</th>
+		<th>좋아요</th>
+	</tr>
+
+<tbody id="tbody">
+<c:forEach items="${lists}" var="bookVO">
+
+	<tr>
+
+		<td>${bookVO.booknum}</td>
+		<td><a href="#myModal" data-toggle="modal">${bookVO.title}</a></td>
+		<td>${bookVO.author}</td>
+		
+		<td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
+		<td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td>
+	</tr>
+
+</c:forEach>
+</tbody>
+</table>
+
+
+				</div>
+				<!-- /.box-body -->
+				<div class="box-footer">Footer</div>
+				<!-- /.box-footer-->
+			</div>
+		</div>
+		<!--/.col (left) -->
+
+	</div>
+	<!-- /.row -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<script>
+
+	function contentModal(booknum,title,content,author){
+		this.booknum = booknum ;
+		$("#contentModal").modal('show');
+		$("#title").val(title);
+		$("#genrenum").val(genrenum);
+		$("#author").val(author);
+	}
+	$(document).ready(function(){
+		
+		$("#searchBtn").click(function(){
+			var type 		= $("#searchType").val();
+			var keyword 	= $("#seachKeyword").val();
+			console.log('search check1');
+			$.ajax({
+				url:"search.do" ,
+				type:"post" ,
+				data : {searchType:type,searchKeyword:keyword} ,
+				dataType:"json" ,
+				success:function(ary){
+					alert(ary);
+					$("#tbody").empty();
+				console.log('search check2');
+					var txt="";
+					$.each(ary, function(idx, obj){
+						txt += "<tr><td>"+obj.booknum+"</td>";
+						txt += "<td>"+obj.title+"</td>";
+						txt += "<td>"+obj.author+"</td>";
+						txt += "<td>"+obj.genrenum+"</td>";
+						txt += "<td>"+obj.likecnt+"</td></tr>";
+					});
+					$("#tbody").append(txt);
+				}
+			});
+		});
+		
+	});
+	
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>	     
+	        <h4 class="modal-title" id="myModalLabel">글번호</h4>
+	      </div>
+		      <div class="modal-body"> 
+				   
+				   <input type="hidden" name="author" id="author">				     
+				   <div class="form-group">   
+				     <label for="title">제목</label>
+				     <input type="text" name="title" id="title" 
+				     class = "from-control">
+				    </div>       
+				    <div class="form-group">  
+					<label for="content">장르</label>
+					<textarea name="genrenum" id="genrenum" class="form-control"></textarea>
+				    </div> 
+				    
+							
+				    
+				        
+				    </div>
+		      </div>
+		    </div> <!-- 모달 콘텐츠 -->
+	  </div> <!-- 모달 다이얼로그 -->
+	  
+	  <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -222,8 +212,7 @@ body {
   </div> <!-- 모달 다이얼로그 -->
 </div> <!-- 모달 전체 윈도우 -->
 
-
-		<!-- LikeModal -->
+	<!-- LikeModal -->
 		<div class="modal fade" id="LikeModal" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -259,13 +248,20 @@ body {
 		</div>
 		<!-- 모달 전체 윈도우 -->
 
-      
+<!-- footer -->
+ 
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='/resources/plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="/resources/dist/js/app.min.js" type="text/javascript"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    	<!-- footer.jsp 시작 -->
-	<%@ include file="./footer.jsp"%>
-	<!-- footer.jsp 끝 -->
-  </body>
-  
-  
-</html>
+
+<!-- footer 끝-->
+<%@include file="./footer.jsp"%>
+	  

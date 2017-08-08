@@ -7,9 +7,16 @@
 	
 	<typeAlias type="com.spring.ebook.model.user.vo.UserVO" alias="user"  />
 	<typeAlias type="com.spring.ebook.model.book.vo.BookVO" alias="book"  />
+	<typeAlias type="com.spring.ebook.util.vo.SearchVO" alias="search"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.PutlistVO" alias="putlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.ReadlistVO" alias="readlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.RecommVO" alias="recomlist"  />
+
+	<typeAlias type="com.spring.ebook.model.userbook.vo.UserBookVO" alias="userbook"  />
+	<typeAlias type="com.spring.ebook.model.recode.vo.RecodeVO" alias="recode"  />
+
+	<typeAlias type="com.spring.ebook.model.util.vo.LikeVO" alias="likelist"  />
+
 	</typeAliases>
 
 </configuration>

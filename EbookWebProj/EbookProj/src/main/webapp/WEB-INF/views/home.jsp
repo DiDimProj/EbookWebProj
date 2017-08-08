@@ -2,8 +2,9 @@
     pageEncoding="UTF-8"%>
     
 <%@ page import="com.spring.ebook.model.util.vo.RecommVO"%>
+<%@ page import="com.spring.ebook.model.book.vo.BookVO"%>
 <%@ page import="java.util.ArrayList"%>
-    
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,30 @@
 	padding-right: 10%;
 }
 
+body {
+    padding: 30px 0px;
+}
+
+#lightbox .modal-content {
+    display: inline-block;
+    text-align: center;   
+}
+
+#lightbox .close {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    background-color: rgb(25, 25, 25);
+    padding: 5px 8px;
+    border-radius: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    position: absolute;
+    top: -15px;
+    right: -55px;
+    
+    z-index:1032;
+}
+
+
 .control { position: inherit; top: 50%; z-index: 5; display: inline-block; right: 50%;} 
 
 </style>
@@ -32,6 +57,8 @@
 	<!-- header.jsp 시작 -->
 	<%@ include file="./header.jsp"%>
 	<!-- header.jsp 끝 -->
+	
+	
 	  <div style="background-image: url(./resources/imgs/main_img02.jpg); ">
 	<div class="container" style="padding-top: 8%; padding-bottom: 8%;">
 		<div class="col-md-6 col-md-offset-3">
@@ -100,49 +127,104 @@
 			<h3>
 					추천 테이블
 					</h3>
-				<table class="table table-bordered" id="bbs" style="maigin: 50px 100px 50px 100px; text-align: center; ">
-			<!-- 로그인 안 되어있을 때 --> 
+			<table class="table table-bordered" id="bbs"
+				style="maigin: 50px 100px 50px 100px; text-align: center;">
+				<!-- 로그인 안 되어있을 때 -->
 				<c:if test="${loginUser == null }">
-						<tr>
-							<td>로그인하시면 추천책을 배달해드려요</td>
-						</tr>
+					<tr>
+						<td>로그인하시면 추천책을 배달해드려요</td>
+					</tr>
 				</c:if>
-				
-				<!-- 로그인 되어있을 때 --> 
+
+				<!-- 로그인 되어있을 때 -->
 				<c:if test="${loginUser != null }">
-						<%
-							int titlenum = 0;
-							ArrayList<RecommVO> reclist = (ArrayList<RecommVO>) request.getAttribute("recomlist");
-							for(int i=0;  i< reclist.size()/4 ; ++i){
-						%>
-							<tr>
-						<%
-								for(int j=0; j<4; ++j){
-									if (titlenum >= reclist.size()){
-										break;
-									}
-									else{
-						%>
-							<td><img src="./resources/imgs/book_temp.png"><br><%= reclist.get(titlenum).getTitle() %></td>
-						<%
-										++titlenum;
-									}
-								}
-							}
-						%>
-							</tr>
-						
-				
+
+					<div class="container">
+						<c:forEach items="${recomlist}" var="recomm" end="7">
+							<div class="col-xs-6 col-sm-3">
+								<a href="#" class="thumbnail" data-toggle="modal"
+									data-target="#lightbox"> <img
+									src="./resources/imgs/${recomm.gn}.png"
+									alt="..."> </br> ${recomm.title}
+								</a>
+							</div>
+							
+						</c:forEach>
+					</div>
+					<!-- container / end -->
+
 				</c:if>
-				</table>
+			</table>
+
+
+
+
+			<h3>
+					인기 테이블
+					</h3>
 			</div>
+			
+		<div class="container">
+		    <c:forEach items="${likelist}" var="liklist">
+		    <div class="col-xs-6 col-sm-3">
+		        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"> 
+		            <img src="./resources/imgs/${liklist.gn}.png"
+		             alt="...">
+		            </br>
+		            ${liklist.title}
+		        </a>
+		    </div>
+		  </c:forEach>
+		</div> <!-- container / end -->
 
    <!-- container end -->
    </div>
    
+   <div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" alt="" />
+            </div>
+        </div>
+    </div>
+	</div>
+   
    <script>
    $('.carousel').carousel()
    $('.carousel2').carousel({interval: 3000 }) 
+   
+	$(document).ready(function() {
+	    var $lightbox = $('#lightbox');
+	    
+	    $('[data-target="#lightbox"]').on('click', function(event) {
+	        var $img = $(this).find('img'), 
+	            src = $img.attr('src'),
+	            alt = $img.attr('alt'),
+	            css = {
+	                'maxWidth': $(window).width() - 100,
+	                'maxHeight': $(window).height() - 100
+	            };
+	    
+	        $lightbox.find('.close').addClass('hidden');
+	        $lightbox.find('img').attr('src', src);
+	        $lightbox.find('img').attr('alt', alt);
+	        $lightbox.find('img').css(css);
+	    });
+	    
+	    $lightbox.on('shown.bs.modal', function (e) {
+	        var $img = $lightbox.find('img');
+	            
+	        $lightbox.find('.modal-dialog').css({'width': $img.width()});
+	        $lightbox.find('.close').removeClass('hidden');
+	    });
+	});
+   
+   var recomnum;
+   
+  
+   
    </script>
   </body>
     

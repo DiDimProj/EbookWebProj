@@ -7,7 +7,28 @@
  	<select id="list" resultType="book">
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
+ 		ORDER BY BOOKNUM ASC
  	</select>
+ 	
+ 	<select id="search" parameterType="search" resultType="book"> 
+			SELECT BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
+			FROM  BOOKINFO
+			<where>
+				<if test="searchType == '제목' ">
+					TITLE LIKE '%'||#{searchKeyword}||'%'
+				</if>
+				<if test="searchType == '저자' ">
+					AUTHOR LIKE '%'||#{searchKeyword}||'%'
+				</if>
+			</where> 
+		</select>
 
+ 	<select id="liklist" resultType="likelist">
+		SELECT BOOKNUM, TITLE, LIKECNT, SUBSTR(GENRENUM, 0, 2) GN
+		FROM (	SELECT BOOKNUM, TITLE, LIKECNT, GENRENUM
+					FROM BOOKINFO
+					ORDER BY LIKECNT DESC)
+		WHERE	ROWNUM<![CDATA[ <= ]]>20
+	</select>
 </mapper>
 
