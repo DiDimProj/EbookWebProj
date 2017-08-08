@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.spring.ebook.model.book.vo.BookVO;
-import com.spring.ebook.model.util.vo.RecommVO;
+import com.spring.ebook.model.util.vo.LikeVO;
+import com.spring.ebook.util.vo.SearchVO;
 
 @Repository("bookDao")
 public class BookDao {
@@ -21,15 +22,14 @@ public class BookDao {
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.list");
 	} 
 	
-	public ArrayList<BookVO> likeList(){
+	public ArrayList<LikeVO> likeList(){
 		System.out.println("DAO LIKELIST");
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.liklist");
 	}
 	
-/*	public ArrayList<BookVO> searchRow(SearchVO search) {
+	public ArrayList<BookVO> searchRow(SearchVO search) {
 		System.out.println("Dao searchRow");
 		return (ArrayList)
 				session.selectList("com.spring.acorn.mapper.book.search", search);
-	} // list 타입으로 casting 필요
-*/}
-
+	} 
+}

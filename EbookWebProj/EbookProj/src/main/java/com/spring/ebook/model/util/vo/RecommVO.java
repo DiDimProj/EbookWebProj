@@ -3,18 +3,18 @@ package com.spring.ebook.model.util.vo;
 public class RecommVO {
 
 	private int booknum;
-	private String title, genrenum;
+	private String title, gn;
 
 	public RecommVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public RecommVO(int booknum, String title, String genrenum) {
+	public RecommVO(int booknum, String title, String gn) {
 		super();
 		this.booknum = booknum;
 		this.title = title;
-		this.genrenum = genrenum;
+		this.gn = gn;
 	}
 
 	public int getBooknum() {
@@ -33,12 +33,12 @@ public class RecommVO {
 		this.title = title;
 	}
 
-	public String getGenrenum() {
-		return genrenum;
+	public String getGn() {
+		return gn;
 	}
 
-	public void setGenrenum(String genrenum) {
-		this.genrenum = genrenum;
+	public void setGn(String gn) {
+		this.gn = gn;
 	}
 
 }

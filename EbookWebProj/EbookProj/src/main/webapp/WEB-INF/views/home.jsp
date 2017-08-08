@@ -140,14 +140,15 @@ body {
 				<c:if test="${loginUser != null }">
 
 					<div class="container">
-						<c:forEach items="${recomlist}" var="recomm">
+						<c:forEach items="${recomlist}" var="recomm" end="7">
 							<div class="col-xs-6 col-sm-3">
 								<a href="#" class="thumbnail" data-toggle="modal"
 									data-target="#lightbox"> <img
-									src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg"
+									src="./resources/imgs/${recomm.gn}.png"
 									alt="..."> </br> ${recomm.title}
 								</a>
 							</div>
+							
 						</c:forEach>
 					</div>
 					<!-- container / end -->
@@ -167,7 +168,8 @@ body {
 		    <c:forEach items="${likelist}" var="liklist">
 		    <div class="col-xs-6 col-sm-3">
 		        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"> 
-		            <img src="https://s3.amazonaws.com/ooomf-com-files/lqCNpAk3SCm0bdyd5aA0_IMG_4060_1%20copy.jpg" alt="...">
+		            <img src="./resources/imgs/${liklist.gn}.png"
+		             alt="...">
 		            </br>
 		            ${liklist.title}
 		        </a>
@@ -218,6 +220,8 @@ body {
 	        $lightbox.find('.close').removeClass('hidden');
 	    });
 	});
+   
+   var recomnum;
    
   
    
