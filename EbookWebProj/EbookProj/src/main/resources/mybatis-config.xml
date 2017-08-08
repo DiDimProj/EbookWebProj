@@ -7,6 +7,7 @@
 	
 	<typeAlias type="com.spring.ebook.model.user.vo.UserVO" alias="user"  />
 	<typeAlias type="com.spring.ebook.model.book.vo.BookVO" alias="book"  />
+	<typeAlias type="com.spring.ebook.util.vo.SearchVO" alias="search"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.PutlistVO" alias="putlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.ReadlistVO" alias="readlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.RecommVO" alias="recomlist"  />

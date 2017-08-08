@@ -1,20 +1,20 @@
 package com.spring.ebook.book.ctrl;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.ebook.book.service.BookService;
 import com.spring.ebook.model.book.vo.BookVO;
-import com.spring.ebook.model.util.vo.RecommVO;
+import com.spring.ebook.util.vo.SearchVO;
 
 @Controller
+@RequestMapping
 public class BookCtrl {
 
 	@Resource(name="bookService")
@@ -27,9 +27,8 @@ public class BookCtrl {
 		model.addAttribute("lists", list) ;
 		return "/indexpage";
 	}
-<<<<<<< HEAD
 
-/*	@RequestMapping("/search.do")
+	@RequestMapping("/search.do")
 	@ResponseBody
 	public ArrayList<BookVO> search(SearchVO search) { 
 		System.out.println("Ctrl search");
@@ -37,8 +36,5 @@ public class BookCtrl {
 		System.out.println("keyword :"+search.getSearchKeyword());
 		ArrayList<BookVO> list = serv.search(search);
 		return list;
-	} */
-	
-=======
->>>>>>> a07d605820f813a69923f65fa746bbb3d8e1db08
+	} 
 }

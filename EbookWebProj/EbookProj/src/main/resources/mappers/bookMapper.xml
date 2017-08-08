@@ -7,12 +7,20 @@
  	<select id="list" resultType="book">
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
+ 		ORDER BY BOOKNUM ASC
  	</select>
  	
-<<<<<<< HEAD
-=======
-
- 	
->>>>>>> a07d605820f813a69923f65fa746bbb3d8e1db08
+ 	<select id="search" parameterType="search" resultType="book"> 
+			SELECT BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
+			FROM  BOOKINFO
+			<where>
+				<if test="searchType == '제목' ">
+					TITLE LIKE '%'||#{searchKeyword}||'%'
+				</if>
+				<if test="searchType == '저자' ">
+					AUTHOR LIKE '%'||#{searchKeyword}||'%'
+				</if>
+			</where> 
+		</select>
 </mapper>
 
