@@ -55,7 +55,6 @@
 				    	 <table class="table table-list-search1">
 		                    <thead>
 		                        <tr>
-		                        	<th>아이디</th>
 		                            <th>담은 날짜</th>
 		                            <th>제목</th>
 		                            <th>작가</th>
@@ -69,7 +68,6 @@
 								<c:forEach items="${pustlists}" var="putlistVO">
 								
 									<tr>
-										<td>${putlistVO.userid}</td>
 										<td>${putlistVO.putdate}</td>
 										<td>${putlistVO.title}</td>
 										<td>${putlistVO.author}</td>
@@ -104,7 +102,6 @@
 				    	 <table class="table table-list-search2">
 							<thead>
 		                        <tr>
-		                        	<th>아이디</th>
 		                            <th>읽은 날짜</th>
 		                            <th>제목</th>
 		                            <th>작가</th>
@@ -118,7 +115,6 @@
 								<c:forEach items="${readtlists}" var="readlistVO">
 								
 									<tr>
-										<td>${readlistVO.userid}</td>
 										<td>${readlistVO.readdate}</td>
 										<td>${readlistVO.title}</td>
 										<td>${readlistVO.author}</td>
@@ -145,7 +141,7 @@
 	                  
 	                  <div class="column-chart">           
 	                      <div class="chart clearfix">
-							<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+							<div id="readChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 	                      </div>
 	                      <!-- //.chart -->
 	                  </div>
@@ -340,13 +336,18 @@
 
 
           ////////column-chart
+          
           var genreAry = new Array();
+
+		
+		  genreAry[0] = {name: ${readbook.booknum}, y: 56.33, drilldown: ${lists.booknum}};
+		  genreAry[1] = {name: 'as1', y: 56.33, drilldown: 'as1'};
           
           columnChart();
           
           function columnChart(){
               
-              Highcharts.chart('container', {
+              Highcharts.chart('readChart', {
             	    chart: {
             	        type: 'column'
             	    },
@@ -384,15 +385,7 @@
             	    series: [{
             	        name: '장르',
             	        colorByPoint: true,
-            	        data: [{
-            	            name: 'as',
-            	            y: 56.33,
-            	            drilldown: 'as'
-            	        }, {
-            	            name: 'as1',
-            	            y: 56.33,
-            	            drilldown: 'as1'
-            	        }]
+            	        data: genreAry
             	    }],
             	    drilldown: {
             	        series: [{
@@ -410,18 +403,6 @@
             	                [
             	                    'v9.0',
             	                    8.11
-            	                ],
-            	                [
-            	                    'v10.0',
-            	                    5.33
-            	                ],
-            	                [
-            	                    'v6.0',
-            	                    1.06
-            	                ],
-            	                [
-            	                    'v7.0',
-            	                    0.5
             	                ]
             	            ]
             	        }, {
