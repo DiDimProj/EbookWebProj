@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.spring.ebook.board.ctrl.BoardCtrl;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
@@ -20,7 +20,6 @@ import com.spring.ebook.model.util.vo.RecommVO;
 import com.spring.ebook.user.service.UserService;
 
 @Controller
-@SessionAttributes("loginUser")
 public class UserCtrl {
 	
 	@Resource(name="userService")
@@ -71,15 +70,13 @@ public class UserCtrl {
 	}
 	
 	@RequestMapping("/login.do")
-	public String login(UserVO user, Model model) {
+	public String login(UserVO user, HttpSession session, Model model) {
 		System.out.println("Ctrl login");
 		UserVO result = serv.login(user);
 		String path = null;
 		if (result != null) {
-			ArrayList<RecommVO> recresult = serv.recomlist(user);
-			model.addAttribute("loginUser",result);
-			model.addAttribute("recomlist", recresult);
-			path = "home";
+			session.setAttribute("loginUser",result);
+			path = "redirect:/main.do?userid="+user.getUserid();
 		} else
 			path = "join";
 		return path;

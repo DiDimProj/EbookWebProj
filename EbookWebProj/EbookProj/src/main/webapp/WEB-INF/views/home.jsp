@@ -119,6 +119,7 @@
 						<%
 								for(int j=0; j<4; ++j){
 									if (titlenum >= reclist.size()){
+										titlenum = 0;
 										break;
 									}
 									else{

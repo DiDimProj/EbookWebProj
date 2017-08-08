@@ -53,15 +53,23 @@ max-width: 150px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="main.do">Project Name</a>
+		<c:if test="${loginUser != null }">
+      <a class="navbar-brand" href="main.do?userid=${loginUser.userid}">Project Name</a>
+    	</c:if>
+    	<c:if test="${loginUser == null }">
+    <a class="navbar-brand" href="main.do">Project Name</a>
+    	</c:if>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-       
-        <li><a href="main.do">Home</a></li>
+       <c:if test="${loginUser != null }">
+        <li><a href="main.do?userid=${loginUser.userid}">Home</a></li>
+        </c:if>
+    	<c:if test="${loginUser == null }">
+    	<li><a href="main.do">Home</a></li>
+    	</c:if>
                 <!-- 테스트용으로 넣어둔 임시 링크 -->
         <li><a href="indexpage.do">indexpage</a></li>
-        <li><a href="mypage.do">mypage</a></li>
         <li><a href="join.do">join</a></li>
 			<!-- 로그인 안되어있을때 로그인 모달 띄움 --> 
 			<c:if test="${loginUser == null }">
