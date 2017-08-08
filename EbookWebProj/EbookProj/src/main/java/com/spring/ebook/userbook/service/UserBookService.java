@@ -16,9 +16,10 @@ public class UserBookService {
 	@Resource(name="userbookDao")
 	private UserBookDao dao ;
 	
-	public ArrayList<UserBookVO> putbooklist() {
-		System.out.println("Service putbooklist");
-		return dao.putbooklistRow();
+	public int delPutbook(UserBookVO delputbook) {
+		System.out.println("Service delputbook");
+		return dao.delPutbookRow(delputbook);
 	}
+	
 
 }
