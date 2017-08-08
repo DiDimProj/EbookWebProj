@@ -28,7 +28,6 @@ public class BookCtrl {
 		return "/indexpage";
 	}
 
-
 /*	@RequestMapping("/search.do")
 	@ResponseBody
 	public ArrayList<BookVO> search(SearchVO search) { 

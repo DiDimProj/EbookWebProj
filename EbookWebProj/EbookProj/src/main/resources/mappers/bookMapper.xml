@@ -8,6 +8,11 @@
  	 	SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
  		FROM	BOOKINFO
  	</select>
-
+ 	
+ 	<select id="liklist" resultType="book">
+ 		SELECT BOOKNUM, TITLE, LIKECNT
+		FROM BOOKINFO
+		ORDER BY LIKECNT DESC
+	</select>
 </mapper>
 
