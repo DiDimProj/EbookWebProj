@@ -16,9 +16,8 @@ public class UserBookDao {
 	@Resource(name="sqlSession")
 	private SqlSession session ;
 	
-	public ArrayList<UserBookVO> putbooklistRow() {
-		System.out.println("Dao userbooklistrow");
-		return (ArrayList)session.selectList("com.spring.acorn.mapper.userbook.putbooklist");
+	public int delPutbookRow(UserBookVO delputbook) {
+		System.out.println("Dao delPutbookRow");
+		return session.delete("com.spring.acorn.mapper.userbook.delputbook", delputbook);
 	}
-
 }

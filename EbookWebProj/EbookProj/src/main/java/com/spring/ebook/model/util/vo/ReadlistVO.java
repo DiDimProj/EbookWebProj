@@ -3,12 +3,13 @@ package com.spring.ebook.model.util.vo;
 public class ReadlistVO {
 	private String	userid, readdate, title, author, genrename, tag;
 	private int		likecnt;
+	private String	booknum;
 	public ReadlistVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public ReadlistVO(String userid, String readdate, String title, String author, String genrename, String tag,
-			int likecnt) {
+			int likecnt, String booknum) {
 		super();
 		this.userid = userid;
 		this.readdate = readdate;
@@ -17,6 +18,7 @@ public class ReadlistVO {
 		this.genrename = genrename;
 		this.tag = tag;
 		this.likecnt = likecnt;
+		this.booknum = booknum;
 	}
 	public String getUserid() {
 		return userid;
@@ -59,6 +61,12 @@ public class ReadlistVO {
 	}
 	public void setLikecnt(int likecnt) {
 		this.likecnt = likecnt;
+	}
+	public String getBooknum() {
+		return booknum;
+	}
+	public void setBooknum(String booknum) {
+		this.booknum = booknum;
 	}
 	
 }

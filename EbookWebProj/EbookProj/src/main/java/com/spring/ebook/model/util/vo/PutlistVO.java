@@ -3,12 +3,13 @@ package com.spring.ebook.model.util.vo;
 public class PutlistVO {
 	private String	userid, putdate, title, author, genrename, tag;
 	private int		likecnt;
+	private String	booknum;
 	public PutlistVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public PutlistVO(String userid, String putdate, String title, String author, String genrename, String tag,
-			int likecnt) {
+			int likecnt, String booknum) {
 		super();
 		this.userid = userid;
 		this.putdate = putdate;
@@ -17,6 +18,7 @@ public class PutlistVO {
 		this.genrename = genrename;
 		this.tag = tag;
 		this.likecnt = likecnt;
+		this.booknum = booknum;
 	}
 	public String getUserid() {
 		return userid;
@@ -59,6 +61,12 @@ public class PutlistVO {
 	}
 	public void setLikecnt(int likecnt) {
 		this.likecnt = likecnt;
+	}
+	public String getBooknum() {
+		return booknum;
+	}
+	public void setBooknum(String booknum) {
+		this.booknum = booknum;
 	}
 	
 }
