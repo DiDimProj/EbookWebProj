@@ -70,22 +70,24 @@ public class UserCtrl {
 	}
 	
 	@RequestMapping("/login.do")
-	public String login(UserVO user, HttpSession session, Model model) {
+	public String login(UserVO user, HttpSession session) {
 		System.out.println("Ctrl login");
 		UserVO result = serv.login(user);
 		String path = null;
 		if (result != null) {
+			ArrayList<RecommVO> recresult = serv.recomlist(user);
+			session.setAttribute("recomlist", recresult);
 			session.setAttribute("loginUser",result);
-			path = "redirect:/main.do?userid="+user.getUserid();
+			path = "redirect:/main.do";
 		} else
 			path = "join";
 		return path;
 	}
 	
 	@RequestMapping("/logout.do")
-	public String logout(SessionStatus status) {
+	public String logout(HttpSession session) {
 		System.out.println("ctrl logout");
-		status.setComplete();
+		session.invalidate();
 		return "redirect:/main.do";
 	}
 	

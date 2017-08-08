@@ -10,9 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.spring.ebook.model.user.vo.UserVO;
-import com.spring.ebook.model.util.vo.RecommVO;
-import com.spring.ebook.user.service.UserService;
+import com.spring.ebook.book.service.BookService;
+import com.spring.ebook.model.book.vo.BookVO;
 
 /**
  * Handles requests for the application home page.
@@ -20,19 +19,16 @@ import com.spring.ebook.user.service.UserService;
 @Controller
 public class HomeController {
 	
-	@Resource(name="userService")
-	private UserService serv;
+	@Resource(name="bookService")
+	private BookService Bserv ;
 	
 	@RequestMapping(value = "main.do", method = RequestMethod.GET)
-	public String home(UserVO user, Locale locale, Model model) {
+	public String home(Locale locale, Model model) {
 		System.out.println("Ctrl home");
-		if(user.getUserid() != null) {
-
-			ArrayList<RecommVO> recresult = serv.recomlist(user);
-			model.addAttribute("recomlist", recresult);
-			System.out.println("userid 얻음");
-			
-		}
+		
+		ArrayList<BookVO> likeresult = Bserv.likeList();
+		model.addAttribute("likelist", likeresult);
+		
 		return "home";
 	}
 	

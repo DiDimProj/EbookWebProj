@@ -21,6 +21,11 @@ public class BookDao {
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.list");
 	} 
 	
+	public ArrayList<BookVO> likeList(){
+		System.out.println("DAO LIKELIST");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.book.liklist");
+	}
+	
 /*	public ArrayList<BookVO> searchRow(SearchVO search) {
 		System.out.println("Dao searchRow");
 		return (ArrayList)

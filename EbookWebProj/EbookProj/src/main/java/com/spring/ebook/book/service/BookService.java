@@ -21,6 +21,11 @@ public class BookService {
 		return dao.listRow() ;
 	}
 	
+	public ArrayList<BookVO> likeList(){
+		System.out.println("Service Likelist");
+		return dao.likeList();
+	}
+	
 /*	public ArrayList<BookVO> search(SearchVO search) {
 		System.out.println("Service search");
 		return dao.searchRow(search);

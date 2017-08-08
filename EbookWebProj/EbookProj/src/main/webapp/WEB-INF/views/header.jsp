@@ -53,21 +53,11 @@ max-width: 150px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-		<c:if test="${loginUser != null }">
-      <a class="navbar-brand" href="main.do?userid=${loginUser.userid}">Project Name</a>
-    	</c:if>
-    	<c:if test="${loginUser == null }">
     <a class="navbar-brand" href="main.do">Project Name</a>
-    	</c:if>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-       <c:if test="${loginUser != null }">
-        <li><a href="main.do?userid=${loginUser.userid}">Home</a></li>
-        </c:if>
-    	<c:if test="${loginUser == null }">
     	<li><a href="main.do">Home</a></li>
-    	</c:if>
                 <!-- 테스트용으로 넣어둔 임시 링크 -->
         <li><a href="indexpage.do">indexpage</a></li>
         <li><a href="join.do">join</a></li>
