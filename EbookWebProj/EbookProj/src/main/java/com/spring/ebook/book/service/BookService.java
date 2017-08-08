@@ -21,24 +21,14 @@ public class BookService {
 		System.out.println("Service booklist");
 		return dao.listRow() ;
 	}
-	
-<<<<<<< HEAD
-=======
-	public ArrayList<BookVO> search(SearchVO search) {
-		return dao.searchRow(search);
-	}
-	
->>>>>>> f8a3325d0735cf70e09363c5a5ab846d36d04ba9
+
 	public ArrayList<LikeVO> likeList(){
 		System.out.println("Service Likelist");
 		return dao.likeList();
 	}
 	
-<<<<<<< HEAD
 	public ArrayList<BookVO> search(SearchVO search) {
 		System.out.println("Service search");
 		return dao.searchRow(search);
 	}
-=======
->>>>>>> f8a3325d0735cf70e09363c5a5ab846d36d04ba9
 }

@@ -22,10 +22,7 @@
 				</if>
 			</where> 
 		</select>
-<<<<<<< HEAD
-		
-=======
->>>>>>> f8a3325d0735cf70e09363c5a5ab846d36d04ba9
+
  	<select id="liklist" resultType="likelist">
 		SELECT BOOKNUM, TITLE, LIKECNT, SUBSTR(GENRENUM, 0, 2) GN
 		FROM (	SELECT BOOKNUM, TITLE, LIKECNT, GENRENUM
