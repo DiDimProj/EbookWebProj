@@ -10,6 +10,7 @@
  		ORDER BY BOOKNUM ASC
  	</select>
  	
+<<<<<<< HEAD
  	<select id="search" parameterType="search" resultType="book"> 
 			SELECT BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
 			FROM  BOOKINFO
@@ -22,5 +23,14 @@
 				</if>
 			</where> 
 		</select>
+=======
+ 	<select id="liklist" resultType="likelist">
+		SELECT BOOKNUM, TITLE, LIKECNT, SUBSTR(GENRENUM, 0, 2) GN
+		FROM (	SELECT BOOKNUM, TITLE, LIKECNT, GENRENUM
+					FROM BOOKINFO
+					ORDER BY LIKECNT DESC)
+		WHERE	ROWNUM<![CDATA[ <= ]]>20
+	</select>
+>>>>>>> 2a43a3c3160204ea4712971f356ca5085464fa62
 </mapper>
 

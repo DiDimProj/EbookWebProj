@@ -53,13 +53,12 @@
 			    	 <table class="table table-list-search1">
 	                    <thead>
 	                        <tr>
-	                        	<th>userid</th>
-	                            <th>putdate</th>
-	                            <th>title</th>
-	                            <th>author</th>
-	                            <th>genrename</th>
-	                            <th>tag</th>
-	                            <th>likecnt</th>
+	                        	<th>아이디</th>
+	                            <th>담은 날짜</th>
+	                            <th>제목</th>
+	                            <th>작가</th>
+	                            <th>장르(태그)</th>
+	                            <th>좋아요</th>
 	                           
 	                        </tr>
 	                    </thead>
@@ -71,8 +70,7 @@
 									<td>${putlistVO.putdate}</td>
 									<td>${putlistVO.title}</td>
 									<td>${putlistVO.author}</td>
-									<td>${putlistVO.genrename}</td>
-									<td>${putlistVO.tag}</td>
+									<td>${putlistVO.genrename}(${putlistVO.tag})</td>
 									<td>${putlistVO.likecnt}</td>
 								</tr>
 							</c:forEach>
@@ -100,13 +98,12 @@
 			    	 <table class="table table-list-search2">
 						<thead>
 	                        <tr>
-	                        	<th>userid</th>
-	                            <th>readdate</th>
-	                            <th>title</th>
-	                            <th>author</th>
-	                            <th>genrename</th>
-	                            <th>tag</th>
-	                            <th>likecnt</th>
+	                        	<th>아이디</th>
+	                            <th>읽은 날짜</th>
+	                            <th>제목</th>
+	                            <th>작가</th>
+	                            <th>장르(태그)</th>
+	                            <th>좋아요</th>
 	                           
 	                        </tr>
 	                    </thead>
@@ -118,8 +115,7 @@
 									<td>${readlistVO.readdate}</td>
 									<td>${readlistVO.title}</td>
 									<td>${readlistVO.author}</td>
-									<td>${readlistVO.genrename}</td>
-									<td>${readlistVO.tag}</td>
+									<td>${readlistVO.genrename}(${readlistVO.tag})</td>
 									<td>${readlistVO.likecnt}</td>
 								</tr>
 							</c:forEach>
@@ -152,7 +148,7 @@
         </div>
         
         <div class="tab-pane" id="tab_d">
-             <form class="form-horizontal">
+             <form class="form-horizontal" method="post" action="update.do">
 				<fieldset>
 				
 				<!-- Form Name -->
@@ -171,7 +167,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="giftName">Password</label>  
 				  <div class="col-md-4">
-				  <input id="password" name="password" type="password" class="form-control input-md">
+				  <input id="password" name="password" type="password" class="form-control input-md" value="${loginUser.password}">
 				    
 				  </div>
 				</div>
@@ -203,6 +199,7 @@
 				</div>
 				
 				</fieldset>
+				<button type="submit">수정</button>
 			</form>
         </div>
         
@@ -216,10 +213,9 @@
 				<!-- Text input-->
 				
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="giftID">USERID</label>
+					<label class="col-md-4 control-label" for="giftID">Password</label>
 					<div class="col-md-4">
 						<br>
-						<input type="text" class="form-control" name="userid">
 		      			<input type="submit" value="탈퇴" />
 					</div>
 				</div>

@@ -11,6 +11,7 @@
 	<typeAlias type="com.spring.ebook.model.util.vo.PutlistVO" alias="putlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.ReadlistVO" alias="readlistboard"  />
 	<typeAlias type="com.spring.ebook.model.util.vo.RecommVO" alias="recomlist"  />
+	<typeAlias type="com.spring.ebook.model.util.vo.LikeVO" alias="likelist"  />
 	</typeAliases>
 
 </configuration>

@@ -10,6 +10,12 @@
  		WHERE	USERID = #{userid} AND PASSWORD = #{password}
  	</select>
  	
+ 	<select id="oneuser" parameterType ="user" resultType="user">
+ 		SELECT	USERID, PASSWORD, NAME, AGE, PHONE, GENRENUM, ADMIN
+ 		FROM		USERINFO
+ 		WHERE	USERID = #{userid}
+ 	</select>
+ 	
  	<select id="putlist" parameterType="user" resultType="putlistboard">
  	 	SELECT		USERID, PUTDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT
  		FROM		USERBOOK
@@ -28,23 +34,47 @@
  		ORDER BY	READDATE ASC
  	</select>
  	
- 	<select id="withdrawal" parameterType ="user" resultType="user">
+ 	<update id="update"
+ 			parameterType="user">
+ 		UPDATE	USERINFO
+ 		SET		PASSWORD = #{password},
+ 				NAME = #{name},
+ 				AGE = #{age},
+ 				PHONE = #{phone}
+ 		WHERE	USERID = #{userid}
+ 	</update>
+ 	
+ 	<delete id="withdrawal" parameterType ="user">
  	 	DELETE
  	 	FROM	USERINFO
  	 	WHERE	USERID = #{userid}
- 	 	
- 	</select>
+ 	</delete>
+
+ 	<insert id="insert"
+ 			parameterType="user">
+ 		INSERT INTO USERINFO
+ 		VALUES(	#{userid},
+ 				#{password},
+ 				#{name},
+ 				#{age},
+ 				#{phone},
+ 				'01',
+ 				'0'
+ 		)
+ 	</insert>			
+
  	
  	 <select id="recom" parameterType="user" resultType="recomlist">
- 		SELECT		BOOKNUM, TITLE, GENRENUM
+ 		SELECT		BOOKNUM, TITLE, SUBSTR(GENRENUM, 0, 2) GN
 		FROM		BOOKINFO 
-		WHERE		GENRENUM IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
+		WHERE		SUBSTR(GENRENUM,0,2) IN (	SELECT REGEXP_SUBSTR(U.CONT, <![CDATA[ '[^|]+' ]]>, 1, LEVEL) CONT
 													FROM (SELECT GENRENUM CONT
 																FROM USERINFO
 																WHERE USERID = #{userid} )U
 													CONNECT BY LEVEL <![CDATA[ <=   ]]> length(REGEXP_REPLACE(U.CONT, '[^|]+',''))+1)
+		ORDER BY DBMS_RANDOM.RANDOM
  	
  	</select>
- 	
+
 </mapper>
 

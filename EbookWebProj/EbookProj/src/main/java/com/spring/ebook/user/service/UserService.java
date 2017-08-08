@@ -22,6 +22,11 @@ public class UserService {
 		return dao.loginRow(user);
 	}
 	
+	public UserVO oneUser(UserVO user) {
+		System.out.println("user oneUser");
+		return dao.oneUserRow(user);
+	}
+	
 	public ArrayList<PutlistVO> putlist(UserVO user) {
 		System.out.println("Service putlist");
 		return dao.putlistRow(user);
@@ -32,14 +37,26 @@ public class UserService {
 		return dao.readlistRow(user);
 	}
 	
-	public UserVO withdrawal(UserVO user) {
+	public int update(UserVO user) {
+		System.out.println("Service update");
+		return dao.updateRow(user);
+	}
+	
+	public int withdrawal(UserVO user) {
 		System.out.println("Service withdrawal");
 		return dao.withdrawalRow(user);
 	}
 	
+
+	public UserVO insert(UserVO user) {
+		System.out.println("Service insert");
+		return dao.insertRow(user);
+	}
+
 	public ArrayList<RecommVO> recomlist(UserVO user){
 		System.out.println("recomlist");
 		return dao.recomlist(user);
 	}
-	
+
+
 }
