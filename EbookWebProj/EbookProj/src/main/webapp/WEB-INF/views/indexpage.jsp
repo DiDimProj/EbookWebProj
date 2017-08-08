@@ -20,9 +20,12 @@
    
     <link href="/resources/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
-    
+	<style>
+	.btn-glyphicon { padding:8px; background:#ffffff; margin-right:4px; }
+	.icon-btn { padding: 1px 15px 3px 2px; border-radius:50px;}
+    </style>
   </head>
-      <!-- jQuery 2.1.4 -->
+      <!-- jQuery 2.1.4 중요-->
     <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
 <!-- header 끝 -->
@@ -33,10 +36,14 @@
 		<!-- left column -->
 		<div class="col-md-12">
 			<!-- general form elements -->
-
+			
+			<br>
+			<br>
+			<br>
 			<div class="box">
+			
 				<div class="box-header with-border">
-					<h3 class="box-title">Search PAGE</h3>
+					<h3 class="box-title">원하는 책을 검색하세요.</h3>
 				</div>
 				<div class="box-body">
 					<select id="searchType"> 
@@ -64,33 +71,37 @@
 
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">LIST ALL PAGE</h3>
+					<h3 class="box-title">BOOK LIST</h3>
 				</div>
 				<div class="box-body">
-				
-<table class="table table-bordered">
+	
+		
+  <table class="table table-striped table-condensed">
 	<tr>
-		<th style="width: 10px">BOOKNUM</th>
-		<th>TITLE</th>
-		<th>AUTHOR</th>
-		<th>GENRENUM</th>
-		<th style="width: 40px">LIKECNT</th>
+		<th style="width: 10px">번호</th>
+		<th>도서 이름</th>
+		<th>도서 저자</th>
+		<th>담기</th>
+		<th>좋아요</th>
 	</tr>
 
 <tbody id="tbody">
 <c:forEach items="${lists}" var="bookVO">
 
 	<tr>
+
 		<td>${bookVO.booknum}</td>
-		<td><a href="javascript:contentModal(${bookVO.booknum},'${bookVO.title}','${bookVO.genrenum}','${bookVO.author}')">${bookVO.title}</a></td>
+		<td><a href="#myModal" data-toggle="modal">${bookVO.title}</a></td>
 		<td>${bookVO.author}</td>
-		<td>${bookVO.genrenum}</td>
-		<td><span class="badge bg-red">${bookVO.likecnt }</span></td>
+		
+		<td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
+		<td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td>
 	</tr>
 
 </c:forEach>
 </tbody>
 </table>
+
 
 				</div>
 				<!-- /.box-body -->
@@ -145,7 +156,8 @@
 		});
 		
 	});
-	    
+	
+
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -175,6 +187,67 @@
 		      </div>
 		    </div> <!-- 모달 콘텐츠 -->
 	  </div> <!-- 모달 다이얼로그 -->
+	  
+	  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Book info</h4>
+      </div>
+      <div class="modal-body">
+ <form role="form">  
+    <div class="form-group">   
+        <label for="Name">Content</label>  
+        <c:forEach items="${lists}" var="bookVO">
+		<td><br>${bookVO.content}</td>
+		</c:forEach>
+    </div>    
+           
+    </form>
+      </div>
+      
+    </div> <!-- 모달 콘텐츠 -->
+  </div> <!-- 모달 다이얼로그 -->
+</div> <!-- 모달 전체 윈도우 -->
+
+	<!-- LikeModal -->
+		<div class="modal fade" id="LikeModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다.</h4>
+					</div>
+				</div>
+				<!-- 모달 콘텐츠 -->
+			</div>
+			<!-- 모달 다이얼로그 -->
+		</div>
+		<!-- 모달 전체 윈도우 -->
+		
+				<!-- AddModal -->
+		<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">내 서재에 1권을 담았습니다.</h4>
+					</div>
+				</div>
+				<!-- 모달 콘텐츠 -->
+			</div>
+			<!-- 모달 다이얼로그 -->
+		</div>
+		<!-- 모달 전체 윈도우 -->
+
 <!-- footer -->
  
     <!-- Bootstrap 3.3.2 JS -->

@@ -36,10 +36,6 @@ public class BookCtrl {
 		System.out.println("keyword :"+search.getSearchKeyword());
 		ArrayList<BookVO> list = serv.search(search);
 		return list;
-<<<<<<< HEAD
 	} 
-=======
-	} */
 	
->>>>>>> 2a43a3c3160204ea4712971f356ca5085464fa62
 }
