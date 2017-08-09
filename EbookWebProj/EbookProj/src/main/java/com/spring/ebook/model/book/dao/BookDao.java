@@ -32,4 +32,8 @@ public class BookDao {
 		return (ArrayList)
 				session.selectList("com.spring.acorn.mapper.book.search", search);
 	} 
+	
+	public BookVO addbook(BookVO book) {
+		return session.selectOne("com.spring.acorn.mapper.book.addbook", book);
+	}
 }

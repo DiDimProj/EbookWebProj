@@ -38,4 +38,17 @@ public class BookCtrl {
 		return list;
 	} 
 	
+	@RequestMapping("/addbook.do")
+	public String addbook(BookVO book) {
+		BookVO add = serv.addbook(book);
+		return "redirect:/addbookform.do";
+	}
+	
+	@RequestMapping("/addbookform.do")
+	public String addbookForm(Model model) {
+		ArrayList<BookVO> list = serv.list();
+		model.addAttribute("lists", list) ;
+		return "addbookform";
+	}
+	
 }

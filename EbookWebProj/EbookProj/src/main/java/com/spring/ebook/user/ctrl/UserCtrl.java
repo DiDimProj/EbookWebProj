@@ -98,4 +98,9 @@ public class UserCtrl {
 		return "redirect:/main.do";
 	}
 	
+	@RequestMapping("admin.do")
+	public String adminpage() {
+		return "admin";
+	}
+	
 }

@@ -69,6 +69,9 @@ max-width: 150px;
 			<c:if test="${loginUser != null }">
 		      	<li><a href="logout.do"> logout</a></li>
 		      	<li><a href="mypage.do?userid=${loginUser.userid}">Mypage</a>
+		      		<c:if test="${loginUser.admin == 1 }">
+		      			<li><a href="admin.do">admin</a>
+		      		</c:if> 
 		    </c:if> 
 				</ul>
     </div><!--/.nav-collapse -->

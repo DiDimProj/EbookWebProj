@@ -23,7 +23,8 @@ VALUES('user20', '010101', '조영재', 51, '010-3102-7589', '01-3|06-1|10-2', 0);
 INSERT INTO USERINFO
 VALUES('user30', '010101', '이주영', 59, '010-2907-4924', '01-3|02-1|05-1', 0);
 
-
+INSERT INTO USERINFO
+VALUES('admin', 'admin', 'admin', 1, 'none', '01-1|01-1|01-1', 1);
 
 UPDATE USERINFO
 SET GENRENUM =  '02-2|06-3|07-1'  WHERE USERID = 'user02';
