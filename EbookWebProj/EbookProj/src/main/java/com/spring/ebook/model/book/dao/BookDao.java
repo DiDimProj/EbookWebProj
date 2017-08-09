@@ -36,4 +36,14 @@ public class BookDao {
 	public BookVO addbook(BookVO book) {
 		return session.selectOne("com.spring.acorn.mapper.book.addbook", book);
 	}
+	
+	public BookVO getBookRow(BookVO book) {
+		System.out.println("Dao getBookRow");
+		return session.selectOne("com.spring.acorn.mapper.board.getBook",book);
+	}
+	
+	public int updateRow(BookVO book) {
+		System.out.println("Dao updateRow");
+		return session.update("com.spring.acorn.mapper.board.likeupdate", book);
+	}
 }

@@ -51,4 +51,19 @@ public class BookCtrl {
 		return "addbookform";
 	}
 	
+	@RequestMapping("/bookModify.do")
+	public String bookModify(BookVO book, Model model) {
+		System.out.println("Ctrl bookModify");
+		BookVO result = serv.getModify(book);
+		model.addAttribute("BookVO", result);
+		return "/modify";
+	}
+	
+	@RequestMapping("/likeupdate.do")
+	public String update(BookVO book) {
+		System.out.println("Ctrl update");
+		int flag = serv.update(book);
+		return "redirect:/book/indexpage.do";
+	}
+	
 }
