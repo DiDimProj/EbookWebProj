@@ -12,7 +12,8 @@
 	
 <body>
 	<div class="container" style="padding-top:8%;">
-		<a href="addbookform.do"> 책 추가/제거 페이지 </a>
+		<a href="addbookform.do"> 책 추가/제거 페이지 </a><br>
+		<a href="userform.do"> 유저 관리 페이지 </a>
 	</div>
 </body>
 </html>
