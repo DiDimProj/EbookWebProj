@@ -95,7 +95,7 @@
 		<td>${bookVO.author}</td>
 		
 		<td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
- <%-- <td><button id="updateBtn"><a class="btn icon-btn btn-primary" href="javascript:likeModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></button></td> --%>
+ 		<%-- <td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td> --%>
 	
 	<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
 		    <c:if test="${loginUser == null }">
@@ -103,9 +103,9 @@
 		    </c:if> 
 		    <!-- 로그인 되어있을때 좋아요 반영-->
 		     <c:if test="${loginUser != null }">
-		    <td><button id="updateBtn"><a class="btn icon-btn btn-primary" href="javascript:likeModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></button></td>
+		    <td><a class="btn icon-btn btn-primary" href="likeupdate.do?booknum=${bookVO.booknum}"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td>
 		    </c:if>
-	
+   
 	
 	</tr>
 	
@@ -152,9 +152,9 @@
 	
 	$(document).ready(function(){
 		
-	 	$("#updateBtn").click(function() {
+ 	$("#updateBtn").click(function() {
 	 			alert(booknum);
-				location.href="/bookModify.do?booknum="+booknum;
+				location.href="likeupdate.do?booknum="+booknum;
 			});
 		
 		$("#searchBtn").click(function(){
