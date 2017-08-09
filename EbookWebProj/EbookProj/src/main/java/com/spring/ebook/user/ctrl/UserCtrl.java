@@ -45,6 +45,13 @@ public class UserCtrl {
 		return "/mypage";
 	}
 	
+//	@RequestMapping("/readChart.do")
+//	public String readChart(ReadchartVO readchart, Model model) {
+//		System.out.println("Ctrl chart");
+//		model.addAttribute("readcharts", attributeValue)
+//	
+//	}
+	
 	@RequestMapping("/update.do")
 	public String update(UserVO user) {
 		System.out.println("Ctrl update");
