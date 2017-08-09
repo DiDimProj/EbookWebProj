@@ -1,3 +1,4 @@
+<%@page import="com.spring.ebook.model.util.vo.ReadchartVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -143,6 +144,7 @@
 						  <dt>
 						    Total Performance
 						  </dt>
+						  
 						  <c:forEach items="${readchart}" var="readchartVO">
 							  <dd class="percentage percentage-11"><span class="text">${readchartVO.genrename}, ${readchartVO.tag}, ${readchartVO.cnt}</span></dd>
 						  </c:forEach>
