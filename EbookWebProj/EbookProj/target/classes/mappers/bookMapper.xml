@@ -30,5 +30,33 @@
 					ORDER BY LIKECNT DESC)
 		WHERE	ROWNUM<![CDATA[ <= ]]>20
 	</select>
+	
+ 	<insert id="addbook" parameterType="book">
+		INSERT INTO BOOKINFO
+		VALUES ( #{booknum}, #{title}, #{genrenum}, #{author}, #{content}, '0' )
+	</insert>
+	
+	<delete id ="delbook" parameterType = "book">
+		DELETE
+		FROM BOOKINFO
+		WHERE BOOKNUM = #{booknum}
+	</delete>
+	
+		
+		<select id="getBook"
+			parameterType="book"
+			resultType="book">
+		SELECT	BOOKNUM, TITLE, GENRENUM, AUTHOR, CONTENT, LIKECNT
+		FROM	BOOKINFO
+		WHERE	BOOKNUM = #{booknum}
+	</select>
+	
+		<update id="likeupdate"
+ 			parameterType="book">
+ 		UPDATE	BOOKINFO
+ 		SET		LIKECNT=LIKECNT+1
+ 		WHERE	BOOKNUM = #{booknum}	
+ 	</update>
+ 	
 </mapper>
 

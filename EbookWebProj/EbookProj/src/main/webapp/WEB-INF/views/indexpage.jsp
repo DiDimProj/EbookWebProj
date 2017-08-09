@@ -91,12 +91,24 @@
 	<tr>
 
 		<td>${bookVO.booknum}</td>
-		<td><a href="#myModal" data-toggle="modal">${bookVO.title}</a></td>
+		<td><a href="javascript:contentModal(${bookVO.booknum},'${bookVO.title}','${bookVO.content}')">${bookVO.title}</a></td>
 		<td>${bookVO.author}</td>
 		
 		<td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
-		<td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td>
+ <%-- <td><button id="updateBtn"><a class="btn icon-btn btn-primary" href="javascript:likeModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></button></td> --%>
+	
+	<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
+		    <c:if test="${loginUser == null }">
+		    <td><a class="btn icon-btn btn-primary" href="javascript:myModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td> 
+		    </c:if> 
+		    <!-- 로그인 되어있을때 좋아요 반영-->
+		     <c:if test="${loginUser != null }">
+		    <td><button id="updateBtn"><a class="btn icon-btn btn-primary" href="javascript:likeModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></button></td>
+		    </c:if>
+	
+	
 	</tr>
+	
 
 </c:forEach>
 </tbody>
@@ -104,9 +116,7 @@
 
 
 				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">Footer</div>
-				<!-- /.box-footer-->
+			
 			</div>
 		</div>
 		<!--/.col (left) -->
@@ -120,14 +130,32 @@
 
 <script>
 
-	function contentModal(booknum,title,content,author){
+	var booknum ;
+	function contentModal(booknum,title,content){
 		this.booknum = booknum ;
 		$("#contentModal").modal('show');
 		$("#title").val(title);
-		$("#genrenum").val(genrenum);
-		$("#author").val(author);
+		$("#content").val(content);
 	}
+	
+	function likeModal(booknum,likecnt){
+		this.booknum = booknum ;
+		$("#likeModal").modal('show');
+		$("#likecnt").val(likecnt);
+	}
+	
+	function myModal(booknum,likecnt){
+		this.booknum = booknum ;
+		$("#myModal").modal('show');
+		$("#likecnt").val(likecnt);
+	}
+	
 	$(document).ready(function(){
+		
+	 	$("#updateBtn").click(function() {
+	 			alert(booknum);
+				location.href="/bookModify.do?booknum="+booknum;
+			});
 		
 		$("#searchBtn").click(function(){
 			var type 		= $("#searchType").val();
@@ -159,30 +187,25 @@
 	
 
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>	     
-	        <h4 class="modal-title" id="myModalLabel">글번호</h4>
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Book Info </h4>
 	      </div>
-		      <div class="modal-body"> 
-				   
-				   <input type="hidden" name="author" id="author">				     
-				   <div class="form-group">   
-				     <label for="title">제목</label>
-				     <input type="text" name="title" id="title" 
-				     class = "from-control">
-				    </div>       
-				    <div class="form-group">  
-					<label for="content">장르</label>
-					<textarea name="genrenum" id="genrenum" class="form-control"></textarea>
-				    </div> 
-				    
-							
-				    
-				        
+	      <div class="modal-body"> 
+		    
+		    <input type="hidden" name="writer" id="writer">
+		    
+		    <div class="form-group">   
+		        <label for="title">제목</label>
+		        <input type="text" name="title" id="title" class="form-control"> 
+		    </div>       
+		    <div class="form-group">  
+		        <label for="content">내용</label>
+		        <textarea name="content" id="content" class="form-control"></textarea>
+		    </div>      
 				    </div>
 		      </div>
 		    </div> <!-- 모달 콘텐츠 -->
@@ -194,41 +217,35 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Book info</h4>
+        <h4 class="modal-title" id="myModalLabel">로그인을 해주세요!</h4>
       </div>
-      <div class="modal-body">
- <form role="form">  
-    <div class="form-group">   
-        <label for="Name">Content</label>  
-        <c:forEach items="${lists}" var="bookVO">
-		<td><br>${bookVO.content}</td>
-		</c:forEach>
-    </div>    
-           
-    </form>
-      </div>
+  
       
     </div> <!-- 모달 콘텐츠 -->
   </div> <!-- 모달 다이얼로그 -->
 </div> <!-- 모달 전체 윈도우 -->
 
 	<!-- LikeModal -->
-		<div class="modal fade" id="LikeModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">
-							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다.</h4>
-					</div>
-				</div>
-				<!-- 모달 콘텐츠 -->
-			</div>
-			<!-- 모달 다이얼로그 -->
-		</div>
-		<!-- 모달 전체 윈도우 -->
+		  <div class="modal fade" id="likeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다^^ </h4>
+	      </div>
+	      <div class="modal-body"> 
+		    
+		    <input type="hidden" name="writer" id="writer">
+		    
+		    <div class="form-group">   
+		        <label for="likecnt">좋아요 수 </label>
+		        <input type="text" name="likecnt" id="likecnt" class="form-control"> 
+		    </div>       
+		     
+				    </div>
+		      </div>
+		    </div> <!-- 모달 콘텐츠 -->
+	  </div> <!-- 모달 다이얼로그 -->
 		
 				<!-- AddModal -->
 		<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
@@ -259,9 +276,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/resources/dist/js/demo.js" type="text/javascript"></script>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 
 <!-- footer 끝-->
 <%@include file="./footer.jsp"%>
-	  

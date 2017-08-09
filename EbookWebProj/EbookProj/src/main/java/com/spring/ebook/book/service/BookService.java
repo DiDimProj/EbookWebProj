@@ -31,4 +31,18 @@ public class BookService {
 		System.out.println("Service search");
 		return dao.searchRow(search);
 	}
+	
+	public BookVO addbook(BookVO book) {
+		return dao.addbook(book);
+	}
+	
+	public BookVO getModify(BookVO book) {
+		System.out.println("Service getModify");
+		return dao.getBookRow(book);
+	}
+	
+	public int update(BookVO book) {
+		System.out.println("Service update");
+		return dao.updateRow(book);
+	}
 }

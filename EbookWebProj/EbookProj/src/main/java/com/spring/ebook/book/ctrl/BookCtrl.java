@@ -38,4 +38,32 @@ public class BookCtrl {
 		return list;
 	} 
 	
+	@RequestMapping("/addbook.do")
+	public String addbook(BookVO book) {
+		BookVO add = serv.addbook(book);
+		return "redirect:/addbookform.do";
+	}
+	
+	@RequestMapping("/addbookform.do")
+	public String addbookForm(Model model) {
+		ArrayList<BookVO> list = serv.list();
+		model.addAttribute("lists", list) ;
+		return "addbookform";
+	}
+	
+	@RequestMapping("/bookModify.do")
+	public String bookModify(BookVO book, Model model) {
+		System.out.println("Ctrl bookModify");
+		BookVO result = serv.getModify(book);
+		model.addAttribute("BookVO", result);
+		return "/modify";
+	}
+	
+	@RequestMapping("/likeupdate.do")
+	public String update(BookVO book) {
+		System.out.println("Ctrl update");
+		int flag = serv.update(book);
+		return "redirect:/book/indexpage.do";
+	}
+	
 }
