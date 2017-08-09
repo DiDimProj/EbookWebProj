@@ -30,5 +30,17 @@
 					ORDER BY LIKECNT DESC)
 		WHERE	ROWNUM<![CDATA[ <= ]]>20
 	</select>
+	
+ 	<insert id="addbook" parameterType="book">
+		INSERT INTO BOOKINFO
+		VALUES ( #{booknum}, #{title}, #{genrenum}, #{author}, #{content}, '0' )
+	</insert>
+	
+	<delete id ="delbook" parameterType = "book">
+		DELETE
+		FROM BOOKINFO
+		WHERE BOOKNUM = #{booknum}
+	</delete>
+	
 </mapper>
 
