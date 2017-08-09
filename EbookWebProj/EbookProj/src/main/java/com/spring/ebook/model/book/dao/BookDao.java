@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.model.util.vo.LikeVO;
 import com.spring.ebook.util.vo.SearchVO;
 
@@ -36,6 +38,20 @@ public class BookDao {
 	public BookVO addbook(BookVO book) {
 		return session.selectOne("com.spring.acorn.mapper.book.addbook", book);
 	}
+	
+	//삭제를 꼭 이딴식으로 해야하는걸까 ---------------------------------------------
+	public BookVO delbook(BookVO book) {
+		return session.selectOne("com.spring.acorn.mapper.book.delbook", book);
+	}
+	
+	public RecodeVO delbook(RecodeVO recode) {
+		return session.selectOne("com.spring.acorn.mapper.book.delbookrecode", recode);
+	}
+	
+	public UserBookVO delbook(UserBookVO userbook) {
+		return session.selectOne("com.spring.acorn.mapper.book.deluserbook", userbook);
+	}
+	//---------------------------------------------------------------------
 	
 	public BookVO getBookRow(BookVO book) {
 		System.out.println("Dao getBookRow");

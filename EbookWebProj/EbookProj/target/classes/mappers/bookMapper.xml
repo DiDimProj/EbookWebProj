@@ -42,6 +42,17 @@
 		WHERE BOOKNUM = #{booknum}
 	</delete>
 	
+	<delete id ="delbookrecode" parameterType = "recode">
+		DELETE
+		FROM RECODE
+		WHERE BOOKNUM = #{booknum}              
+	</delete>
+	
+	<delete id ="deluserbook" parameterType = "userbook">
+		DELETE
+		FROM USERBOOK
+		WHERE BOOKNUM = #{booknum}
+	</delete>
 		
 		<select id="getBook"
 			parameterType="book"
