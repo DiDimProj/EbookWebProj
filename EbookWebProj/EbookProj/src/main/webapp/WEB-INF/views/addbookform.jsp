@@ -22,8 +22,9 @@
 		<input type="submit" value="책추가">
 	</form>
 	
-	
+
  <table class="table">
+ 
   <thead>
    <tr>
     <th> 책번호 </th>
@@ -35,12 +36,19 @@
    </thead>
    <c:forEach items="${lists}" var="bookVO" >
 	   <tr>
+	  
 	     <td>${bookVO.booknum}</td>
 	     <td>${bookVO.title}</td>
 	     <td>${bookVO.genrenum}</td>
 	     <td>${bookVO.author}</td>
 	     <td>${bookVO.content}</td>
+	     <td>
+	  	   <a href="delbook.do?booknum=${bookVO.booknum}">
+	 	    삭제
+	 	   </a>
+	 	  </td>
 	   </tr>
+	   
    </c:forEach>
  </table>
 	</div>

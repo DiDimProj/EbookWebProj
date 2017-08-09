@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.ebook.book.service.BookService;
 import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.util.vo.SearchVO;
 
 @Controller
@@ -58,4 +60,19 @@ public class BookCtrl {
 		return "redirect:/indexpage.do";
 	}
 	
+	@RequestMapping("/delbook.do")
+	public String delete(BookVO book) {
+		System.out.println("delbook ctrl");
+		RecodeVO rec = new RecodeVO();
+		UserBookVO userb = new UserBookVO();
+		
+		rec.setBooknum(book.getBooknum());
+		userb.setBooknum(book.getBooknum());
+		
+		serv.delbook(rec);
+		serv.delbook(userb);
+		serv.delbook(book);
+		
+		return "redirect:/addbookform.do";
+	}
 }

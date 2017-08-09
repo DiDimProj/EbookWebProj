@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.spring.ebook.model.book.dao.BookDao;
 import com.spring.ebook.model.book.vo.BookVO;
-import com.spring.ebook.util.vo.SearchVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.model.util.vo.LikeVO;
+import com.spring.ebook.util.vo.SearchVO;
 
 @Service("bookService")
 public class BookService {
@@ -34,6 +36,27 @@ public class BookService {
 	
 	public BookVO addbook(BookVO book) {
 		return dao.addbook(book);
+	}
+	
+	//세번..----------------------------------------
+	
+	public BookVO delbook(BookVO book) {
+		return dao.delbook(book);
+	}
+	
+	public RecodeVO delbook(RecodeVO rec) {
+		return dao.delbook(rec);
+	}
+	
+	public UserBookVO delbook(UserBookVO userb) {
+		return dao.delbook(userb);
+	}
+	
+	//-----------------------------------------------
+	
+	public BookVO getModify(BookVO book) {
+		System.out.println("Service getModify");
+		return dao.getBookRow(book);
 	}
 	
 	public int update(BookVO book) {

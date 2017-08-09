@@ -32,7 +32,7 @@
    <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
-     <li><a href="#tab_c" data-toggle="pill">내가 읽은 책 통계</a></li>
+     <li><a href="#tab_c" data-toggle="pill" id="readChartEvent">내가 읽은 책 통계</a></li>
      <li><a href="#tab_d" data-toggle="pill">회원 정보 수정</a></li>
      <li><a href="#tab_e" data-toggle="pill">회원 탈퇴</a></li>
    </ul>
@@ -336,11 +336,33 @@
 
 
           ////////column-chart
+          $("#readChartEvent").click(function() {
+        	  alert('${loginUser.userid}');
+        	  $.ajax({
+    		   //   url : "/chart.do",
+    		      type : "post",
+    		   //   data : {userid : '${loginUser.userid}'};
+    		      dataType : "json",
+    		      success : function(dataAry) {
+    		         var chartData = new Array();
+    		         chartData.push([ 'Age', 'Weight' ]);
+    		         $.each(dataAry, function(idx, data) {
+    		            chartData.push([ data.age, data.weight ]);
+    		         });
+    		         ary = chartData;
+    		        
+    		      }
+    		   });
+    		  
+           });
+          /*
+                  
           
           var genreAry = new Array();
-
+		  var test = ${readbooks.booknum};
 		
-		  genreAry[0] = {name: ${readbook.booknum}, y: 56.33, drilldown: ${lists.booknum}};
+		//  genreAry[0] = {name: test, y: 56.33, drilldown: test};
+		  genreAry[0] = {name: 'as', y: 50, drilldown: 'as'};
 		  genreAry[1] = {name: 'as1', y: 56.33, drilldown: 'as1'};
           
           columnChart();
@@ -437,7 +459,7 @@
             	        }]
             	    }
             	});
-          };
+          };*/
        });
     
     </script>
