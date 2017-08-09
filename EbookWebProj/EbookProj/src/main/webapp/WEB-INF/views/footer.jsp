@@ -13,7 +13,7 @@
 </div><!-- /#top-bar -->
 </footer><!-- /footer -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./resources/js/bootstrap.min.js"></script>
     <script src="./resources/js/header.js"></script>
