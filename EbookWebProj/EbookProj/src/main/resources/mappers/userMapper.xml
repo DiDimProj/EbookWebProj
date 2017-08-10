@@ -55,7 +55,8 @@
  		SET		PASSWORD = #{password},
  				NAME = #{name},
  				AGE = #{age},
- 				PHONE = #{phone}
+ 				PHONE = #{phone},
+ 				GENRENUM = #{genrenum}
  		WHERE	USERID = #{userid}
  	</update>
  	
