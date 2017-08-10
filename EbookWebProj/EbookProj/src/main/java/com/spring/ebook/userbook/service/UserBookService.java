@@ -1,10 +1,7 @@
 package com.spring.ebook.userbook.service;
 
-import java.util.ArrayList;
-
 import javax.annotation.Resource;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.spring.ebook.model.userbook.dao.UserBookDao;
@@ -20,6 +17,16 @@ public class UserBookService {
 		System.out.println("Service delputbook");
 		return dao.delPutbookRow(delputbook);
 	}
+
+	public int addPutbook(UserBookVO addputbook) {
+		System.out.println("Service addputbook");
+		return dao.addPutbookRow(addputbook);
+	}
+	
+/*	public int checkPutbook(UserBookVO checkputbook) {
+		System.out.println("Service checkputbook");
+		return dao.checkPutbookRow(checkputbook);
+	}*/
 	
 
 }
