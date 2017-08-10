@@ -122,9 +122,76 @@ function join_btn(){
   
 }
 
-
 </script>
+	 
+	     <script type="text/javascript">
 
+		$(document).ready(function() {
+    	  
+         ////////filter_table
+         var activeSystemClass = $('.list-group-item.active');
+
+    	//something is entered in search form
+	    $('#idinput').keyup( function() {
+	       var that = this;
+	       
+	    	if($(that).val().length > 10 || 
+	    			$(that).val().length < 5){
+	     			  $("#idcheck").attr("class","form-group has-error");
+	    	}else{
+	    		$("#idcheck").attr("class","form-group has-success");
+	    	}
+	    });
+    	
+	    $('#pwdinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length > 10 || 
+		    			$(that).val().length < 5){
+		     			  $("#pwdcheck").attr("class","form-group has-error");
+		    	}else{
+		    		$("#pwdcheck").attr("class","form-group has-success");
+		    	}
+		    });
+	    
+	    $('#nameinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length > 5 ||
+		    			$(that).val().length < 2){
+		     			  $("#namecheck").attr("class","form-group has-error");
+		    	}else{
+		    		$("#namecheck").attr("class","form-group has-success");
+		    	}
+		    });
+	    
+	    $('#ageinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length > 3 || 
+		    			$(that).val().length < 1){
+		     			  $("#agecheck").attr("class","form-group has-error");
+		    	}else{
+		    		$("#agecheck").attr("class","form-group has-success");
+		    	}
+		    });
+	    
+	    $('#phoneinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length != 11){
+		     			  $("#phonecheck").attr("class","form-group has-error");
+		    	}else{
+		    		$("#phonecheck").attr("class","form-group has-success");
+		    	}
+		    });
+    	
+       });
+		
+    
+    </script>
+	 
+	 
 	<div class="container">
 		<div class="row">
 			<div
@@ -138,29 +205,29 @@ function join_btn(){
 					</h2>
 					<hr class="colorgraph">
 
-					<div class="form-group">
-						<input type="text" name="userid" id="inputSuccess"
+					<div class="form-group" id="idcheck">
+						<input type="text" name="userid" id="idinput"
 							class="form-control input-lg" placeholder="아이디" tabindex="1">
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="password" id="password"
+					<div class="form-group" id="pwdcheck">
+						<input type="text" name="password" id="pwdinput"
 							class="form-control input-lg" placeholder="비밀번호" tabindex="2">
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="name" id="name"
+					<div class="form-group" id="namecheck">
+						<input type="text" name="name" id="nameinput"
 							class="form-control input-lg" placeholder="이름" tabindex="4">
 					</div>
 
-					<div class="form-group">
-						<input type="number" name="age" id="age"
+					<div class="form-group" id="agecheck">
+						<input type="number" name="age" id="ageinput"
 							class="form-control input-lg" placeholder="나이 : 숫자만 입력하시오"
 							tabindex="5">
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="phone" id="phone"
+					<div class="form-group" id="phonecheck">
+						<input type="text" name="phone" id="phoneinput"
 							class="form-control input-lg" placeholder="핸드폰 번호 : 숫자만 입력하시오"
 							tabindex="6">
 					</div>
