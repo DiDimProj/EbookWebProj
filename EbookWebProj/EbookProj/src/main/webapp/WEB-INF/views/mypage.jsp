@@ -140,20 +140,13 @@
             	<div class="row" style="margin-top:30px; ">
 					<div class="col-md-12">
 						 <h2 class="flot"><i class="fa fa-pie-chart" aria-hidden="true"></i></h2>
-						 <h1>Performance</h1>
 						<dl>
 						  <dt>
-						    Total Performance
+						   	장르(태그) BEST 3
 						  </dt>
-						  
+						
 						  <c:forEach items="${readchart}" var="readchartVO">
-							  <%int sum = 0;
-							  	sum++;
-							  	System.out.println(sum); %>
-						  </c:forEach>
-						  
-						  <c:forEach items="${readchart}" var="readchartVO">
-							  <dd class="percentage percentage-11"><span class="text">${readchartVO.genrename}, ${readchartVO.tag}, ${readchartVO.cnt}</span></dd>
+							  <dd class="percentage percentage-${readchartVO.percent}"><span class="text">${readchartVO.genrename}(${readchartVO.tag}) ${readchartVO.cnt}권 ${readchartVO.percent}%</span></dd>
 						  </c:forEach>
 						  
 						</dl>
@@ -353,12 +346,10 @@
           
        });
 		
-		$('#readChart').onClick( function() {
-			console.log('asdfasdf');
-			
-		});
     
     </script>
+
+    
   </body>
        <!-- footer.jsp 시작 -->
    <%@ include file="./footer.jsp"%>
