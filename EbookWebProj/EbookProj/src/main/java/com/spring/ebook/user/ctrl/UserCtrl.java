@@ -45,7 +45,6 @@ public class UserCtrl {
 		UserVO result = serv.oneUser(user);
 		model.addAttribute("loginUser",result);
 		
-		
 		return "/mypage";
 	}
 	
@@ -53,7 +52,6 @@ public class UserCtrl {
 	public String update(UserVO user) {
 		System.out.println("Ctrl update");
 		int flag = serv.update(user);
-		
 		
 		return "redirect:/mypage.do?userid="+user.getUserid();
 	}
