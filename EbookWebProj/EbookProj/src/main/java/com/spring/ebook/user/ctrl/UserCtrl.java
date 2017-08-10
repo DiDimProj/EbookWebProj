@@ -38,6 +38,7 @@ public class UserCtrl {
 		
 		System.out.println("ctrl readchart");
 		ArrayList<ReadchartVO> readchart = serv.readchart(user);
+		setPercentOfReadchart(readchart);
 		model.addAttribute("readchart", readchart);
 		
 		System.out.println("ctrl oneuser");
@@ -104,6 +105,19 @@ public class UserCtrl {
 	@RequestMapping("admin.do")
 	public String adminpage() {
 		return "admin";
+	}
+	
+	public void setPercentOfReadchart(ArrayList<ReadchartVO> readchart) {
+		
+		double sum = 0;
+		
+		for(int i=0; i<readchart.size(); i++) {
+			sum += readchart.get(i).getCnt();
+		}
+		for(int i=0; i<readchart.size(); i++) {
+			readchart.get(i).setPercent((int)((double)(readchart.get(i).getCnt() / sum) * 100));
+		}
+		
 	}
 	
 }

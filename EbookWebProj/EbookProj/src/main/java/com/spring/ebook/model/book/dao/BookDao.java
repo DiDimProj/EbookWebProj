@@ -53,11 +53,6 @@ public class BookDao {
 	}
 	//---------------------------------------------------------------------
 	
-	public BookVO getBookRow(BookVO book) {
-		System.out.println("Dao getBookRow");
-		return session.selectOne("com.spring.acorn.mapper.board.getBook",book);
-	}
-	
 	public int updateRow(BookVO book) {
 		System.out.println("Dao updateRow");
 		return session.update("com.spring.acorn.mapper.book.likeupdate", book);

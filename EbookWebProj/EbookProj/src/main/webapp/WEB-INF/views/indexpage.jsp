@@ -94,10 +94,20 @@
 		<td><a href="javascript:contentModal(${bookVO.booknum},'${bookVO.title}','${bookVO.content}')">${bookVO.title}</a></td>
 		<td>${bookVO.author}</td>
 		
-		<td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
- 		<%-- <td><a class="btn icon-btn btn-primary" href="#"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td> --%>
+		<!-- <td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td> -->
+ 		
+ 			<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
+		    <c:if test="${loginUser == null }">
+		    <td><a class="btn icon-btn btn-success" href="javascript:myModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td> 
+		    </c:if> 
+		    <!-- 로그인 되어있을때 담기 반영-->
+		     <c:if test="${loginUser != null }">
+		    <%--  <td><a class="btn icon-btn btn-success" href="./addPutbook.do?=${userVO.userid},${bookVO.booknum}"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>  --%>
+		    <td><a class="btn icon-btn btn-success"  href="#AddModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span><input type="button" value="Add" onclick="addPutbook('${loginUser.userid}', ${bookVO.booknum})"/></a></td>
+		    </c:if>
+  
 	
-	<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
+		<!-- 로그인 안되어있을때 로그인 모달 띄움 -->
 		    <c:if test="${loginUser == null }">
 		    <td><a class="btn icon-btn btn-primary" href="javascript:myModal(${bookVO.booknum},${bookVO.likecnt})"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td> 
 		    </c:if> 
@@ -105,6 +115,8 @@
 		     <c:if test="${loginUser != null }">
 		    <td><a class="btn icon-btn btn-primary" href="likeupdate.do?booknum=${bookVO.booknum}"><span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span>${bookVO.likecnt}</a></td>
 		    </c:if>
+		   
+		    
    
 	
 	</tr>
@@ -149,6 +161,14 @@
 		$("#myModal").modal('show');
 		$("#likecnt").val(likecnt);
 	}
+	
+ 	function addPutbook(userid, booknum) {
+		var str='';
+		if(userid) str+="userid="+userid+"&";
+		if(booknum) str+="booknum="+booknum+"&";
+	
+		document.location.href="./addPutbook.do?"+str;
+	} 
 	
 	$(document).ready(function(){
 		
@@ -224,28 +244,7 @@
     </div> <!-- 모달 콘텐츠 -->
   </div> <!-- 모달 다이얼로그 -->
 </div> <!-- 모달 전체 윈도우 -->
-
-	<!-- LikeModal -->
-		  <div class="modal fade" id="likeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	        <h4 class="modal-title" id="myModalLabel">좋아요에 반영되었습니다^^ </h4>
-	      </div>
-	      <div class="modal-body"> 
-		    
-		    <input type="hidden" name="writer" id="writer">
-		    
-		    <div class="form-group">   
-		        <label for="likecnt">좋아요 수 </label>
-		        <input type="text" name="likecnt" id="likecnt" class="form-control"> 
-		    </div>       
-		     
-				    </div>
-		      </div>
-		    </div> <!-- 모달 콘텐츠 -->
-	  </div> <!-- 모달 다이얼로그 -->
+		
 		
 				<!-- AddModal -->
 		<div class="modal fade" id="AddModal" tabindex="-1" role="dialog"
