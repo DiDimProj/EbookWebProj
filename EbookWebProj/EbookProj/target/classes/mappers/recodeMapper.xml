@@ -10,5 +10,11 @@
 		FROM	RECODE
 		WHERE	USERID = #{userid} AND BOOKNUM = #{booknum}
 	</delete>
+	
+		<insert id="addreadbook"
+			parameterType="recode">
+		INSERT INTO RECODE	
+		VALUES (#{userid}, #{booknum},SYSDATE)
+	</insert>
 </mapper>
 

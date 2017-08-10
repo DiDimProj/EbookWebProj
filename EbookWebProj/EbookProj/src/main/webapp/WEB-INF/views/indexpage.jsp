@@ -91,8 +91,14 @@
 	<tr>
 
 		<td>${bookVO.booknum}</td>
+		<c:if test="${loginUser == null }">
+		<td><a href="javascript:readModal(${bookVO.booknum},'${bookVO.title}','${bookVO.content}')">${bookVO.title}</a></td>
+		</c:if>
+		<c:if test="${loginUser != null }">
 		<td><a href="javascript:contentModal(${bookVO.booknum},'${bookVO.title}','${bookVO.content}')">${bookVO.title}</a></td>
+		</c:if>
 		<td>${bookVO.author}</td>
+		
 		
 		<!-- <td><a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td> -->
  		
@@ -103,7 +109,7 @@
 		    <!-- 로그인 되어있을때 담기 반영-->
 		     <c:if test="${loginUser != null }">
 		    <%--  <td><a class="btn icon-btn btn-success" href="./addPutbook.do?=${userVO.userid},${bookVO.booknum}"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>  --%>
-		    <td><a class="btn icon-btn btn-success"  href="#AddModal" data-toggle="modal"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span><input type="button" value="Add" onclick="addPutbook('${loginUser.userid}', ${bookVO.booknum})"/></a></td>
+		    <td><a class="btn icon-btn btn-success"  href="javascript:addPutbook('${loginUser.userid}', ${bookVO.booknum})"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>Add</a></td>
 		    </c:if>
   
 	
@@ -145,10 +151,34 @@
 	var booknum ;
 	function contentModal(booknum,title,content){
 		this.booknum = booknum ;
-		$("#contentModal").modal('show');
-		$("#title").val(title);
-		$("#content").val(content);
+		$.ajax({
+			url  : "addReadbook.do",
+			type : "post",
+			data : {booknum : booknum , userid : '${loginUser.userid}'},
+			success : function() {
+				/* alert("레코드 정보를 저장하였습니다~~"); */
+				$("#contentModal").modal('show');
+				$("#title").val(title);
+				$("#content").val(content);
+			}
+		});
 	}
+	
+	var booknum ;
+	function readModal(booknum,title,content){
+		this.booknum = booknum ;
+		$.ajax({
+			data : {booknum : booknum},
+			success : function() {
+				/* alert("레코드 정보를 저장하였습니다~~"); */
+				$("#contentModal").modal('show');
+				$("#title").val(title);
+				$("#content").val(content);
+			}
+		});
+	}
+
+
 	
 	function likeModal(booknum,likecnt){
 		this.booknum = booknum ;
@@ -166,9 +196,16 @@
 		var str='';
 		if(userid) str+="userid="+userid+"&";
 		if(booknum) str+="booknum="+booknum+"&";
-	
+		$("#AddModal").modal('show');
 		document.location.href="./addPutbook.do?"+str;
 	} 
+ 	
+ 	/* function addReadbook(userid, booknum) {
+		var str='';
+		if(userid) str+="userid="+userid+"&";
+		if(booknum) str+="booknum="+booknum+"&";
+		document.location.href="./addReadbook.do?"+str;
+	}  */
 	
 	$(document).ready(function(){
 		
@@ -187,7 +224,7 @@
 				data : {searchType:type,searchKeyword:keyword} ,
 				dataType:"json" ,
 				success:function(ary){
-					alert(ary);
+					/* alert(ary); */
 					$("#tbody").empty();
 				console.log('search check2');
 					var txt="";
@@ -207,6 +244,7 @@
 	
 
 </script>
+<!-- ContentModal 기본 -->
    <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
@@ -219,18 +257,42 @@
 		    <input type="hidden" name="writer" id="writer">
 		    
 		    <div class="form-group">   
-		        <label for="title">제목</label>
+		        <label for="title">제목 </label>
 		        <input type="text" name="title" id="title" class="form-control"> 
 		    </div>       
 		    <div class="form-group">  
 		        <label for="content">내용</label>
 		        <textarea name="content" id="content" class="form-control"></textarea>
 		    </div>      
-				    </div>
+				 </div>
 		      </div>
 		    </div> <!-- 모달 콘텐츠 -->
 	  </div> <!-- 모달 다이얼로그 -->
 	  
+	<!-- 쌔거 -->
+   <div class="modal fade" id="readModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Book Info </h4>
+	      </div>
+	      <div class="modal-body"> 
+		    
+		    <input type="hidden" name="writer" id="writer">
+		    
+		    <div class="form-group">   
+		        <label for="title">제목 </label>
+		        <input type="text" name="title" id="title" class="form-control"> 
+		    </div>       
+		    <div class="form-group">  
+		        <label for="content">내용</label>
+		        <textarea name="content" id="content" class="form-control"></textarea>
+		    </div>      
+				 </div>
+		      </div>
+		    </div> <!-- 모달 콘텐츠 -->
+	  </div> <!-- 모달 다이얼로그 -->  
 	  <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -255,7 +317,7 @@
 						<button type="button" class="close" data-dismiss="modal">
 							<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 						</button>
-						<h4 class="modal-title" id="myModalLabel">내 서재에 1권을 담았습니다.</h4>
+						<h4 class="modal-title" id="myModalLabel">내 서재에 1권을 담았습니다^^</h4>
 					</div>
 				</div>
 				<!-- 모달 콘텐츠 -->
