@@ -38,12 +38,12 @@ public class UserCtrl {
 		
 		System.out.println("ctrl readchart");
 		ArrayList<ReadchartVO> readchart = serv.readchart(user);
+		setPercentOfReadchart(readchart);
 		model.addAttribute("readchart", readchart);
 		
 		System.out.println("ctrl oneuser");
 		UserVO result = serv.oneUser(user);
 		model.addAttribute("loginUser",result);
-		
 		
 		return "/mypage";
 	}
@@ -52,7 +52,6 @@ public class UserCtrl {
 	public String update(UserVO user) {
 		System.out.println("Ctrl update");
 		int flag = serv.update(user);
-		
 		
 		return "redirect:/mypage.do?userid="+user.getUserid();
 	}
@@ -104,6 +103,19 @@ public class UserCtrl {
 	@RequestMapping("admin.do")
 	public String adminpage() {
 		return "admin";
+	}
+	
+	public void setPercentOfReadchart(ArrayList<ReadchartVO> readchart) {
+		
+		double sum = 0;
+		
+		for(int i=0; i<readchart.size(); i++) {
+			sum += readchart.get(i).getCnt();
+		}
+		for(int i=0; i<readchart.size(); i++) {
+			readchart.get(i).setPercent((int)((double)(readchart.get(i).getCnt() / sum) * 100));
+		}
+		
 	}
 	
 }

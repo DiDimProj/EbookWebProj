@@ -30,6 +30,33 @@
 		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
 		87.5%, #62c2e4 87.5%, #62c2e4);
 }
+
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
 </style>
 <body>
 
@@ -54,9 +81,12 @@ function check(obj) {
    var cbox = document.getElementsByName("chk");
    var checked = 0;
    
+   var resultbox = [];
    
    for(i=0;i<cbox.length;i++){
       if(cbox[i].checked==true){
+
+         resultbox[checked] = cbox[i].value;
          checked ++;
       }
    }
@@ -67,7 +97,7 @@ function check(obj) {
        return false;
    }
    
-   var checkvalue = cbox[0].value+"|"+cbox[1].value+"|"+cbox[2].value;
+   var checkvalue = resultbox[0]+"|"+resultbox[1]+"|"+resultbox[2];
    
    return checkvalue;
 }
@@ -81,32 +111,32 @@ function join_btn(){
    var genren = insert_Ck();
    
    
-    if(document.getElementById("userid").value.length >= 10 || 
-    		document.getElementById("userid").value.length <= 5){
+    if(document.getElementById("idinput").value.length > 10 || 
+    		document.getElementById("idinput").value.length < 5){
     	alert('아이디는 5~10자만 가능합니다.');
         location.reload(false);
         return false;
     }
-   if(document.getElementById("password").value.length >= 10 ||
-		  document.getElementById("password").value.length <= 5){
+   if(document.getElementById("pwdinput").value.length > 10 ||
+		  document.getElementById("pwdinput").value.length < 5){
 	      alert('비밀번호는 5~10자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    } 
-   if(document.getElementById("name").value.length >= 5 ||
-		   document.getElementById("name").value.length<= 2){
+   if(document.getElementById("nameinput").value.length > 5 ||
+		   document.getElementById("nameinput").value.length< 2){
 	      alert('이름은 2~5자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    }
-   if(document.getElementById("age").value.length >=3 ||
-		   document.getElementById("age").value.length <= 1){
+   if(document.getElementById("ageinput").value<1 ||
+		   document.getElementById("ageinput").value >120){
 
 	      alert('정확한 나이를 입력해주세요.');
 	      location.reload(true);
 	      return false;
    }
-   if(document.getElementById("phone").value.length != 11){
+   if(document.getElementById("phoneinput").value.length != 11){
 	      alert('정확한 핸드폰번호를 입력해주세요.');
 	      location.reload(true);
 	      return false;
@@ -119,13 +149,97 @@ function join_btn(){
   
 }
 
-
-   
-   
 </script>
+	 
+	     <script type="text/javascript">
 
+		$(document).ready(function() {
+    	  
+         ////////filter_table
+         var activeSystemClass = $('.list-group-item.active');
+
+    	//something is entered in search form
+	    $('#idinput').keyup( function() {
+	       var that = this;
+	       
+	    	if($(that).val().length > 10 || 
+	    			$(that).val().length < 5){
+	     			$("#idcheck").attr("class","form-group has-error");
+	     			$("#idspan").attr("class","input-group-addon danger");
+	     			$("#idicon").attr("class","glyphicon glyphicon-remove");
+	     			 
+	    	}else{
+	    		$("#idcheck").attr("class","form-group has-success");
+     			$("#idspan").attr("class","input-group-addon success");
+     			$("#idicon").attr("class","glyphicon glyphicon-ok");
+	    	}
+	    });
+    	
+	    $('#pwdinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length > 10 || 
+		    			$(that).val().length < 5){
+		     			  $("#pwdcheck").attr("class","form-group has-error");
+			     			$("#pwdspan").attr("class","input-group-addon danger");
+			     			$("#pwdicon").attr("class","glyphicon glyphicon-remove");
+		    	}else{
+		    		$("#pwdcheck").attr("class","form-group has-success");
+	     			$("#pwdspan").attr("class","input-group-addon success");
+	     			$("#pwdicon").attr("class","glyphicon glyphicon-ok");
+		    	}
+		    });
+	    
+	    $('#nameinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length > 5 ||
+		    			$(that).val().length < 2){
+		     			  $("#namecheck").attr("class","form-group has-error");
+			     			$("#namespan").attr("class","input-group-addon danger");
+			     			$("#nameicon").attr("class","glyphicon glyphicon-remove");
+		    	}else{
+		    		$("#namecheck").attr("class","form-group has-success");
+	     			$("#namespan").attr("class","input-group-addon success");
+	     			$("#nameicon").attr("class","glyphicon glyphicon-ok");
+		    	}
+		    });
+	    
+	    $('#ageinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val()<1 || $(that).val() > 120){
+		     			  $("#agecheck").attr("class","form-group has-error");
+			     			$("#agespan").attr("class","input-group-addon danger");
+			     			$("#ageicon").attr("class","glyphicon glyphicon-remove");
+		    	}else{
+		    		$("#agecheck").attr("class","form-group has-success");
+	     			$("#agespan").attr("class","input-group-addon success");
+	     			$("#ageicon").attr("class","glyphicon glyphicon-ok");
+		    	}
+		    });
+	    
+	    $('#phoneinput').keyup( function() {
+		       var that = this;
+		       
+		    	if($(that).val().length != 11){
+		     			  $("#phonecheck").attr("class","form-group has-error");
+			     			$("#phonespan").attr("class","input-group-addon danger");
+			     			$("#phoneicon").attr("class","glyphicon glyphicon-remove");
+		    	}else{
+		    		$("#phonecheck").attr("class","form-group has-success");
+	     			$("#phonespan").attr("class","input-group-addon success");
+	     			$("#phoneicon").attr("class","glyphicon glyphicon-ok");
+		    	}
+		    });
+    	
+       });
+		
+    
+    </script>
+	 
+	 
 	<div class="container">
-
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3"
@@ -138,33 +252,56 @@ function join_btn(){
 					</h2>
 					<hr class="colorgraph">
 
-
-
-					<div class="form-group">
-						<input type="text" name="userid" id="userid"
-							class="form-control input-lg" placeholder="아이디" tabindex="1">
+					<div class="form-group" id="idcheck">
+						<div class="input-group" >
+							<input type="text" name="userid" id="idinput"
+								class="form-control input-lg" placeholder="아이디" tabindex="1">
+								<span class="input-group-addon danger" id="idspan">
+								<span class="glyphicon glyphicon-remove" id="idicon">
+								</span></span>
+							</div>
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="password" id="password"
+					<div class="form-group" id="pwdcheck">
+					<div class="input-group" >
+						<input type="text" name="password" id="pwdinput"
 							class="form-control input-lg" placeholder="비밀번호" tabindex="2">
+							<span class="input-group-addon danger" id="pwdspan">
+								<span class="glyphicon glyphicon-remove" id="pwdicon">
+								</span></span>
+							</div>
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="name" id="name"
+					<div class="form-group" id="namecheck">
+					<div class="input-group" >
+						<input type="text" name="name" id="nameinput"
 							class="form-control input-lg" placeholder="이름" tabindex="4">
+							<span class="input-group-addon danger" id="namespan">
+								<span class="glyphicon glyphicon-remove" id="nameicon">
+								</span></span>
+							</div>
 					</div>
 
-					<div class="form-group">
-						<input type="number" name="age" id="age"
+					<div class="form-group" id="agecheck">
+					<div class="input-group" >
+						<input type="number" name="age" id="ageinput"
 							class="form-control input-lg" placeholder="나이 : 숫자만 입력하시오"
 							tabindex="5">
+							<span class="input-group-addon danger" id="agespan">
+								<span class="glyphicon glyphicon-remove" id="ageicon">
+								</span></span>
+							</div>
 					</div>
 
-					<div class="form-group">
-						<input type="text" name="phone" id="phone"
+					<div class="form-group" id="phonecheck">
+					<div class="input-group" >
+						<input type="text" name="phone" id="phoneinput"
 							class="form-control input-lg" placeholder="핸드폰 번호 : 숫자만 입력하시오"
 							tabindex="6">
+							<span class="input-group-addon danger" id="phonespan">
+								<span class="glyphicon glyphicon-remove" id="phoneicon">
+								</span></span>
+							</div>
 					</div>
 
 					<h4>INFORMATION ABOUT YOUR BOOK</h4>

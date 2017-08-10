@@ -2,17 +2,18 @@ package com.spring.ebook.model.util.vo;
 
 public class ReadchartVO {
 	private String	genrenum, genrename, tag;
-	private int		cnt;
+	private int		cnt, percent;
 	public ReadchartVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReadchartVO(String genrenum, String genrename, String tag, int cnt) {
+	public ReadchartVO(String genrenum, String genrename, String tag, int cnt, int percent) {
 		super();
 		this.genrenum = genrenum;
 		this.genrename = genrename;
 		this.tag = tag;
 		this.cnt = cnt;
+		this.percent = percent;
 	}
 	public String getGenrenum() {
 		return genrenum;
@@ -38,6 +39,13 @@ public class ReadchartVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	public int getPercent() {
+		return percent;
+	}
+	public void setPercent(int percent) {
+		this.percent = percent;
+	}
+	
 	
 	
 }

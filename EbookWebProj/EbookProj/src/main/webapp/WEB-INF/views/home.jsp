@@ -10,14 +10,16 @@
 
 <style>
 #titletxt h1 {
-    font-size: 60px;
+    font-size: 80px;
     text-shadow: 1px 2px 3px #999;
     font-family: Roboto, sans-serif;
     font-weight: 700;
     letter-spacing: -1px;
+    color: #DFD1B5;
 }
 #titletxt p{
   padding-bottom: 20px;
+  color: #ACA18A;
 }
 
 .hometable	{
@@ -64,8 +66,8 @@ body {
 		<div class="col-md-6 col-md-offset-3">
 <!-- 			<div class="row"> -->
 				<div id="titletxt" class="text-center">
-					<h1>This is Logo</h1>
-					<p>Slogan of thematic</p>
+					<h1>Check chak</h1>
+					<p>e-book 웹사이트 췍책</p>
 				</div>
 				<form role="form" id="form-buscar">
 					<div class="form-group">

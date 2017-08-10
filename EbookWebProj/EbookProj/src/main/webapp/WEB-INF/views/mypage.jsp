@@ -35,7 +35,7 @@
    <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
-     <li><a href="#tab_c" data-toggle="pill" id="readChart">내가 읽은 책 통계</a></li>
+     <li><a href="#tab_c" data-toggle="pill">내가 읽은 책 통계</a></li>
      <li><a href="#tab_d" data-toggle="pill">회원 정보 수정</a></li>
      <li><a href="#tab_e" data-toggle="pill">회원 탈퇴</a></li>
    </ul>
@@ -140,20 +140,13 @@
             	<div class="row" style="margin-top:30px; ">
 					<div class="col-md-12">
 						 <h2 class="flot"><i class="fa fa-pie-chart" aria-hidden="true"></i></h2>
-						 <h1>Performance</h1>
 						<dl>
 						  <dt>
-						    Total Performance
+						   	장르(태그) BEST 3
 						  </dt>
-						  
+						
 						  <c:forEach items="${readchart}" var="readchartVO">
-							  <%int sum = 0;
-							  	sum++;
-							  	System.out.println(sum); %>
-						  </c:forEach>
-						  
-						  <c:forEach items="${readchart}" var="readchartVO">
-							  <dd class="percentage percentage-11"><span class="text">${readchartVO.genrename}, ${readchartVO.tag}, ${readchartVO.cnt}</span></dd>
+							  <dd class="percentage percentage-${readchartVO.percent}"><span class="text">${readchartVO.genrename}(${readchartVO.tag}) ${readchartVO.cnt}권 ${readchartVO.percent}%</span></dd>
 						  </c:forEach>
 						  
 						</dl>
@@ -353,12 +346,10 @@
           
        });
 		
-		$('#readChart').onClick( function() {
-			console.log('asdfasdf');
-			
-		});
     
     </script>
+
+    
   </body>
        <!-- footer.jsp 시작 -->
    <%@ include file="./footer.jsp"%>
