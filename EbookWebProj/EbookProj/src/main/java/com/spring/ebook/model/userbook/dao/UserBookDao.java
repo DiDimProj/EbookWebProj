@@ -1,7 +1,5 @@
 package com.spring.ebook.model.userbook.dao;
 
-import java.util.ArrayList;
-
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -20,4 +18,14 @@ public class UserBookDao {
 		System.out.println("Dao delPutbookRow");
 		return session.delete("com.spring.acorn.mapper.userbook.delputbook", delputbook);
 	}
+
+	public int addPutbookRow(UserBookVO addputbook) {
+		System.out.println("Dao addPutbookRow");
+		return session.insert("com.spring.acorn.mapper.userbook.addputbook", addputbook);
+	}
+	
+/*	public int checkPutbookRow(UserBookVO checkputbook) {
+		System.out.println("Dao checkPutbookRow");
+		return session.selectOne("com.spring.acorn.mapper.userbook.checkputbook", checkputbook);
+	}*/
 }

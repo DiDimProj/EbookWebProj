@@ -10,5 +10,17 @@
 		FROM	USERBOOK
 		WHERE	USERID = #{userid} AND BOOKNUM = #{booknum}
 	</delete>
+	
+ 	<insert id="addputbook"
+			parameterType="userbook">
+	INSERT INTO USERBOOK
+		VALUES (#{userid}, #{booknum},SYSDATE)
+	</insert> 
+	
+<!-- 	 <select id="checkputbook"
+			parameterType="userbook">
+	SELECT	USERID, BOOKNUM, PUTDATE
+	FROM	USERBOOK
+	</select>  -->
 </mapper>
 
