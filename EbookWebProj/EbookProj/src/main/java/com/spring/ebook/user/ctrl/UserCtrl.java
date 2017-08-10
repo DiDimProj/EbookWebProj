@@ -10,11 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
+import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
 import com.spring.ebook.model.util.vo.RecommVO;
 import com.spring.ebook.user.service.UserService;
@@ -37,6 +36,10 @@ public class UserCtrl {
 		ArrayList<ReadlistVO> readlist = serv.readlist(user);
 		model.addAttribute("readtlists", readlist);
 		
+		System.out.println("ctrl readchart");
+		ArrayList<ReadchartVO> readchart = serv.readchart(user);
+		model.addAttribute("readchart", readchart);
+		
 		System.out.println("ctrl oneuser");
 		UserVO result = serv.oneUser(user);
 		model.addAttribute("loginUser",result);
@@ -44,13 +47,6 @@ public class UserCtrl {
 		
 		return "/mypage";
 	}
-	
-//	@RequestMapping("/readChart.do")
-//	public String readChart(ReadchartVO readchart, Model model) {
-//		System.out.println("Ctrl chart");
-//		model.addAttribute("readcharts", attributeValue)
-//	
-//	}
 	
 	@RequestMapping("/update.do")
 	public String update(UserVO user) {

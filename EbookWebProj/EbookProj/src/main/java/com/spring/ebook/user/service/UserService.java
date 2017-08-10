@@ -3,11 +3,13 @@ package com.spring.ebook.user.service;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.spring.ebook.model.user.dao.UserDao;
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
+import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
 import com.spring.ebook.model.util.vo.RecommVO;
 
@@ -35,6 +37,11 @@ public class UserService {
 	public ArrayList<ReadlistVO> readlist(UserVO user) {
 		System.out.println("Service readlist");
 		return dao.readlistRow(user);
+	}
+	
+	public ArrayList<ReadchartVO> readchart(UserVO user) {
+		System.out.println("Service readchart");
+		return dao.readchartRow(user);
 	}
 	
 	public int update(UserVO user) {

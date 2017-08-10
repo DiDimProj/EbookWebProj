@@ -1,5 +1,7 @@
+<%@page import="com.spring.ebook.model.util.vo.ReadchartVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
     
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +11,7 @@
    <!-- header.jsp 끝 -->
 
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
+    <link href="./resources/css/chart.css" rel="stylesheet">
     
     <style>
     h2 { margin: 20px 0}
@@ -32,7 +35,7 @@
    <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
-     <li><a href="#tab_c" data-toggle="pill" id="readChartEvent">내가 읽은 책 통계</a></li>
+     <li><a href="#tab_c" data-toggle="pill" id="readChart">내가 읽은 책 통계</a></li>
      <li><a href="#tab_d" data-toggle="pill">회원 정보 수정</a></li>
      <li><a href="#tab_e" data-toggle="pill">회원 탈퇴</a></li>
    </ul>
@@ -134,21 +137,29 @@
         <div class="tab-pane" id="tab_c">
         <fieldset>
 	        <legend>내가 읽은 책 통계</legend>
-            <div class="row">
-	             <div class="col-md-12">
-	              
-	                  <!-- //.text-center -->
-	                  
-	                  <div class="column-chart">           
-	                      <div class="chart clearfix">
-							<div id="readChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-	                      </div>
-	                      <!-- //.chart -->
-	                  </div>
-	                  <!-- //.column-chart -->
-	              </div>
-              <!-- //.col-md-6 -->
-	          </div>
+            	<div class="row" style="margin-top:30px; ">
+					<div class="col-md-12">
+						 <h2 class="flot"><i class="fa fa-pie-chart" aria-hidden="true"></i></h2>
+						 <h1>Performance</h1>
+						<dl>
+						  <dt>
+						    Total Performance
+						  </dt>
+						  
+						  <c:forEach items="${readchart}" var="readchartVO">
+							  <%int sum = 0;
+							  	sum++;
+							  	System.out.println(sum); %>
+						  </c:forEach>
+						  
+						  <c:forEach items="${readchart}" var="readchartVO">
+							  <dd class="percentage percentage-11"><span class="text">${readchartVO.genrename}, ${readchartVO.tag}, ${readchartVO.cnt}</span></dd>
+						  </c:forEach>
+						  
+						</dl>
+					
+					</div>
+				</div>
 	          <!-- //.row -->
           </fieldset>
         </div>
@@ -262,6 +273,11 @@
 		
 		///////////
 		
+/* 		function sumcnt(cnt) {
+			var sum=0;
+			for(int i=0; i<)
+		} */
+		
     </script>
     
     <script type="text/javascript">
@@ -334,133 +350,13 @@
 		        }
 		    });
 
-
-          ////////column-chart
-          $("#readChartEvent").click(function() {
-        	  alert('${loginUser.userid}');
-        	  $.ajax({
-    		   //   url : "/chart.do",
-    		      type : "post",
-    		   //   data : {userid : '${loginUser.userid}'};
-    		      dataType : "json",
-    		      success : function(dataAry) {
-    		         var chartData = new Array();
-    		         chartData.push([ 'Age', 'Weight' ]);
-    		         $.each(dataAry, function(idx, data) {
-    		            chartData.push([ data.age, data.weight ]);
-    		         });
-    		         ary = chartData;
-    		        
-    		      }
-    		   });
-    		  
-           });
-          /*
-                  
           
-          var genreAry = new Array();
-		  var test = ${readbooks.booknum};
-		
-		//  genreAry[0] = {name: test, y: 56.33, drilldown: test};
-		  genreAry[0] = {name: 'as', y: 50, drilldown: 'as'};
-		  genreAry[1] = {name: 'as1', y: 56.33, drilldown: 'as1'};
-          
-          columnChart();
-          
-          function columnChart(){
-              
-              Highcharts.chart('readChart', {
-            	    chart: {
-            	        type: 'column'
-            	    },
-            	    title: {
-            	        text: ''
-            	    },
-            	    xAxis: {
-            	        type: 'category'
-            	    },
-            	    yAxis: {
-            	        title: {
-            	            text: ''
-            	        }
-
-            	    },
-            	    legend: {
-            	        enabled: false
-            	    },
-            	    plotOptions: {
-            	        series: {
-            	            borderWidth: 0,
-            	            dataLabels: {
-            	                enabled: true,
-            	                format: '{point.y:.1f}%'
-            	            }
-            	        }
-            	    },
-
-            	    tooltip: {
-            	        headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            	        pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
-            	    },
-					
-						
-            	    series: [{
-            	        name: '장르',
-            	        colorByPoint: true,
-            	        data: genreAry
-            	    }],
-            	    drilldown: {
-            	        series: [{
-            	            name: 'as',
-            	            id: 'as',
-            	            data: [
-            	                [
-            	                    'v11.0',
-            	                    24.13
-            	                ],
-            	                [
-            	                    'v8.0',
-            	                    17.2
-            	                ],
-            	                [
-            	                    'v9.0',
-            	                    8.11
-            	                ]
-            	            ]
-            	        }, {
-            	            name: 'as1',
-            	            id: 'as1',
-            	            data: [
-            	                [
-            	                    'asdf.0',
-            	                    24.13
-            	                ],
-            	                [
-            	                    'as.0',
-            	                    17.2
-            	                ],
-            	                [
-            	                    '123.0',
-            	                    8.11
-            	                ],
-            	                [
-            	                    'v10.0',
-            	                    5.33
-            	                ],
-            	                [
-            	                    'v6.0',
-            	                    1.06
-            	                ],
-            	                [
-            	                    'v7.0',
-            	                    0.5
-            	                ]
-            	            ]
-            	        }]
-            	    }
-            	});
-          };*/
        });
+		
+		$('#readChart').onClick( function() {
+			console.log('asdfasdf');
+			
+		});
     
     </script>
   </body>

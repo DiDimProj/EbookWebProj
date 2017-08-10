@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.ebook.model.user.vo.UserVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
+import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
 import com.spring.ebook.model.util.vo.RecommVO;
 
@@ -36,6 +37,11 @@ public class UserDao {
 	public ArrayList<ReadlistVO>readlistRow(UserVO user) {
 		System.out.println("Dao readlistRow");
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readlist", user);
+	}
+	
+	public ArrayList<ReadchartVO>readchartRow(UserVO user) {
+		System.out.println("Dao readchartRow");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.readchart", user);
 	}
 	
 	public int updateRow(UserVO user) {

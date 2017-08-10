@@ -34,6 +34,21 @@
  		ORDER BY	READDATE ASC
  	</select>
  	
+ 	<select id="readchart" parameterType="user" resultType="readchartboard">
+ 	<![CDATA[ 
+		SELECT	GENRENUM, GENRENAME, TAG, CNT
+		FROM	(SELECT		GENRENUM, COUNT(*) AS CNT
+		 		FROM		RECODE
+		 		LEFT JOIN	BOOKINFO  USING(BOOKNUM)
+		 		LEFT JOIN	GENRE USING(GENRENUM)
+		 		WHERE		USERID = #{userid}
+		 		GROUP BY	GENRENUM
+		 		ORDER BY	CNT DESC)
+		 		LEFT JOIN	GENRE USING(GENRENUM)
+		 WHERE	ROWNUM <= 3
+	]]> 
+ 	</select>
+ 	
  	<update id="update"
  			parameterType="user">
  		UPDATE	USERINFO
@@ -58,7 +73,7 @@
  				#{name},
  				#{age},
  				#{phone},
- 				'01',
+ 				#{genrenum},
  				'0'
  		)
  	</insert>			
