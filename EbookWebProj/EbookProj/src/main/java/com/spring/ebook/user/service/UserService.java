@@ -6,8 +6,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
 import com.spring.ebook.model.user.dao.UserDao;
 import com.spring.ebook.model.user.vo.UserVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
@@ -64,6 +67,21 @@ public class UserService {
 		System.out.println("recomlist");
 		return dao.recomlist(user);
 	}
+	
+	public UserVO deluser(UserVO user) {
+		return dao.deluser(user);
+	}
 
-
+	public RecodeVO deluser(RecodeVO rec) {
+		return dao.deluser(rec);
+	}
+	
+	public UserBookVO deluser(UserBookVO userb) {
+		return dao.deluser(userb);
+	}
+	
+	public ArrayList<UserVO> list() {
+		System.out.println("Service booklist");
+		return dao.listRow() ;
+	}
 }
