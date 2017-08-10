@@ -54,9 +54,12 @@ function check(obj) {
    var cbox = document.getElementsByName("chk");
    var checked = 0;
    
+   var resultbox = [];
    
    for(i=0;i<cbox.length;i++){
       if(cbox[i].checked==true){
+
+         resultbox[checked] = cbox[i].value;
          checked ++;
       }
    }
@@ -67,7 +70,7 @@ function check(obj) {
        return false;
    }
    
-   var checkvalue = cbox[0].value+"|"+cbox[1].value+"|"+cbox[2].value;
+   var checkvalue = resultbox[0]+"|"+resultbox[1]+"|"+resultbox[2];
    
    return checkvalue;
 }
@@ -81,26 +84,26 @@ function join_btn(){
    var genren = insert_Ck();
    
    
-    if(document.getElementById("userid").value.length >= 10 || 
-    		document.getElementById("userid").value.length <= 5){
+    if(document.getElementById("userid").value.length > 10 || 
+    		document.getElementById("userid").value.length < 5){
     	alert('아이디는 5~10자만 가능합니다.');
         location.reload(false);
         return false;
     }
-   if(document.getElementById("password").value.length >= 10 ||
-		  document.getElementById("password").value.length <= 5){
+   if(document.getElementById("password").value.length > 10 ||
+		  document.getElementById("password").value.length < 5){
 	      alert('비밀번호는 5~10자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    } 
-   if(document.getElementById("name").value.length >= 5 ||
-		   document.getElementById("name").value.length<= 2){
+   if(document.getElementById("name").value.length > 5 ||
+		   document.getElementById("name").value.length< 2){
 	      alert('이름은 2~5자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    }
-   if(document.getElementById("age").value.length >=3 ||
-		   document.getElementById("age").value.length <= 1){
+   if(document.getElementById("age").value.length >3 ||
+		   document.getElementById("age").value.length < 1){
 
 	      alert('정확한 나이를 입력해주세요.');
 	      location.reload(true);
@@ -120,12 +123,9 @@ function join_btn(){
 }
 
 
-   
-   
 </script>
 
 	<div class="container">
-
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3"
@@ -138,10 +138,8 @@ function join_btn(){
 					</h2>
 					<hr class="colorgraph">
 
-
-
 					<div class="form-group">
-						<input type="text" name="userid" id="userid"
+						<input type="text" name="userid" id="inputSuccess"
 							class="form-control input-lg" placeholder="아이디" tabindex="1">
 					</div>
 
