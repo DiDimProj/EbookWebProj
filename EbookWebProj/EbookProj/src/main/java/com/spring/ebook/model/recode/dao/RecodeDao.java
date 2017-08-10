@@ -18,4 +18,9 @@ public class RecodeDao {
 		return session.delete("com.spring.acorn.mapper.recode.delreadbook", delreadbook);
 	}
 	
+	public int addReadbookRow(RecodeVO addreadbook) {
+		System.out.println("Dao addReadbookRow");
+		return session.insert("com.spring.acorn.mapper.recode.addreadbook", addreadbook);
+	}
+	
 }

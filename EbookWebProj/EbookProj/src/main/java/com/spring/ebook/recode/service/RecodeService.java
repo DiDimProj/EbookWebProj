@@ -15,4 +15,9 @@ public class RecodeService {
 		System.out.println("Service delreadbook");
 		return dao.delReadbookRow(delreadbook);
 	}
+	
+	public int addReadbook(RecodeVO addreadbook) {
+		System.out.println("Service addreadbook");
+		return dao.addReadbookRow(addreadbook);
+	}
 }
