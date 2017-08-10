@@ -30,6 +30,33 @@
 		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
 		87.5%, #62c2e4 87.5%, #62c2e4);
 }
+
+
+.input-group-addon.primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+}
+.input-group-addon.success {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+.input-group-addon.info {
+    color: rgb(255, 255, 255);
+    background-color: rgb(57, 179, 215);
+    border-color: rgb(38, 154, 188);
+}
+.input-group-addon.warning {
+    color: rgb(255, 255, 255);
+    background-color: rgb(240, 173, 78);
+    border-color: rgb(238, 162, 54);
+}
+.input-group-addon.danger {
+    color: rgb(255, 255, 255);
+    background-color: rgb(217, 83, 79);
+    border-color: rgb(212, 63, 58);
+}
 </style>
 <body>
 
@@ -137,9 +164,14 @@ function join_btn(){
 	       
 	    	if($(that).val().length > 10 || 
 	    			$(that).val().length < 5){
-	     			  $("#idcheck").attr("class","form-group has-error");
+	     			$("#idcheck").attr("class","form-group has-error");
+	     			$("#idspan").attr("class","input-group-addon danger");
+	     			$("#idicon").attr("class","glyphicon glyphicon-remove");
+	     			 
 	    	}else{
 	    		$("#idcheck").attr("class","form-group has-success");
+     			$("#idspan").attr("class","input-group-addon success");
+     			$("#idicon").attr("class","glyphicon glyphicon-ok");
 	    	}
 	    });
     	
@@ -149,8 +181,12 @@ function join_btn(){
 		    	if($(that).val().length > 10 || 
 		    			$(that).val().length < 5){
 		     			  $("#pwdcheck").attr("class","form-group has-error");
+			     			$("#pwdspan").attr("class","input-group-addon danger");
+			     			$("#pwdicon").attr("class","glyphicon glyphicon-remove");
 		    	}else{
 		    		$("#pwdcheck").attr("class","form-group has-success");
+	     			$("#pwdspan").attr("class","input-group-addon success");
+	     			$("#pwdicon").attr("class","glyphicon glyphicon-ok");
 		    	}
 		    });
 	    
@@ -160,8 +196,12 @@ function join_btn(){
 		    	if($(that).val().length > 5 ||
 		    			$(that).val().length < 2){
 		     			  $("#namecheck").attr("class","form-group has-error");
+			     			$("#namespan").attr("class","input-group-addon danger");
+			     			$("#nameicon").attr("class","glyphicon glyphicon-remove");
 		    	}else{
 		    		$("#namecheck").attr("class","form-group has-success");
+	     			$("#namespan").attr("class","input-group-addon success");
+	     			$("#nameicon").attr("class","glyphicon glyphicon-ok");
 		    	}
 		    });
 	    
@@ -171,8 +211,12 @@ function join_btn(){
 		    	if($(that).val().length > 3 || 
 		    			$(that).val().length < 1){
 		     			  $("#agecheck").attr("class","form-group has-error");
+			     			$("#agespan").attr("class","input-group-addon danger");
+			     			$("#ageicon").attr("class","glyphicon glyphicon-remove");
 		    	}else{
 		    		$("#agecheck").attr("class","form-group has-success");
+	     			$("#agespan").attr("class","input-group-addon success");
+	     			$("#ageicon").attr("class","glyphicon glyphicon-ok");
 		    	}
 		    });
 	    
@@ -181,8 +225,12 @@ function join_btn(){
 		       
 		    	if($(that).val().length != 11){
 		     			  $("#phonecheck").attr("class","form-group has-error");
+			     			$("#phonespan").attr("class","input-group-addon danger");
+			     			$("#phoneicon").attr("class","glyphicon glyphicon-remove");
 		    	}else{
 		    		$("#phonecheck").attr("class","form-group has-success");
+	     			$("#phonespan").attr("class","input-group-addon success");
+	     			$("#phoneicon").attr("class","glyphicon glyphicon-ok");
 		    	}
 		    });
     	
@@ -206,30 +254,55 @@ function join_btn(){
 					<hr class="colorgraph">
 
 					<div class="form-group" id="idcheck">
-						<input type="text" name="userid" id="idinput"
-							class="form-control input-lg" placeholder="아이디" tabindex="1">
+						<div class="input-group" >
+							<input type="text" name="userid" id="idinput"
+								class="form-control input-lg" placeholder="아이디" tabindex="1">
+								<span class="input-group-addon danger" id="idspan">
+								<span class="glyphicon glyphicon-remove" id="idicon">
+								</span></span>
+							</div>
 					</div>
 
 					<div class="form-group" id="pwdcheck">
+					<div class="input-group" >
 						<input type="text" name="password" id="pwdinput"
 							class="form-control input-lg" placeholder="비밀번호" tabindex="2">
+							<span class="input-group-addon danger" id="pwdspan">
+								<span class="glyphicon glyphicon-remove" id="pwdicon">
+								</span></span>
+							</div>
 					</div>
 
 					<div class="form-group" id="namecheck">
+					<div class="input-group" >
 						<input type="text" name="name" id="nameinput"
 							class="form-control input-lg" placeholder="이름" tabindex="4">
+							<span class="input-group-addon danger" id="namespan">
+								<span class="glyphicon glyphicon-remove" id="nameicon">
+								</span></span>
+							</div>
 					</div>
 
 					<div class="form-group" id="agecheck">
+					<div class="input-group" >
 						<input type="number" name="age" id="ageinput"
 							class="form-control input-lg" placeholder="나이 : 숫자만 입력하시오"
 							tabindex="5">
+							<span class="input-group-addon danger" id="agespan">
+								<span class="glyphicon glyphicon-remove" id="ageicon">
+								</span></span>
+							</div>
 					</div>
 
 					<div class="form-group" id="phonecheck">
+					<div class="input-group" >
 						<input type="text" name="phone" id="phoneinput"
 							class="form-control input-lg" placeholder="핸드폰 번호 : 숫자만 입력하시오"
 							tabindex="6">
+							<span class="input-group-addon danger" id="phonespan">
+								<span class="glyphicon glyphicon-remove" id="phoneicon">
+								</span></span>
+							</div>
 					</div>
 
 					<h4>INFORMATION ABOUT YOUR BOOK</h4>
