@@ -111,32 +111,32 @@ function join_btn(){
    var genren = insert_Ck();
    
    
-    if(document.getElementById("userid").value.length > 10 || 
-    		document.getElementById("userid").value.length < 5){
+    if(document.getElementById("idinput").value.length > 10 || 
+    		document.getElementById("idinput").value.length < 5){
     	alert('아이디는 5~10자만 가능합니다.');
         location.reload(false);
         return false;
     }
-   if(document.getElementById("password").value.length > 10 ||
-		  document.getElementById("password").value.length < 5){
+   if(document.getElementById("pwdinput").value.length > 10 ||
+		  document.getElementById("pwdinput").value.length < 5){
 	      alert('비밀번호는 5~10자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    } 
-   if(document.getElementById("name").value.length > 5 ||
-		   document.getElementById("name").value.length< 2){
+   if(document.getElementById("nameinput").value.length > 5 ||
+		   document.getElementById("nameinput").value.length< 2){
 	      alert('이름은 2~5자만 가능합니다.');
 	      location.reload(true);
 	      return false;
    }
-   if(document.getElementById("age").value.length >3 ||
-		   document.getElementById("age").value.length < 1){
+   if(document.getElementById("ageinput").value<1 ||
+		   document.getElementById("ageinput").value >120){
 
 	      alert('정확한 나이를 입력해주세요.');
 	      location.reload(true);
 	      return false;
    }
-   if(document.getElementById("phone").value.length != 11){
+   if(document.getElementById("phoneinput").value.length != 11){
 	      alert('정확한 핸드폰번호를 입력해주세요.');
 	      location.reload(true);
 	      return false;
@@ -208,8 +208,7 @@ function join_btn(){
 	    $('#ageinput').keyup( function() {
 		       var that = this;
 		       
-		    	if($(that).val().length > 3 || 
-		    			$(that).val().length < 1){
+		    	if($(that).val()<1 || $(that).val() > 120){
 		     			  $("#agecheck").attr("class","form-group has-error");
 			     			$("#agespan").attr("class","input-group-addon danger");
 			     			$("#ageicon").attr("class","glyphicon glyphicon-remove");
