@@ -31,7 +31,8 @@
 <!-- header 끝 -->
 <!-- Main content -->
 <section class="content">
-
+<div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2"
+				style="padding-top: 30px; padding-bottom: 10px;">
 	<div class="row">
 		<!-- left column -->
 		<div class="col-md-12">
@@ -141,6 +142,7 @@
 
 	</div>
 	<!-- /.row -->
+	</div>
 </section>
 <!-- /.content -->
 </div>
