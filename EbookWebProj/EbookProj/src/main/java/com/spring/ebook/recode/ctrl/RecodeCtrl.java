@@ -3,6 +3,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring.ebook.model.recode.vo.RecodeVO;
 import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.recode.service.RecodeService;
 
@@ -13,7 +14,7 @@ public class RecodeCtrl {
 	private RecodeService service;
 	
 	@RequestMapping("/delReadbook.do")
-	public String delReadbook(UserBookVO delreadbook) {
+	public String delReadbook(RecodeVO delreadbook) {
 		System.out.println("Ctrl delreadbook");
 		String userid = delreadbook.getUserid();
 		int flag = service.delReadbook(delreadbook);

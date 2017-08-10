@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +35,7 @@
    <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
-     <li><a href="#tab_c" data-toggle="pill">내가 읽은 책 통계</a></li>
+     <li><a href="#tab_c" data-toggle="pill" id="readChart">내가 읽은 책 통계</a></li>
      <li><a href="#tab_d" data-toggle="pill">회원 정보 수정</a></li>
      <li><a href="#tab_e" data-toggle="pill">회원 탈퇴</a></li>
    </ul>
@@ -144,6 +145,12 @@
 						  <dt>
 						    Total Performance
 						  </dt>
+						  
+						  <c:forEach items="${readchart}" var="readchartVO">
+							  <%int sum = 0;
+							  	sum++;
+							  	System.out.println(sum); %>
+						  </c:forEach>
 						  
 						  <c:forEach items="${readchart}" var="readchartVO">
 							  <dd class="percentage percentage-11"><span class="text">${readchartVO.genrename}, ${readchartVO.tag}, ${readchartVO.cnt}</span></dd>
@@ -266,6 +273,11 @@
 		
 		///////////
 		
+/* 		function sumcnt(cnt) {
+			var sum=0;
+			for(int i=0; i<)
+		} */
+		
     </script>
     
     <script type="text/javascript">
@@ -340,6 +352,11 @@
 
           
        });
+		
+		$('#readChart').onClick( function() {
+			console.log('asdfasdf');
+			
+		});
     
     </script>
   </body>

@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ebook.model.recode.vo.RecodeVO;
 import com.spring.ebook.model.userbook.vo.UserBookVO;
 
 @Repository("recodeDao")
@@ -12,7 +13,7 @@ public class RecodeDao {
 	@Autowired
 	private SqlSession session;
 	
-	public int delReadbookRow(UserBookVO delreadbook) {
+	public int delReadbookRow(RecodeVO delreadbook) {
 		System.out.println("Dao delReadbookRow");
 		return session.delete("com.spring.acorn.mapper.recode.delreadbook", delreadbook);
 	}
