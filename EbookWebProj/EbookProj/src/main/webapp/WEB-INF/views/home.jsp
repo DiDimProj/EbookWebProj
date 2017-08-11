@@ -128,16 +128,13 @@ body {
 			        </a>
 			      </div>
     <!--// 캐러셀 부분 끝  -->
-<<<<<<< HEAD
     </div>
     <div class="container" style="text-align: center">
 			<h3>
-=======
     
     </div>
     <div class="container">
 			<h3 style="text-align: center;">
->>>>>>> abc81dd2aebe8ea3390380a4b1b61e98aa6c9250
 					추천 테이블
 					</h3>
 					
@@ -176,11 +173,7 @@ body {
 			<h3 style="text-align: center;">
 					인기 테이블
 					</h3>
-<<<<<<< HEAD
-			
-=======
->>>>>>> abc81dd2aebe8ea3390380a4b1b61e98aa6c9250
-			
+					
 		<div class="container">
 		    <c:forEach items="${likelist}" var="liklist">
 		    <div class="col-xs-6 col-sm-3">
