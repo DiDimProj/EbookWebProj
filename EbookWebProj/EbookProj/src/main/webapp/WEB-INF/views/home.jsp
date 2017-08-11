@@ -129,19 +129,26 @@ body {
 			      </div>
     <!--// 캐러셀 부분 끝  -->
     
-    
-			<h3>
+    </div>
+    <div class="container">
+			<h3 style="text-align: center;">
 					추천 테이블
 					</h3>
+					
+					
+			<c:if test="${loginUser == null }">
 			<table class="table table-bordered" id="bbs"
 				style="maigin: 50px 100px 50px 100px; text-align: center;">
 				<!-- 로그인 안 되어있을 때 -->
-				<c:if test="${loginUser == null }">
+				
 					<tr>
 						<td>로그인하시면 추천책을 배달해드려요</td>
 					</tr>
-				</c:if>
-
+				
+			</table>
+			</c:if>
+			
+			
 				<!-- 로그인 되어있을 때 -->
 				<c:if test="${loginUser != null }">
 
@@ -160,15 +167,10 @@ body {
 					<!-- container / end -->
 
 				</c:if>
-			</table>
 
-
-
-
-			<h3>
+			<h3 style="text-align: center;">
 					인기 테이블
 					</h3>
-			</div>
 			
 		<div class="container">
 		    <c:forEach items="${likelist}" var="liklist">
@@ -185,7 +187,7 @@ body {
 
    <!-- container end -->
    </div>
-   
+   </div>
    <div id="lightbox" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <button type="button" class="close hidden" data-dismiss="modal" aria-hidden="true">×</button>
