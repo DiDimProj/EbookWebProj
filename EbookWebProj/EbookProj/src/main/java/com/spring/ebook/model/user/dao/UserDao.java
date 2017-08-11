@@ -51,6 +51,14 @@ public class UserDao {
 		System.out.println("Dao updateRow");
 		return session.update("com.spring.acorn.mapper.user.update",user);
 	}
+	
+	public int toadmin(UserVO user) {
+		return session.update("com.spring.acorn.mapper.user.toadmin",user);
+	}
+	
+	public UserVO checkid(UserVO user) {
+		return session.selectOne("com.spring.acorn.mapper.user.checkid",user);
+	}
 
 	public UserVO insertRow(UserVO user) {
 		System.out.println("Dao insertRow");

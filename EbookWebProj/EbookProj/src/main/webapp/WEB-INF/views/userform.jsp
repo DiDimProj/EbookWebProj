@@ -24,6 +24,7 @@
    	<th> 전화번호 </th>
    	<th> 장르번호 </th>
    	<th> 관리자 </th>
+   	<th> 탈퇴 </th>
    </tr>
    </thead>
    <c:forEach items="${lists}" var="user" >
@@ -33,12 +34,18 @@
 	     <td>${user.password}</td>
 	     <td>${user.name}</td>
 	     <td>${user.age}</td>
+	     <td>${user.phone}</td>
 	     <td>${user.genrenum}</td>
 	     <c:if test ="${user.admin != 1}">
 		     <td>
 		  	   <a href="toadmin.do?userid=${user.userid}">
 		 	    관리자 전환
 		 	   </a>
+		 	  </td>
+	 	  </c:if>
+	 	  <c:if test ="${user.admin == 1}">
+		     <td>
+		  	   -
 		 	  </td>
 	 	  </c:if>
 	 	  <td>

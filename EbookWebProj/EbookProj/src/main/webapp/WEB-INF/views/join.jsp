@@ -142,10 +142,10 @@ function join_btn(){
 	      return false;
    } 
    
-   window.alert('가입이 완료되었습니다. 로그인 해주세요.');
-   
    document.joinform.genrenum.value = genren;
    joinform.submit();
+ 
+   window.alert('가입이 완료되었습니다. 로그인 해주세요.');
   
 }
 

@@ -22,6 +22,16 @@
  		WHERE	USERID = #{userid}
  	</select>
  	
+ 	<!-- 중복체크 -->
+ 	
+ 	<select id="checkid" parameterType ="user" resultType="user">
+ 		SELECT	USERID
+ 		FROM	USERINFO
+ 		WHERE	USERID = #{userid}
+ 	</select>
+ 	
+ 	<!-- 끝 -->
+ 	
  	<select id="putlist" parameterType="user" resultType="putlistboard">
  	 	SELECT		USERID, PUTDATE, TITLE, AUTHOR, GENRENAME, TAG, LIKECNT, BOOKNUM
  		FROM		USERBOOK
@@ -63,6 +73,13 @@
  				AGE = #{age},
  				PHONE = #{phone},
  				GENRENUM = #{genrenum}
+ 		WHERE	USERID = #{userid}
+ 	</update>
+ 	
+ 	<update id="toadmin"
+ 			parameterType="user">
+ 		UPDATE	USERINFO
+ 		SET		ADMIN = 1
  		WHERE	USERID = #{userid}
  	</update>
  	

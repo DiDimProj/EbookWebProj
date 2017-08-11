@@ -51,6 +51,15 @@ public class UserService {
 		System.out.println("Service update");
 		return dao.updateRow(user);
 	}
+	
+	public int toadmin(UserVO user) {
+		System.out.println("Service update");
+		return dao.toadmin(user);
+	}
+	
+	public UserVO checkid(UserVO user) {
+		return dao.checkid(user);
+	}
 
 	public UserVO insert(UserVO user) {
 		System.out.println("Service insert");

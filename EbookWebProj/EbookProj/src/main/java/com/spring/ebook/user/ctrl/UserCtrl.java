@@ -63,6 +63,14 @@ public class UserCtrl {
 		return "redirect:/mypage.do?userid="+user.getUserid();
 	}
 	
+	@RequestMapping("/toadmin.do")
+	public String toadmin(UserVO user) {
+		System.out.println("Ctrl update");
+		int flag = serv.toadmin(user);
+		
+		return "redirect:/userform.do";
+	}
+	
 	
 	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
@@ -95,8 +103,15 @@ public class UserCtrl {
 	@RequestMapping("insert.do")
 	public String insert(UserVO user) {
 		System.out.println("Ctrl insert");
-		UserVO insert = serv.insert(user);
-		return "redirect:/main.do";
+		UserVO check = serv.checkid(user);
+		
+		if(check != null) {
+			return "join";
+		}
+		else {
+			serv.insert(user);
+			return "redirect:/main.do";
+		}
 	}
 	
 	@RequestMapping("admin.do")
