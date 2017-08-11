@@ -51,12 +51,6 @@ public class UserService {
 		System.out.println("Service update");
 		return dao.updateRow(user);
 	}
-	
-	public int withdrawal(UserVO user) {
-		System.out.println("Service withdrawal");
-		return dao.withdrawalRow(user);
-	}
-	
 
 	public UserVO insert(UserVO user) {
 		System.out.println("Service insert");

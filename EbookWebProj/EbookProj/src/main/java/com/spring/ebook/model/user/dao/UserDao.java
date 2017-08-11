@@ -51,11 +51,6 @@ public class UserDao {
 		System.out.println("Dao updateRow");
 		return session.update("com.spring.acorn.mapper.user.update",user);
 	}
-	
-	public int withdrawalRow(UserVO user) {
-		System.out.println("Dao withdrawalRow");
-		return session.delete("com.spring.acorn.mapper.user.withdrawal",user);
-	}
 
 	public UserVO insertRow(UserVO user) {
 		System.out.println("Dao insertRow");

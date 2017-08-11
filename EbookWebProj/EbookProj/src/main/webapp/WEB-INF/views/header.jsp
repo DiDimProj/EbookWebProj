@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 101 Template</title>
     <!-- Bootstrap -->
-    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./resources/css/bootstrap.min.css?ver=2" rel="stylesheet">
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

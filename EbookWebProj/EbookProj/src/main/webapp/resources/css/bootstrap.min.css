@@ -2134,7 +2134,7 @@ textarea.input-lg, select[multiple].input-lg {
 
 .btn-primary {
 	color: #fff;
-	background-color: #428bca;
+	background-color: #222222;
 	border-color: #357ebd
 }
 
@@ -3861,7 +3861,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus
 	{
 	color: #fff;
-	background-color: #428bca
+	background-color: #222222;
 }
 
 .nav-stacked>li {
@@ -4730,7 +4730,7 @@ a.badge:hover, a.badge:focus {
 }
 
 a.list-group-item.active>.badge, .nav-pills>.active>a>.badge {
-	color: #428bca;
+	color: #222222;
 	background-color: #fff
 }
 

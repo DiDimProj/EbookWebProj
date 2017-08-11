@@ -63,14 +63,6 @@ public class UserCtrl {
 		return "redirect:/mypage.do?userid="+user.getUserid();
 	}
 	
-	@RequestMapping("/withdrawal.do")
-	public String withdrawal(UserVO user) {
-		System.out.println("Ctrl withdrawal");
-		int flag = serv.withdrawal(user);
-		
-		return "redirect:/main.do";
-	}
-	
 	
 	@RequestMapping(value = "/join.do", method = RequestMethod.GET)
 	public String join(Locale locale, Model model) {
@@ -139,6 +131,25 @@ public class UserCtrl {
 		serv.deluser(user);
 		
 		return "redirect:/userform.do";
+	}
+	
+	@RequestMapping("/delmyid.do")
+	public String delmyid(UserVO user, HttpSession session) {
+		System.out.println("delmyid ctrl");
+		
+		session.invalidate();
+		
+		RecodeVO rec = new RecodeVO();
+		UserBookVO userb = new UserBookVO();
+		
+		rec.setUserid(user.getUserid());
+		userb.setUserid(user.getUserid());
+		
+		serv.deluser(rec);
+		serv.deluser(userb);
+		serv.deluser(user);
+		
+		return "redirect:/main.do";
 	}
 	
 	@RequestMapping("/userform.do")

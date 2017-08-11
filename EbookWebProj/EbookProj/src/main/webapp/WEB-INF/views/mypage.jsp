@@ -22,16 +22,16 @@
   </head>
 
   <body>
-   <div align="center" style ="padding-top: 10px; padding-bottom: 10px; background-color: #eae6d9; padding-left: 30%;padding-right: 30%;">
+   <div align="center" style ="padding-top: 10px; padding-bottom: 10px; background-color: #222222; padding-left: 30%;padding-right: 30%;">
 
    <div class="input-group">
         <h1 id="mypagelogo">
-            <img src="./resources/imgs/mypage.png">
+            <img src="./resources/imgs/mypage2.png">
        </h1>
     </div> 
 	</div>
 	
-   <div class="container">
+   <div class="container" style="padding-top:100px">
    <ul class="nav nav-pills nav-stacked col-md-2">
      <li class="active"><a href="#tab_a" data-toggle="pill">내가 담은 책 목록</a></li>
      <li><a href="#tab_b" data-toggle="pill">내가 읽은 책 목록</a></li>
@@ -383,23 +383,22 @@
         </div>
         
         <div class="tab-pane" id="tab_e">
-            <form class="form-horizontal" action="withdrawal.do" method="post">
+            <form class="form-horizontal" action="delmyid.do?userid=${loginUser.userid}" method="post">
 				<fieldset>
 				
 				<!-- Form Name -->
 				<legend>회원 탈퇴</legend>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2"
+					style="padding-top: 30px; padding-bottom: 10px;">
 				
-				<!-- Text input-->
-				
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="giftID">Password</label>
-					<div class="col-md-4">
-						<br>
-		      			<input type="submit" value="탈퇴" />
+					<div class="form-group">
+						<div class="col-md-4">
+							<br>
+			      			<button type="submit"
+								class="btn btn-primary btn-block btn-lg" tabindex="7">탈퇴</button>
+						</div>
 					</div>
 				</div>
-				
-				
 				</fieldset>
 			</form>
         </div>
