@@ -138,6 +138,8 @@
         <div class="tab-pane" id="tab_c">
         <fieldset>
 	        <legend>내가 읽은 책 통계</legend>
+	        <div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-1"
+				style="padding-top: 30px; padding-bottom: 10px;">
             	<div class="row" style="margin-top:30px; ">
 					<div class="col-md-12">
 						 <h2 class="flot"><i class="fa fa-pie-chart" aria-hidden="true"></i></h2>
@@ -155,6 +157,7 @@
 					</div>
 				</div>
 	          <!-- //.row -->
+	          </div>
           </fieldset>
         </div>
         
