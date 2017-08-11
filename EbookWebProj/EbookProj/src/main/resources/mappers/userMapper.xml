@@ -10,6 +10,12 @@
  		WHERE	USERID = #{userid} AND PASSWORD = #{password}
  	</select>
  	
+ 	<select id="list" resultType="user">
+ 	 	SELECT	USERID, PASSWORD, NAME, AGE, PHONE, GENRENUM, ADMIN
+ 		FROM	USERINFO
+ 		ORDER BY USERID ASC
+ 	</select>
+ 	
  	<select id="oneuser" parameterType ="user" resultType="user">
  		SELECT	USERID, PASSWORD, NAME, AGE, PHONE, GENRENUM, ADMIN
  		FROM		USERINFO
@@ -55,7 +61,8 @@
  		SET		PASSWORD = #{password},
  				NAME = #{name},
  				AGE = #{age},
- 				PHONE = #{phone}
+ 				PHONE = #{phone},
+ 				GENRENUM = #{genrenum}
  		WHERE	USERID = #{userid}
  	</update>
  	
@@ -90,6 +97,26 @@
 		ORDER BY DBMS_RANDOM.RANDOM
  	
  	</select>
-
+ 	
+ 	<!-- 삭제 -->
+ 	
+ 	<delete id ="deluser" parameterType = "user">
+		DELETE
+		FROM USERINFO
+		WHERE USERID = #{userid}
+	</delete>
+	
+	<delete id ="deluserrecode" parameterType = "recode">
+		DELETE
+		FROM RECODE
+		WHERE USERID = #{userid}              
+	</delete>
+	
+	<delete id ="deluseruserbook" parameterType = "userbook">
+		DELETE
+		FROM USERBOOK
+		WHERE USERID = #{userid}
+	</delete>
+	
 </mapper>
 

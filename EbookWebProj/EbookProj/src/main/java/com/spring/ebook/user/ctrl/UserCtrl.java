@@ -11,7 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.spring.ebook.book.service.BookService;
+import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
 import com.spring.ebook.model.user.vo.UserVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
@@ -23,6 +27,9 @@ public class UserCtrl {
 	
 	@Resource(name="userService")
 	private UserService serv;
+	
+	@Resource(name="bookService")
+	private BookService bserv;
 	
 	@RequestMapping("/mypage.do")
 	public String myPage(Locale locale, Model model, UserVO user) {
@@ -116,6 +123,29 @@ public class UserCtrl {
 			readchart.get(i).setPercent((int)((double)(readchart.get(i).getCnt() / sum) * 100));
 		}
 		
+	}
+	
+	@RequestMapping("/deluser.do")
+	public String delete(UserVO user) {
+		System.out.println("deluser ctrl");
+		RecodeVO rec = new RecodeVO();
+		UserBookVO userb = new UserBookVO();
+		
+		rec.setUserid(user.getUserid());
+		userb.setUserid(user.getUserid());
+		
+		serv.deluser(rec);
+		serv.deluser(userb);
+		serv.deluser(user);
+		
+		return "redirect:/userform.do";
+	}
+	
+	@RequestMapping("/userform.do")
+	public String addbookForm(Model model) {
+		ArrayList<UserVO> list = serv.list();
+		model.addAttribute("lists", list) ;
+		return "userform";
 	}
 	
 }
