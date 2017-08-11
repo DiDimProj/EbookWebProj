@@ -24,20 +24,21 @@ public class BookCtrl {
 	
 	@RequestMapping("/indexpage.do")
 	public String list(Model model) {
-		System.out.println("Ctrl index");
+		System.out.println("Ctrl index");/*
 		ArrayList<BookVO> list = serv.list();
-		model.addAttribute("lists", list) ;
+		model.addAttribute("lists", list) ;*/
 		return "/indexpage";
 	}
 
 	@RequestMapping("/search.do")
-	@ResponseBody
-	public ArrayList<BookVO> search(SearchVO search) { 
+	//@ResponseBody
+	public String search(SearchVO search, Model model) { 
 		System.out.println("Ctrl search");
 		System.out.println("type : "+search.getSearchType());
 		System.out.println("keyword :"+search.getSearchKeyword());
 		ArrayList<BookVO> list = serv.search(search);
-		return list;
+		model.addAttribute("lists", list);
+		return "indexpage";
 	} 
 	
 	@RequestMapping("/addbook.do")

@@ -41,22 +41,24 @@
 			<br>
 			<br>
 			<br>
+			<form role="form" id="form-buscar" action="search.do">
 			<div class="box">
 			
 				<div class="box-header with-border">
 					<h3 class="box-title">원하는 책을 검색하세요.</h3>
 				</div>
 				<div class="box-body">
-					<select id="searchType"> 
+					<select id="searchType" name="searchType" > 
 						<option>제목</option>
 						<option>저자</option>
 					</select>
-					<input type="text" id="seachKeyword">
-					<button id="searchBtn" class ="btn-primary">Search</button>
+					<input type="text" id="seachKeyword" name="searchKeyword">
+					<button id="searchBtn" class ="btn-primary" type="submit">Search</button>
 
 				</div>
 				<!-- /.box-body -->
 			</div>
+			</form>
 		</div>
 		<!--/.col (left) -->
 
@@ -227,17 +229,17 @@
 				dataType:"json" ,
 				success:function(ary){
 					/* alert(ary); */
-					$("#tbody").empty();
+					/* $("#tbody").empty();
 				console.log('search check2');
-					var txt="";
-					$.each(ary, function(idx, obj){
+					var txt=""; */
+					/* $.each(ary, function(idx, obj){
 						txt += "<tr><td>"+obj.booknum+"</td>";
 						txt += "<td>"+obj.title+"</td>";
 						txt += "<td>"+obj.author+"</td>";
 						txt += "<td>"+obj.genrenum+"</td>";
 						txt += "<td>"+obj.likecnt+"</td></tr>";
-					});
-					$("#tbody").append(txt);
+					}); *//* 
+					$("#tbody").append(txt); */
 				}
 			});
 		});

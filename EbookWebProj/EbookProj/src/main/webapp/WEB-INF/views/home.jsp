@@ -55,7 +55,6 @@ body {
 
 </style>
 
-
 	<!-- header.jsp 시작 -->
 	<%@ include file="./header.jsp"%>
 	<!-- header.jsp 끝 -->
@@ -69,13 +68,18 @@ body {
 					<h1>Check chak</h1>
 					<p>e-book 웹사이트 췍책</p>
 				</div>
-				<form role="form" id="form-buscar">
+				<form role="form" id="form-buscar" action="search.do">
 					<div class="form-group">
+					<select id="searchType" name="searchType"> 
+								<option>제목</option>
+								<option>저자</option>
+							</select>
 						<div class="input-group">
-							<input id="1" class="form-control" type="text" name="search"
+							
+							<input id="serchkeyword" class="form-control" type="text" name="searchKeyword"
 								placeholder="Search..." required /> <span
 								class="input-group-btn">
-								<button class="btn btn-success" type="submit">
+								<button class="btn btn-success"  id="searchBtn"  type="submit">
 									<i class="glyphicon glyphicon-search" aria-hidden="true"></i>
 									Search
 								</button>
@@ -224,8 +228,6 @@ body {
 	});
    
    var recomnum;
-   
-  
    
    </script>
   </body>
