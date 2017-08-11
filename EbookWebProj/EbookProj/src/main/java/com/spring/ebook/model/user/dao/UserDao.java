@@ -7,7 +7,10 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.ebook.model.book.vo.BookVO;
+import com.spring.ebook.model.recode.vo.RecodeVO;
 import com.spring.ebook.model.user.vo.UserVO;
+import com.spring.ebook.model.userbook.vo.UserBookVO;
 import com.spring.ebook.model.util.vo.PutlistVO;
 import com.spring.ebook.model.util.vo.ReadchartVO;
 import com.spring.ebook.model.util.vo.ReadlistVO;
@@ -67,4 +70,23 @@ public class UserDao {
 		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.recom", user);
 	}
 	
+	
+	//삭제를 꼭 이딴식으로 해야하는걸까 ---------------------------------------------
+	public UserVO deluser(UserVO user) {
+		return session.selectOne("com.spring.acorn.mapper.user.deluser", user);
+	}
+	public RecodeVO deluser(RecodeVO recode) {
+		return session.selectOne("com.spring.acorn.mapper.user.deluserrecode", recode);
+	}
+	
+	public UserBookVO deluser(UserBookVO userbook) {
+		return session.selectOne("com.spring.acorn.mapper.user.deluseruserbook", userbook);
+	}
+	//---------------------------------------------------------------------
+	
+	
+	public ArrayList<UserVO> listRow() {
+		System.out.println("Dao BooklistRow");
+		return (ArrayList)session.selectList("com.spring.acorn.mapper.user.list");
+	} 
 }
