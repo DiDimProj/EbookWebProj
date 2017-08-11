@@ -41,7 +41,7 @@ max-width: 150px;
 </style>
 <body>
 
-<div id="wrapper">
+
 
 <!-- <header>
 	 -->

@@ -200,7 +200,7 @@
 		var str='';
 		if(userid) str+="userid="+userid+"&";
 		if(booknum) str+="booknum="+booknum+"&";
-		$("#AddModal").modal('show');
+		alert("내 서재에 1권을 담았습니다^^");
 		document.location.href="./addPutbook.do?"+str;
 	} 
  	
