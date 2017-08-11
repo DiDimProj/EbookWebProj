@@ -128,8 +128,8 @@ body {
 			        </a>
 			      </div>
     <!--// 캐러셀 부분 끝  -->
-    
-    
+    </div>
+    <div class="container" style="text-align: center">
 			<h3>
 					추천 테이블
 					</h3>
@@ -148,8 +148,7 @@ body {
 					<div class="container">
 						<c:forEach items="${recomlist}" var="recomm" end="7">
 							<div class="col-xs-6 col-sm-3">
-								<a href="#" class="thumbnail" data-toggle="modal"
-									data-target="#lightbox"> <img
+								<a href="./search.do?searchType=제목&searchKeyword=${recomm.title}" class="thumbnail"> <img
 									src="./resources/imgs/${recomm.gn}.png"
 									alt="..."> </br> ${recomm.title}
 								</a>
@@ -168,12 +167,12 @@ body {
 			<h3>
 					인기 테이블
 					</h3>
-			</div>
+			
 			
 		<div class="container">
 		    <c:forEach items="${likelist}" var="liklist">
 		    <div class="col-xs-6 col-sm-3">
-		        <a href="#" class="thumbnail" data-toggle="modal" data-target="#lightbox"> 
+		        <a href="./search.do?searchType=제목&searchKeyword=${liklist.title}" class="thumbnail"> 
 		            <img src="./resources/imgs/${liklist.gn}.png"
 		             alt="...">
 		            </br>
@@ -182,7 +181,7 @@ body {
 		    </div>
 		  </c:forEach>
 		</div> <!-- container / end -->
-
+</div>
    <!-- container end -->
    </div>
    

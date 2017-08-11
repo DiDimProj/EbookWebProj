@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Check Chak (췍책)</title>
     <!-- Bootstrap -->
     <link href="./resources/css/bootstrap.min.css?ver=2" rel="stylesheet">
     <link href="./resources/css/kfonts2.css" rel="stylesheet">
@@ -54,14 +54,12 @@ max-width: 150px;
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-    <a class="navbar-brand" href="main.do">Project Name</a>
+    <a class="navbar-brand" href="main.do">Check chak</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
     	<li><a href="main.do">Home</a></li>
-                <!-- 테스트용으로 넣어둔 임시 링크 -->
-        <li><a href="indexpage.do">indexpage</a></li>
-        <li><a href="join.do">join</a></li>
+
 			<!-- 로그인 안되어있을때 로그인 모달 띄움 --> 
 			<c:if test="${loginUser == null }">
 				<li><a href="#LoginModal" data-toggle="modal"> login </a></li>

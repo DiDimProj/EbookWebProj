@@ -264,7 +264,7 @@ function join_btn(){
 
 					<div class="form-group" id="pwdcheck">
 					<div class="input-group" >
-						<input type="text" name="password" id="pwdinput"
+						<input type="password" name="password" id="pwdinput"
 							class="form-control input-lg" placeholder="비밀번호" tabindex="2">
 							<span class="input-group-addon danger" id="pwdspan">
 								<span class="glyphicon glyphicon-remove" id="pwdicon">
